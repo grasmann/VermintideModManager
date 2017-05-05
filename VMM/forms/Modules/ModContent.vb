@@ -1,6 +1,35 @@
 ﻿Public Class ModContent
 
     Public Sub ListContent(VermintideMod As VermintideMod)
+        list_content(VermintideMod)
+    End Sub
+
+    ' ##### Events ################################################################################
+
+    Private Sub TreeView1_NodeMouseClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick
+        If e.Button = MouseButtons.Right Then TreeView1.SelectedNode = e.Node
+    End Sub
+
+    Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
+        open_content()
+    End Sub
+
+    Private Sub TreeView1_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseDoubleClick
+        If e.Node.ImageIndex > 0 Then open_content()
+    End Sub
+
+    ' ##### Functionality ################################################################################
+
+    Private Sub open_content()
+        If Not IsNothing(TreeView1.SelectedNode) Then
+            Dim path As String = TreeView1.Nodes(0).Tag
+            If My.Computer.FileSystem.FileExists(path) Then
+                ModHelper.OpenFile(path, TreeView1.SelectedNode.Tag)
+            End If
+        End If
+    End Sub
+
+    Private Sub list_content(VermintideMod As VermintideMod)
         TreeView1.Nodes.Clear()
 
         Dim root As TreeNode = TreeView1.Nodes.Add(VermintideMod.mod_name, VermintideMod.mod_name)
@@ -50,32 +79,6 @@
         Next
 
         TreeView1.ExpandAll()
-    End Sub
-
-    Private Sub TreeView1_NodeMouseClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick
-        If e.Button = MouseButtons.Right Then
-            TreeView1.SelectedNode = e.Node
-        End If
-    End Sub
-
-    Private Sub OpenContent()
-        If Not IsNothing(TreeView1.SelectedNode) Then
-            Dim path As String = TreeView1.Nodes(0).Tag
-            If My.Computer.FileSystem.FileExists(path) Then
-                Debug.Print(path)
-                ModHelper.OpenFile(path, TreeView1.SelectedNode.Tag)
-                'Dim file As String = String.Format("{1}", PathHelper.Mods, TreeView1.SelectedNode.Tag)
-                'Debug.Print(file)
-            End If
-        End If
-    End Sub
-
-    Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
-        OpenContent()
-    End Sub
-
-    Private Sub TreeView1_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseDoubleClick
-        If Not IsNothing(e.Node.ContextMenuStrip) Then OpenContent()
     End Sub
 
 End Class

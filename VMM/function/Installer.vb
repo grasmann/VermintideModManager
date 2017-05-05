@@ -58,8 +58,8 @@ Module Installer
         End If
     End Sub
 
-    Public Function SingleMod(Modfile As VermintideMod) As Boolean
-        If Modfile.active Then
+    Public Function SingleMod(Modfile As VermintideMod, Active As Boolean) As Boolean
+        If Modfile.active And Active Then
             Try
                 check_mods_folder()
                 If Not My.Computer.FileSystem.FileExists(Modfile.target) Then

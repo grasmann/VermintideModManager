@@ -1,7 +1,7 @@
 ﻿Imports WeifenLuo.WinFormsUI.Docking
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Controls
+Partial Class ControlModule
     Inherits DockContent
 
     'Form overrides dispose to clean up the component list.
@@ -24,7 +24,7 @@ Partial Class Controls
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Controls))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ControlModule))
         Me.btn_install = New System.Windows.Forms.Button()
         Me.cmb_profiles = New System.Windows.Forms.ComboBox()
         Me.btn_launch = New System.Windows.Forms.Button()

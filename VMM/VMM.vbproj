@@ -15,6 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -111,10 +111,10 @@
     <Compile Include="forms\About.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Modules\Controls.Designer.vb">
-      <DependentUpon>Controls.vb</DependentUpon>
+    <Compile Include="forms\Modules\ControlModule.Designer.vb">
+      <DependentUpon>ControlModule.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\Modules\Controls.vb">
+    <Compile Include="forms\Modules\ControlModule.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\CreateProfile.Designer.vb">
@@ -172,10 +172,10 @@
     <Compile Include="forms\ProfileManager.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Modules\ReadMe.Designer.vb">
-      <DependentUpon>ReadMe.vb</DependentUpon>
+    <Compile Include="forms\Modules\ReadMeModule.Designer.vb">
+      <DependentUpon>ReadMeModule.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\Modules\ReadMe.vb">
+    <Compile Include="forms\Modules\ReadMeModule.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="function\Helpers\ModHelper.vb" />
@@ -209,8 +209,8 @@
     <EmbeddedResource Include="forms\About.resx">
       <DependentUpon>About.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\Controls.resx">
-      <DependentUpon>Controls.vb</DependentUpon>
+    <EmbeddedResource Include="forms\Modules\ControlModule.resx">
+      <DependentUpon>ControlModule.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\CreateProfile.resx">
       <DependentUpon>CreateProfile.vb</DependentUpon>
@@ -239,8 +239,8 @@
     <EmbeddedResource Include="forms\ProfileManager.resx">
       <DependentUpon>ProfileManager.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\ReadMe.resx">
-      <DependentUpon>ReadMe.vb</DependentUpon>
+    <EmbeddedResource Include="forms\Modules\ReadMeModule.resx">
+      <DependentUpon>ReadMeModule.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -267,8 +267,6 @@
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\ram.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\023_Tip_24x24_72.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\112_RightArrowLong_Green_24x24_72.png" />
-    <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\gamecontroller.png" />
-    <None Include="Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\109_AllAnnotations_Info_256.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Actions - VS2010\png_format\WinVista\305_Close_16x16_72.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Actions - VS2010\png_format\WinVista\077_AddFile_16x16_72.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Actions - VS2010\png_format\WinVista\327_Options_16x16_72.png" />
@@ -278,9 +276,6 @@
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\109_AllAnnotations_Default_16x16_72.png" />
     <None Include="Resources\Vermintide.jpg" />
     <Content Include="RibbonMarkup.xml" />
-    <None Include="Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\109_AllAnnotations_Error_48x48_72.png" />
-    <None Include="Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\109_AllAnnotations_donotenter.png" />
-    <None Include="Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\109_AllAnnotations_Default_48x48_72.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
