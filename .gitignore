@@ -1,0 +1,30 @@
+# Ignore all
+/*
+
+# But not these files...
+!/VMM/packages
+!/VMM/VMM.sln
+!/VMM/VMM/App.config
+!/VMM/VMM/packages.config
+!/VMM/VMM/forms
+!/VMM/VMM/function
+!/VMM/VMM/My Project
+!/VMM/VMM/Resources
+!/VMM/VMM/VMM.vbproj
+!/VMM/VMM/ApplicationEvents.vb
+!/VMM/VMM/VMM.vbproj.user
+!/VMM/VMM/RibbonMarkup.xml
+
+!/VMM/VMM/Visual Studio 2013 Image Library/x--archive--x/Actions - VS2010/png_format/WinVista/077_AddFile_16x16_72.png
+!/VMM/VMM/Visual Studio 2013 Image Library/x--archive--x/Objects - VS2012/png_format/WinVista/ram.png
+!/VMM/VMM/Visual Studio 2013 Image Library/x--archive--x/Actions - VS2010/png_format/WinVista/305_Close_16x16_72.png
+!/VMM/VMM/Visual Studio 2013 Image Library/x--archive--x/Annotations - VS2012/png_format/WinVista/010_LowPriority_16x16_72.png
+!/VMM/VMM/Visual Studio 2013 Image Library/x--archive--x/Objects - VS2012/png_format/WinVista/023_Tip_24x24_72.png
+!/VMM/VMM/Visual Studio 2013 Image Library/x--archive--x/Annotations - VS2012/png_format/WinVista/109_AllAnnotations_Default_16x16_72.png
+!/VMM/VMM/Visual Studio 2013 Image Library/x--archive--x/Objects - VS2012/png_format/WinVista/112_RightArrowLong_Green_24x24_72.png
+!/VMM/VMM/Visual Studio 2013 Image Library/x--archive--x/Actions - VS2010/png_format/WinVista/327_Options_16x16_72.png
+!/VMM/VMM/Visual Studio 2013 Image Library/x--archive--x/Actions - VS2010/png_format/WinVista/112_RefreshArrow_Green_16x16_72.png
+!/VMM/VMM/Visual Studio 2013 Image Library/x--archive--x/Annotations - VS2012/png_format/WinVista/109_AllAnnotations_Error_16x16_72.png
+
+#/VMM/VMM/Mod
+#/VMM/VMM/bin
