@@ -111,10 +111,10 @@
     <Compile Include="forms\About.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Modules\ControlModule.Designer.vb">
-      <DependentUpon>ControlModule.vb</DependentUpon>
+    <Compile Include="forms\Modules\ModuleControl.Designer.vb">
+      <DependentUpon>ModuleControl.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\Modules\ControlModule.vb">
+    <Compile Include="forms\Modules\ModuleControl.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\CreateProfile.Designer.vb">
@@ -130,16 +130,16 @@
       <DependentUpon>Main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Modules\ModContent.Designer.vb">
-      <DependentUpon>ModContent.vb</DependentUpon>
+    <Compile Include="forms\Modules\ModuleModContent.Designer.vb">
+      <DependentUpon>ModuleModContent.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\Modules\ModContent.vb">
+    <Compile Include="forms\Modules\ModuleModContent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Modules\Mods.Designer.vb">
-      <DependentUpon>Mods.vb</DependentUpon>
+    <Compile Include="forms\Modules\ModuleModList.Designer.vb">
+      <DependentUpon>ModuleModList.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\Modules\Mods.vb">
+    <Compile Include="forms\Modules\ModuleModList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\Modules\ModuleDownload.Designer.vb">
@@ -160,10 +160,10 @@
     <Compile Include="forms\Modules\ModuleOutput.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Modules\Requirements.Designer.vb">
-      <DependentUpon>Requirements.vb</DependentUpon>
+    <Compile Include="forms\Modules\ModuleRequirements.Designer.vb">
+      <DependentUpon>ModuleRequirements.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\Modules\Requirements.vb">
+    <Compile Include="forms\Modules\ModuleRequirements.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\ProfileManager.Designer.vb">
@@ -172,10 +172,10 @@
     <Compile Include="forms\ProfileManager.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Modules\ReadMeModule.Designer.vb">
-      <DependentUpon>ReadMeModule.vb</DependentUpon>
+    <Compile Include="forms\Modules\ModuleReadMe.Designer.vb">
+      <DependentUpon>ModuleReadMe.vb</DependentUpon>
     </Compile>
-    <Compile Include="forms\Modules\ReadMeModule.vb">
+    <Compile Include="forms\Modules\ModuleReadMe.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="function\Helpers\ModHelper.vb" />
@@ -209,8 +209,8 @@
     <EmbeddedResource Include="forms\About.resx">
       <DependentUpon>About.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\ControlModule.resx">
-      <DependentUpon>ControlModule.vb</DependentUpon>
+    <EmbeddedResource Include="forms\Modules\ModuleControl.resx">
+      <DependentUpon>ModuleControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\CreateProfile.resx">
       <DependentUpon>CreateProfile.vb</DependentUpon>
@@ -218,11 +218,11 @@
     <EmbeddedResource Include="forms\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\ModContent.resx">
-      <DependentUpon>ModContent.vb</DependentUpon>
+    <EmbeddedResource Include="forms\Modules\ModuleModContent.resx">
+      <DependentUpon>ModuleModContent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\Mods.resx">
-      <DependentUpon>Mods.vb</DependentUpon>
+    <EmbeddedResource Include="forms\Modules\ModuleModList.resx">
+      <DependentUpon>ModuleModList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleDownload.resx">
       <DependentUpon>ModuleDownload.vb</DependentUpon>
@@ -233,14 +233,14 @@
     <EmbeddedResource Include="forms\Modules\ModuleOutput.resx">
       <DependentUpon>ModuleOutput.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\Requirements.resx">
-      <DependentUpon>Requirements.vb</DependentUpon>
+    <EmbeddedResource Include="forms\Modules\ModuleRequirements.resx">
+      <DependentUpon>ModuleRequirements.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\ProfileManager.resx">
       <DependentUpon>ProfileManager.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\ReadMeModule.resx">
-      <DependentUpon>ReadMeModule.vb</DependentUpon>
+    <EmbeddedResource Include="forms\Modules\ModuleReadMe.resx">
+      <DependentUpon>ModuleReadMe.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

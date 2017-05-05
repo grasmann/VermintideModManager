@@ -1,7 +1,7 @@
 ﻿Imports WeifenLuo.WinFormsUI.Docking
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Mods
+Partial Class ModuleModList
     Inherits DockContent
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class Mods
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mods))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModuleModList))
         Me.MetroGrid1 = New System.Windows.Forms.DataGridView()
         Me.col_image = New System.Windows.Forms.DataGridViewImageColumn()
         Me.col_name = New System.Windows.Forms.DataGridViewTextBoxColumn()

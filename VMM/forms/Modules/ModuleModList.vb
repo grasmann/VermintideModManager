@@ -3,7 +3,7 @@ Imports System.IO
 Imports Ionic.Zip
 Imports Newtonsoft.Json
 
-Public Class Mods
+Public Class ModuleModList
 
     Public Event SaveProfile()
     Public Event ShowReadMe(Text As String)
@@ -152,6 +152,8 @@ Public Class Mods
             For Each Row As DataGridViewRow In MetroGrid1.SelectedRows
                 Dim Modfile As VermintideMod = Row.Tag
                 If Not IsNothing(Modfile) Then
+                    reset_highlighting()
+                    highlight_versions(Modfile)
                     highlight_requirements(Modfile)
                     readme += Modfile.readme + vbCrLf + vbCrLf
                     RaiseEvent SelectedMod(Modfile)
@@ -161,10 +163,15 @@ Public Class Mods
         End If
     End Sub
 
+    Private Sub reset_highlighting()
+        For Each Row As DataGridViewRow In MetroGrid1.Rows
+            Row.DefaultCellStyle.BackColor = MetroGrid1.DefaultCellStyle.BackColor
+        Next
+    End Sub
+
     Private Sub highlight_requirements(Modfile As VermintideMod)
         For Each Row As DataGridViewRow In MetroGrid1.Rows
             Dim vm As VermintideMod = Row.Tag
-            Row.DefaultCellStyle.BackColor = MetroGrid1.DefaultCellStyle.BackColor
             If Not IsNothing(Modfile.requirement) Then
                 For Each Requirement In Modfile.requirement
                     If vm.mod_name = Requirement Then
@@ -175,6 +182,21 @@ Public Class Mods
                         End If
                     End If
                 Next
+            End If
+        Next
+    End Sub
+
+    Private Sub highlight_versions(Modfile As VermintideMod)
+        For Each Row As DataGridViewRow In MetroGrid1.Rows
+            Dim vm As VermintideMod = Row.Tag
+            If vm.mod_name = Modfile.mod_name Then
+                If Not vm.version = Modfile.version Then
+                    If Version.Compare(vm.version, Modfile.version) Then
+                        Row.DefaultCellStyle.BackColor = Color.LightSkyBlue
+                    Else
+                        Row.DefaultCellStyle.BackColor = Color.LightGray
+                    End If
+                End If
             End If
         Next
     End Sub

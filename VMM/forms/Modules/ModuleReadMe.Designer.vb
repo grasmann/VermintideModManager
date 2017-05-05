@@ -1,7 +1,7 @@
 ﻿Imports WeifenLuo.WinFormsUI.Docking
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class ReadMeModule
+Partial Class ModuleReadMe
     Inherits DockContent
 
     'Form overrides dispose to clean up the component list.
@@ -24,7 +24,7 @@ Partial Class ReadMeModule
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ReadMeModule))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModuleReadMe))
         Me.txt_readme = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '

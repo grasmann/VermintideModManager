@@ -1,4 +1,4 @@
-﻿Public Class ModContent
+﻿Public Class ModuleModContent
 
     Public Sub ListContent(VermintideMod As VermintideMod)
         list_content(VermintideMod)

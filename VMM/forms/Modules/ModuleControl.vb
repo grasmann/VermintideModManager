@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Xml.Serialization
 
-Public Class ControlModule
+Public Class ModuleControl
 
     Private exclude_manage As Integer
 

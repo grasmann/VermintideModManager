@@ -1,4 +1,4 @@
-﻿Public Class ReadMeModule
+﻿Public Class ModuleReadMe
 
     Public Sub SetText(Text As String)
         txt_readme.Text = Text
