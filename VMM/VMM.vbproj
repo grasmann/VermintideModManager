@@ -32,7 +32,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -180,6 +180,7 @@
     </Compile>
     <Compile Include="function\Helpers\ModHelper.vb" />
     <Compile Include="function\Objects\VermintideMod.vb" />
+    <Compile Include="function\Objects\VermintideOption.vb" />
     <Compile Include="function\ProfileBakery.vb" />
     <Compile Include="function\Objects\Settings.vb" />
     <Compile Include="function\SettingsBakery.vb" />
@@ -290,6 +291,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
