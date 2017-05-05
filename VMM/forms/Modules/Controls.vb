@@ -28,17 +28,7 @@ Public Class Controls
     End Sub
 
     Private exclude_manage As Integer
-    Private Sub cmb_profiles_SelectedIndexChanged(sender As Object, e As EventArgs)
-        If cmb_profiles.SelectedIndex = 0 Then
-            cmb_profiles.SelectedIndex = exclude_manage
-            RaiseEvent ManageProfiles()
-        Else
-            exclude_manage = cmb_profiles.SelectedIndex
-            RaiseEvent SelectedProfile(_profiles(cmb_profiles.SelectedIndex - 1))
-        End If
-        _settings.SelectedProfile = cmb_profiles.Items(cmb_profiles.SelectedIndex)
-    End Sub
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_profiles.SelectedIndexChanged
+    Private Sub cmb_profiles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_profiles.SelectedIndexChanged
         If cmb_profiles.SelectedIndex = 0 Then
             cmb_profiles.SelectedIndex = exclude_manage
             RaiseEvent ManageProfiles()
@@ -64,30 +54,22 @@ Public Class Controls
     ' ##### Public ################################################################################
 
     Public Sub OnInstallerRun()
-        CheckPatched()
+        UpdateUI()
     End Sub
 
     Public Sub UpdateProfiles()
         list_profiles()
         select_profile()
-        CheckPatched()
-    End Sub
-
-    Public Sub save_profiles()
-        RaiseEvent SaveProfile()
+        UpdateUI()
     End Sub
 
     ' ##### Functionality ################################################################################
 
-    Private Sub CheckPatched()
+    Private Sub UpdateUI()
         If Not _settings.Patched Or Not PathHelper.HasFiles(PathHelper.Mods) Then
-            'MetroButton2.Text = "Install VMF"
-            'MetroButton2.Image = My.Resources.install_16
             btn_install.Text = "Install VMF"
             btn_install.Image = My.Resources.install_16
         Else
-            'MetroButton2.Text = "Uninstall VMF"
-            'MetroButton2.Image = My.Resources.uninstall_16
             btn_install.Text = "Uninstall VMF"
             btn_install.Image = My.Resources.uninstall_16
         End If

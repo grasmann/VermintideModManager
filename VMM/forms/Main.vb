@@ -56,33 +56,18 @@ Public Class main
     End Sub
 
     Private Sub _download_mod_DownloadFinished() Handles _download_mod.DownloadFinished
-        'FindMods()
-        'ListMods()
-        'For Each p As VermintideProfile In _profiles
-        '    If p.Name = _settings.SelectedProfile Then
-        '        SelectedProfile(p)
-        '        Exit For
-        '    End If
-        'Next
-        'RaiseEvent Output("Latest mod files were downloaded.")
-        '_mods = ModHelper.FindMods()
-        '_mods = ModHelper.FindMods()
-
         _mods = ModHelper.FindMods()
 
-        '_mods_module.FrameworkDownloaded()
         _mods_module.Close()
         _mods_module = New Mods(_profiles, _settings, _mods)
         _mods_module.Show(DockPanel1, DockState.Document)
+
         _requirements.Close()
         _requirements = New Requirements(_mods, _settings)
         _requirements.Show(_read_me.Pane, DockAlignment.Bottom, 0.5)
+
         _controls.OnInstallerRun()
     End Sub
-
-    'Private Sub _download_mod_DownloadProgressChanged(Percent As Integer) Handles _download_mod.DownloadProgressChanged
-
-    'End Sub
 
     Private Sub _controls_ShowAbout() Handles _controls.ShowAbout
         Dim about As New About
@@ -96,10 +81,6 @@ Public Class main
             _settings.WindowPosition = Location
         End If
         SettingsBakery.Save(_settings)
-        'If _mods.Count > 0 Then
-        '    ProfileBakery.Save(_profiles)
-        'End If
-        'SaveProfiles()
     End Sub
 
     Private Sub _controls_ManageProfiles() Handles _controls.ManageProfiles
@@ -185,9 +166,6 @@ Public Class main
 
     Private Sub _requirements_ModChanged() Handles _requirements.ModChanged
         _mods_module.UpdateMods()
-        '_mods_module.Close()
-        '_mods_module = New Mods(_profiles, _settings, _mods)
-        '_mods_module.Show(DockPanel1, DockState.Document)
     End Sub
 
 End Class

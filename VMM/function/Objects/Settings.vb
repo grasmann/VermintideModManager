@@ -11,7 +11,7 @@ Public Class Settings
         SelectedProfile = "Default"
         Patched = False
         WindowSize = New Size(800, 600)
-        WindowPosition = New Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - WindowSize.Width, Screen.PrimaryScreen.WorkingArea.Height / 2 - WindowSize.Height)
+        WindowPosition = New Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - WindowSize.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2 - WindowSize.Height / 2)
         Maximized = False
     End Sub
 
