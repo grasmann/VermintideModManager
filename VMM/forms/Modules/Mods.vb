@@ -114,6 +114,11 @@ Public Class Mods
             Else
                 img = My.Resources.uninstall_16
             End If
+            If Modfile.outdated Then
+                For Each Cell As DataGridViewCell In Row.Cells
+                    Cell.Style.ForeColor = Color.Red
+                Next
+            End If
             Row.Cells(0).Value = img
         Next
         For Each Row As DataGridViewRow In MetroGrid1.SelectedRows

@@ -34,4 +34,5 @@ Public Class VermintideMod
             Return mod_name + version
         End Get
     End Property
+    Public Property outdated As Boolean
 End Class

@@ -19,6 +19,21 @@ Module ModHelper
                 End If
             Next
         End If
+        ' outdated
+        For Each _mod As VermintideMod In Mods
+            For Each _c As VermintideMod In Mods
+                If Not _mod.identifier = _c.identifier Then
+                    If _mod.mod_name = _c.mod_name Then
+                        'Debug.Print(_mod.mod_name)
+                        If Version.Compare(_mod.version, _c.version) Then
+                            _c.outdated = True
+                        Else
+                            _mod.outdated = True
+                        End If
+                    End If
+                End If
+            Next
+        Next
         Return Mods
     End Function
 
