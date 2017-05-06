@@ -27,12 +27,14 @@ Partial Class ModuleControl
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModuleControl))
         Me.btn_install = New System.Windows.Forms.Button()
         Me.cmb_profiles = New System.Windows.Forms.ComboBox()
+        Me.btn_options = New System.Windows.Forms.Button()
         Me.btn_launch = New System.Windows.Forms.Button()
         Me.btn_about = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btn_install
         '
+        Me.btn_install.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_install.Location = New System.Drawing.Point(0, 0)
         Me.btn_install.Name = "btn_install"
         Me.btn_install.Size = New System.Drawing.Size(101, 30)
@@ -51,11 +53,26 @@ Partial Class ModuleControl
         Me.cmb_profiles.FormattingEnabled = True
         Me.cmb_profiles.Location = New System.Drawing.Point(178, 1)
         Me.cmb_profiles.Name = "cmb_profiles"
-        Me.cmb_profiles.Size = New System.Drawing.Size(393, 28)
+        Me.cmb_profiles.Size = New System.Drawing.Size(318, 28)
         Me.cmb_profiles.TabIndex = 10
+        '
+        'btn_options
+        '
+        Me.btn_options.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_options.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_options.Image = Global.VMM.My.Resources.Resources.options_16
+        Me.btn_options.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_options.Location = New System.Drawing.Point(497, 0)
+        Me.btn_options.Name = "btn_options"
+        Me.btn_options.Size = New System.Drawing.Size(75, 30)
+        Me.btn_options.TabIndex = 12
+        Me.btn_options.Text = "Options"
+        Me.btn_options.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_options.UseVisualStyleBackColor = True
         '
         'btn_launch
         '
+        Me.btn_launch.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_launch.Image = Global.VMM.My.Resources.Resources.launch_24
         Me.btn_launch.Location = New System.Drawing.Point(101, 0)
         Me.btn_launch.Name = "btn_launch"
@@ -68,6 +85,7 @@ Partial Class ModuleControl
         'btn_about
         '
         Me.btn_about.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_about.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_about.Image = Global.VMM.My.Resources.Resources.info_16
         Me.btn_about.Location = New System.Drawing.Point(572, 0)
         Me.btn_about.Name = "btn_about"
@@ -83,6 +101,7 @@ Partial Class ModuleControl
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(649, 140)
         Me.CloseButtonVisible = False
+        Me.Controls.Add(Me.btn_options)
         Me.Controls.Add(Me.cmb_profiles)
         Me.Controls.Add(Me.btn_install)
         Me.Controls.Add(Me.btn_launch)
@@ -102,4 +121,5 @@ Partial Class ModuleControl
     Friend WithEvents btn_launch As Button
     Friend WithEvents cmb_profiles As ComboBox
     Friend WithEvents btn_about As Button
+    Friend WithEvents btn_options As Button
 End Class

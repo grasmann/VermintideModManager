@@ -6,6 +6,7 @@ Public Class Settings
     Public Property WindowSize As Size
     Public Property WindowPosition As Point
     Public Property Maximized As Boolean
+    Public Property SourceOverwrite As String
 
     Public Sub New()
         SelectedProfile = "Default"
@@ -13,6 +14,7 @@ Public Class Settings
         WindowSize = New Size(800, 600)
         WindowPosition = New Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - WindowSize.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2 - WindowSize.Height / 2)
         Maximized = False
+        SourceOverwrite = String.Empty
     End Sub
 
 End Class

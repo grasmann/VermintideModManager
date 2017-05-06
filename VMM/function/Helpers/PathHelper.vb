@@ -3,6 +3,12 @@ Imports System.IO
 
 Module PathHelper
 
+    Public ReadOnly Property ModLoader As String
+        Get
+            Return String.Format("{0}\mod_loader", Repository)
+        End Get
+    End Property
+
     Public ReadOnly Property Repository As String
         Get
             Return String.Format("{0}\Mod", Application.StartupPath)
@@ -58,6 +64,11 @@ Module PathHelper
             Return False
         End Try
         Return True
+    End Function
+
+    Public Function ExtractFolder(Path As String) As String
+        Dim folder As String = Left(Path, InStrRev(Path, "\"))
+        Return folder
     End Function
 
 End Module

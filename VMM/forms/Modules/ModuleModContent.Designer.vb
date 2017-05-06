@@ -30,6 +30,7 @@ Partial Class ModuleModContent
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenSourceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -59,9 +60,9 @@ Partial Class ModuleModContent
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.OpenSourceToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(104, 26)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 70)
         '
         'OpenToolStripMenuItem
         '
@@ -69,6 +70,13 @@ Partial Class ModuleModContent
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
         Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.OpenToolStripMenuItem.Text = "Open"
+        '
+        'OpenSourceToolStripMenuItem
+        '
+        Me.OpenSourceToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.core_24
+        Me.OpenSourceToolStripMenuItem.Name = "OpenSourceToolStripMenuItem"
+        Me.OpenSourceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpenSourceToolStripMenuItem.Text = "Open Source"
         '
         'ModuleModContent
         '
@@ -88,4 +96,5 @@ Partial Class ModuleModContent
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents OpenToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenSourceToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -1,7 +1,13 @@
 ﻿Public Class ModuleModContent
 
+    Public Event RequestOpenSource()
+
     Public Sub ListContent(VermintideMod As VermintideMod)
         list_content(VermintideMod)
+    End Sub
+
+    Public Sub OpenSource(Args As main.ModuleArgs)
+        open_source(Args)
     End Sub
 
     ' ##### Events ################################################################################
@@ -18,7 +24,19 @@
         If e.Node.ImageIndex > 0 Then open_content()
     End Sub
 
+    Private Sub OpenSourceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenSourceToolStripMenuItem.Click
+        'open_source()
+        RaiseEvent RequestOpenSource()
+    End Sub
+
     ' ##### Functionality ################################################################################
+
+    Private Sub open_source(Args As main.ModuleArgs)
+        If Not IsNothing(TreeView1.SelectedNode) Then
+            Dim name As String = TreeView1.Nodes(0).Text
+            ModHelper.OpenSource(name, TreeView1.SelectedNode.Tag, Args.Settings.SourceOverwrite)
+        End If
+    End Sub
 
     Private Sub open_content()
         If Not IsNothing(TreeView1.SelectedNode) Then

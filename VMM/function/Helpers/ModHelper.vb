@@ -68,7 +68,7 @@ Module ModHelper
         Return _mod
     End Function
 
-    Public Sub OpenFile(Path As String, ByRef File As String)
+    Public Sub OpenFile(Path As String, File As String)
         If Path = File Then
             Process.Start(Path)
         End If
@@ -83,6 +83,19 @@ Module ModHelper
                 End If
             Next
         End Using
+    End Sub
+
+    Public Sub OpenSource(Name As String, File As String, Optional Overwrite As String = "")
+        If Not Right(Overwrite, 1) = "\" Then Overwrite += "\"
+        If String.IsNullOrEmpty(Overwrite) Then
+            Overwrite = PathHelper.ModLoader
+        Else
+            Overwrite += "mod_loader\"
+        End If
+        Dim file_path As String = String.Format("{0}mods\{1}\{2}", Overwrite, Name, File)
+        If My.Computer.FileSystem.FileExists(file_path) Then
+            Process.Start(file_path)
+        End If
     End Sub
 
 End Module

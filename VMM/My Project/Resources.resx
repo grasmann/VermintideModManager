@@ -121,11 +121,14 @@
   <data name="uninstall_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\109_AllAnnotations_Error_16x16_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="download_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\010_LowPriority_16x16_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="delete_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Visual Studio 2013 Image Library\x--archive--x\Actions - VS2010\png_format\WinVista\305_Close_16x16_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="launch_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\112_RightArrowLong_Green_24x24_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="info_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\023_Tip_24x24_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="install_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\109_AllAnnotations_Default_16x16_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,16 +142,13 @@
   <data name="n5vnLDPV" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vermintide.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\010_LowPriority_16x16_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Visual Studio 2013 Image Library\x--archive--x\Actions - VS2010\png_format\WinVista\077_AddFile_16x16_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\023_Tip_24x24_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="launch_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\112_RightArrowLong_Green_24x24_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="core_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\ram.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Visual Studio 2013 Image Library\x--archive--x\Actions - VS2010\png_format\WinVista\077_AddFile_16x16_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

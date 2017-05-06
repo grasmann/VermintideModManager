@@ -10,6 +10,7 @@ Public Class ModuleControl
     Public Event InstallFramework()
     Public Event Output(Text As String)
     Public Event ShowAbout()
+    Public Event ShowOptions()
 
     ' ##### Events ################################################################################
 
@@ -71,6 +72,10 @@ Public Class ModuleControl
             exclude_manage = cmb_profiles.SelectedIndex
             RaiseEvent SelectProfile(cmb_profiles.Items(cmb_profiles.SelectedIndex))
         End If
+    End Sub
+
+    Private Sub btn_options_Click(sender As Object, e As EventArgs) Handles btn_options.Click
+        RaiseEvent ShowOptions()
     End Sub
 
 End Class

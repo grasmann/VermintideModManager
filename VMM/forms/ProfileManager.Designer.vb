@@ -57,6 +57,7 @@ Partial Class ProfileManager
         Me.grd_profiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd_profiles.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_name})
         Me.grd_profiles.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.grd_profiles.Cursor = System.Windows.Forms.Cursors.Hand
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

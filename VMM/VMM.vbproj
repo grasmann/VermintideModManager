@@ -166,6 +166,12 @@
     <Compile Include="forms\Modules\ModuleRequirements.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\Options.Designer.vb">
+      <DependentUpon>Options.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Options.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\ProfileManager.Designer.vb">
       <DependentUpon>ProfileManager.vb</DependentUpon>
     </Compile>
@@ -236,6 +242,9 @@
     <EmbeddedResource Include="forms\Modules\ModuleRequirements.resx">
       <DependentUpon>ModuleRequirements.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\Options.resx">
+      <DependentUpon>Options.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\ProfileManager.resx">
       <DependentUpon>ProfileManager.vb</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +273,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\Gear.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\ram.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\023_Tip_24x24_72.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\112_RightArrowLong_Green_24x24_72.png" />

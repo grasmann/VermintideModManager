@@ -30,6 +30,7 @@ Public Class main
     Private WithEvents _requirements As ModuleRequirements
     Private WithEvents _mod_content As ModuleModContent
     Private WithEvents _download_mod As ModuleDownload
+    Private WithEvents _options As Options
 
     Private _read_me As ModuleReadMe
     Private _output As ModuleOutput
@@ -250,6 +251,19 @@ Public Class main
                 _requirements.ActivateRequirement(New ModuleArgs(_profiles, _settings, _mods, selected_profile()), Modfile)
             End If
         End If
+    End Sub
+
+    Private Sub _controls_ShowOptions() Handles _controls.ShowOptions
+        _options = New Options(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _options.ShowDialog()
+    End Sub
+
+    Private Sub _options_RequestBrowseFolder() Handles _options.RequestBrowseFolder
+        _options.BrowseFolder(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
+    Private Sub _mod_content_RequestOpenSource() Handles _mod_content.RequestOpenSource
+        _mod_content.OpenSource(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
 End Class
