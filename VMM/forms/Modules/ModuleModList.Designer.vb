@@ -49,6 +49,7 @@ Partial Class ModuleModList
         Me.MetroGrid1.AllowUserToResizeRows = False
         Me.MetroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.MetroGrid1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_image, Me.col_name, Me.col_author, Me.col_version, Me.col_readme, Me.col_1, Me.col_2})
+        Me.MetroGrid1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.MetroGrid1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MetroGrid1.Location = New System.Drawing.Point(0, 0)
         Me.MetroGrid1.Name = "MetroGrid1"
@@ -115,30 +116,30 @@ Partial Class ModuleModList
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ActivateToolStripMenuItem, Me.DeactivateToolStripMenuItem, Me.SwapToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 92)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(130, 70)
         '
         'ActivateToolStripMenuItem
         '
         Me.ActivateToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.install_16
         Me.ActivateToolStripMenuItem.Name = "ActivateToolStripMenuItem"
-        Me.ActivateToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ActivateToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.ActivateToolStripMenuItem.Text = "Activate"
         '
         'DeactivateToolStripMenuItem
         '
         Me.DeactivateToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.uninstall_16
         Me.DeactivateToolStripMenuItem.Name = "DeactivateToolStripMenuItem"
-        Me.DeactivateToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeactivateToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.DeactivateToolStripMenuItem.Text = "Deactivate"
         '
         'SwapToolStripMenuItem
         '
         Me.SwapToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.swap_16
         Me.SwapToolStripMenuItem.Name = "SwapToolStripMenuItem"
-        Me.SwapToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SwapToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.SwapToolStripMenuItem.Text = "Swap"
         '
-        'Mods
+        'ModuleModList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -146,7 +147,7 @@ Partial Class ModuleModList
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.MetroGrid1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Mods"
+        Me.Name = "ModuleModList"
         Me.Text = "Mods"
         CType(Me.MetroGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)

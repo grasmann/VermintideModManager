@@ -35,6 +35,7 @@ Partial Class ModuleModContent
         '
         'TreeView1
         '
+        Me.TreeView1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.TreeView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TreeView1.FullRowSelect = True
         Me.TreeView1.ImageIndex = 0
@@ -66,17 +67,17 @@ Partial Class ModuleModContent
         '
         Me.OpenToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.options_16
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.OpenToolStripMenuItem.Text = "Open"
         '
-        'ModContent
+        'ModuleModContent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(292, 266)
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.TreeView1)
-        Me.Name = "ModContent"
+        Me.Name = "ModuleModContent"
         Me.Text = "Content"
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)

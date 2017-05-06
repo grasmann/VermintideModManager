@@ -45,6 +45,7 @@ Partial Class ModuleRequirements
         Me.grd_requirements.AllowUserToResizeRows = False
         Me.grd_requirements.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd_requirements.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_state, Me.col_name, Me.col_install})
+        Me.grd_requirements.Cursor = System.Windows.Forms.Cursors.Hand
         Me.grd_requirements.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grd_requirements.Location = New System.Drawing.Point(0, 0)
         Me.grd_requirements.MultiSelect = False

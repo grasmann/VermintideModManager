@@ -45,6 +45,7 @@ Partial Class ModuleControl
         '
         Me.cmb_profiles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmb_profiles.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmb_profiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmb_profiles.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_profiles.FormattingEnabled = True
@@ -76,7 +77,7 @@ Partial Class ModuleControl
         Me.btn_about.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_about.UseVisualStyleBackColor = True
         '
-        'Controls
+        'ModuleControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -92,7 +93,7 @@ Partial Class ModuleControl
             Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom), WeifenLuo.WinFormsUI.Docking.DockAreas)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Controls"
+        Me.Name = "ModuleControl"
         Me.Text = "Controls"
         Me.ResumeLayout(False)
 

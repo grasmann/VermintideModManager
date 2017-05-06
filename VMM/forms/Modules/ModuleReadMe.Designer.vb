@@ -32,17 +32,17 @@ Partial Class ModuleReadMe
         '
         Me.txt_readme.BackColor = System.Drawing.SystemColors.Window
         Me.txt_readme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txt_readme.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.txt_readme.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txt_readme.ForeColor = System.Drawing.SystemColors.ControlText
         Me.txt_readme.Location = New System.Drawing.Point(0, 0)
         Me.txt_readme.Name = "txt_readme"
         Me.txt_readme.ReadOnly = True
-        Me.txt_readme.ShowSelectionMargin = True
         Me.txt_readme.Size = New System.Drawing.Size(683, 440)
         Me.txt_readme.TabIndex = 1
         Me.txt_readme.Text = ""
         '
-        'ReadMe
+        'ModuleReadMe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -51,7 +51,7 @@ Partial Class ModuleReadMe
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.txt_readme)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "ReadMe"
+        Me.Name = "ModuleReadMe"
         Me.Text = "ReadMe"
         Me.ResumeLayout(False)
 

@@ -139,10 +139,11 @@ Public Class ModuleModList
         MetroGrid1.Rows.Clear()
         For Each Modfile As VermintideMod In Args.Mods
             MetroGrid1.Rows.Add("", Modfile.displayname, "Somebody", Modfile.version, "", "", Modfile.readme)
-            MetroGrid1.Rows(MetroGrid1.Rows.Count - 1).InheritedStyle.BackColor = Color.LightPink
-            MetroGrid1.Rows(MetroGrid1.Rows.Count - 1).Cells(0).Value = My.Resources.uninstall_16
-            MetroGrid1.Rows(MetroGrid1.Rows.Count - 1).Tag = Modfile
-            MetroGrid1.Rows(MetroGrid1.Rows.Count - 1).ContextMenuStrip = ContextMenuStrip1
+            Dim Row As DataGridViewRow = MetroGrid1.Rows(MetroGrid1.Rows.Count - 1)
+            Row.InheritedStyle.BackColor = Color.LightPink
+            Row.Cells(0).Value = My.Resources.uninstall_16
+            Row.Tag = Modfile
+            Row.ContextMenuStrip = ContextMenuStrip1
         Next
     End Sub
 
