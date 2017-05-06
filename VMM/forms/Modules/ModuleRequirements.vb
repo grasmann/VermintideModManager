@@ -93,6 +93,7 @@
 
             Next
         End If
+        lbl_no_requirements.Visible = grd_requirements.Rows.Count = 0
     End Sub
 
     Private Sub activate_requirement(Args As main.ModuleArgs, VermintideMod As VermintideMod)
