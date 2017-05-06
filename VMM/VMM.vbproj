@@ -180,7 +180,6 @@
     </Compile>
     <Compile Include="function\Helpers\ModHelper.vb" />
     <Compile Include="function\Objects\VermintideMod.vb" />
-    <Compile Include="function\Objects\VermintideOption.vb" />
     <Compile Include="function\ProfileBakery.vb" />
     <Compile Include="function\Objects\Settings.vb" />
     <Compile Include="function\SettingsBakery.vb" />
