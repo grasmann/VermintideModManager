@@ -14,23 +14,6 @@
 
     Private Sub btn_browse_mod_repository_Click(sender As Object, e As EventArgs) Handles btn_browse_mod_repository.Click
         RaiseEvent RequestBrowseFolder()
-
-        'If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-        '    Try
-        '        myStream = openFileDialog1.OpenFile()
-        '        If (myStream IsNot Nothing) Then
-        '            ' Insert code to read the stream here.
-        '        End If
-        '    Catch Ex As Exception
-        '        MessageBox.Show("Cannot read file from disk. Original error: " & Ex.Message)
-        '    Finally
-        '        ' Check this again, since we need to make sure we didn't throw an exception on open.
-        '        If (myStream IsNot Nothing) Then
-        '            myStream.Close()
-        '        End If
-        '    End Try
-        'End If
-
     End Sub
 
     Private Sub open_dialog(Args As main.ModuleArgs)

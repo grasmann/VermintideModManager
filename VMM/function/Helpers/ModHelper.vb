@@ -86,14 +86,19 @@ Module ModHelper
     End Sub
 
     Public Sub OpenSource(Name As String, File As String, Optional Overwrite As String = "")
-        If Not Right(Overwrite, 1) = "\" Then Overwrite += "\"
         If String.IsNullOrEmpty(Overwrite) Then
             Overwrite = PathHelper.ModLoader
         Else
             Overwrite += "mod_loader\"
         End If
-        Dim file_path As String = String.Format("{0}mods\{1}\{2}", Overwrite, Name, File)
-        If My.Computer.FileSystem.FileExists(file_path) Then
+        If Not Right(Overwrite, 1) = "\" Then Overwrite += "\"
+        Dim file_path As String = String.Empty
+        If InStr(File, ".mod") Then
+            file_path = String.Format("{0}mods\{1}\", Overwrite, Name)
+        Else
+            file_path = String.Format("{0}mods\{1}\{2}", Overwrite, Name, File)
+        End If
+        If My.Computer.FileSystem.FileExists(file_path) Or My.Computer.FileSystem.DirectoryExists(file_path) Then
             Process.Start(file_path)
         End If
     End Sub
