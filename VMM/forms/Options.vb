@@ -32,4 +32,19 @@
         End If
     End Sub
 
+    Private Sub Options_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        grd_modules.Rows.Add("Content", True)
+        grd_modules.Rows.Add("Requirements", True)
+        grd_modules.Rows.Add("ReadMe", True)
+        grd_modules.Rows.Add("Output", True)
+    End Sub
+
+    Private Sub grd_modules_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_modules.CellContentClick
+        If e.RowIndex >= 0 Then
+            If e.ColumnIndex = 1 Then
+                grd_modules.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = Not grd_modules.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
+            End If
+        End If
+    End Sub
+
 End Class

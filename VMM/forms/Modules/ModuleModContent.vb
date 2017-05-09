@@ -63,19 +63,7 @@
             For Each c As String In _content
                 If Not String.IsNullOrEmpty(c) Then
                     Dim Node As TreeNode
-
-                    Dim nodes As TreeNode() = TreeView1.Nodes.Find(c, True)
-                    If nodes.Count > 0 Then
-                        Node = nodes(0)
-                    Else
-                        If IsNothing(p) Then
-                            Node = root.Nodes.Add(c, c)
-                        Else
-                            Node = p.Nodes.Add(c, c)
-                        End If
-
-                    End If
-
+                    Dim key As String = c
                     Dim img_index As Integer = 0
                     If InStr(c, ".lua") Then
                         img_index = 1
@@ -84,6 +72,24 @@
                     ElseIf InStr(c, ".") Then
                         img_index = 2
                     End If
+
+                    If img_index > 0 Then
+                        key = Content
+                    End If
+
+                    Dim nodes As TreeNode() = TreeView1.Nodes.Find(key, True)
+                    If nodes.Count > 0 Then
+                        Node = nodes(0)
+                    Else
+                        If IsNothing(p) Then
+                            Node = root.Nodes.Add(key, c)
+                        Else
+                            Node = p.Nodes.Add(key, c)
+                        End If
+
+                    End If
+
+
                     Node.ImageIndex = img_index
                     Node.SelectedImageIndex = img_index
                     Node.StateImageIndex = img_index
