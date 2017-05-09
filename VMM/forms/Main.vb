@@ -266,4 +266,19 @@ Public Class main
         _mod_content.OpenSource(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
+    Private Sub _options_RequestModuleChange() Handles _options.RequestModuleChange
+        _options.ModuleChange(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        'If _settings.HideModule.Contains("Content") Then
+        '    '_mod_content.VisibleState = DockState.DockRightAutoHide
+        '    _mod_content.Show(_requirements.Pane, DockAlignment.Bottom, 0.5)
+        'Else
+        '    '_mod_content.VisibleState = DockState.DockRightAutoHide
+        '    _mod_content.Show(_requirements.Pane, DockAlignment.Bottom, 0.5)
+        'End If
+    End Sub
+
+    Private Sub _options_RequestModuleValues() Handles _options.RequestModuleValues
+        _options.SetValues(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
 End Class

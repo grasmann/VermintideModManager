@@ -7,6 +7,8 @@ Public Class Settings
     Public Property WindowPosition As Point
     Public Property Maximized As Boolean
     Public Property SourceOverwrite As String
+    Public Property Developer As Boolean
+    Public Property HideModule As List(Of String)
 
     Public Sub New()
         SelectedProfile = "Default"
@@ -15,6 +17,8 @@ Public Class Settings
         WindowPosition = New Point(Screen.PrimaryScreen.WorkingArea.Width / 2 - WindowSize.Width / 2, Screen.PrimaryScreen.WorkingArea.Height / 2 - WindowSize.Height / 2)
         Maximized = False
         SourceOverwrite = String.Empty
+        Developer = False
+        HideModule = New List(Of String)
     End Sub
 
 End Class

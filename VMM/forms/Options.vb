@@ -2,6 +2,8 @@
 
     Public Event SaveSettings()
     Public Event RequestBrowseFolder()
+    Public Event RequestModuleChange()
+    Public Event RequestModuleValues()
 
     Public Sub New(Args As main.ModuleArgs)
         InitializeComponent()
@@ -33,18 +35,48 @@
     End Sub
 
     Private Sub Options_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        grd_modules.Rows.Add("Content", True)
-        grd_modules.Rows.Add("Requirements", True)
-        grd_modules.Rows.Add("ReadMe", True)
-        grd_modules.Rows.Add("Output", True)
+        RaiseEvent RequestModuleValues()
+    End Sub
+
+    Public Sub SetValues(Args As main.ModuleArgs)
+        set_values(Args)
+    End Sub
+
+    Private Sub set_values(Args As main.ModuleArgs)
+        grd_modules.Rows.Add("Content", Args.Settings.HideModule.Contains("Content"))
+        grd_modules.Rows.Add("Requirements", Args.Settings.HideModule.Contains("Requirements"))
+        grd_modules.Rows.Add("ReadMe", Args.Settings.HideModule.Contains("ReadMe"))
+        grd_modules.Rows.Add("Output", Args.Settings.HideModule.Contains("Output"))
     End Sub
 
     Private Sub grd_modules_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grd_modules.CellContentClick
         If e.RowIndex >= 0 Then
             If e.ColumnIndex = 1 Then
                 grd_modules.Rows(e.RowIndex).Cells(e.ColumnIndex).Value = Not grd_modules.Rows(e.RowIndex).Cells(e.ColumnIndex).Value
+                RaiseEvent RequestModuleChange()
             End If
         End If
+    End Sub
+
+    Public Sub ModuleChange(Args As main.ModuleArgs)
+        module_change(Args)
+    End Sub
+
+    Private Sub module_change(Args As main.ModuleArgs)
+        Args.Settings.HideModule.Clear()
+        If grd_modules.Rows(0).Cells(1).Value Then
+            Args.Settings.HideModule.Add("Content")
+        End If
+        If grd_modules.Rows(1).Cells(1).Value Then
+            Args.Settings.HideModule.Add("Requirements")
+        End If
+        If grd_modules.Rows(2).Cells(1).Value Then
+            Args.Settings.HideModule.Add("ReadMe")
+        End If
+        If grd_modules.Rows(3).Cells(1).Value Then
+            Args.Settings.HideModule.Add("Output")
+        End If
+        SettingsBakery.Save(Args.Settings)
     End Sub
 
 End Class
