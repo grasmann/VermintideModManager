@@ -1,5 +1,6 @@
 ﻿Imports WeifenLuo.WinFormsUI.Docking
 Imports VMM
+Imports System.ComponentModel
 
 Public Class main
 
@@ -31,6 +32,8 @@ Public Class main
     Private WithEvents _mod_content As ModuleModContent
     Private WithEvents _download_mod As ModuleDownload
     Private WithEvents _options As Options
+    Private WithEvents _profile_manager As ProfileManager
+    Private WithEvents _about As About
 
     Private _read_me As ModuleReadMe
     Private _output As ModuleOutput
@@ -102,8 +105,9 @@ Public Class main
     End Sub
 
     Private Sub _controls_ShowAbout() Handles _controls.ShowAbout
-        Dim about As New About
-        about.ShowDialog()
+        'Dim about As New About
+        _about.ShowDialog()
+        '_about.Show(DockPanel1, DockState.Document)
     End Sub
 
     Private Sub main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -116,9 +120,10 @@ Public Class main
     End Sub
 
     Private Sub _controls_ManageProfiles() Handles _controls.ManageProfiles
-        Dim pm As New ProfileManager(_profiles)
-        pm.ShowDialog()
-        _controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        'Dim pm As New ProfileManager() '_profiles)
+        'pm.ShowDialog()
+        _profile_manager.Show(DockPanel1, DockState.Document)
+        '_controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
     Private Function selected_profile() As VermintideProfile
@@ -157,25 +162,24 @@ Public Class main
             WindowState = FormWindowState.Maximized
         End If
 
-        _read_me = New ModuleReadMe()
-        _read_me.Show(DockPanel1, DockState.DockRight)
-
         _mods_module = New ModuleModList() '_profiles, _settings, _mods)
         _mods_module.Show(DockPanel1, DockState.Document)
         _mods_module.UpdateUI(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
-
-        _output = New ModuleOutput
-        _output.Show(DockPanel1, DockState.DockBottom)
 
         _controls = New ModuleControl()
         _controls.Show(DockPanel1, DockState.DockTop)
         _controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
 
+        _read_me = New ModuleReadMe()
+        _output = New ModuleOutput
         _requirements = New ModuleRequirements()
-        _requirements.Show(_read_me.Pane, DockAlignment.Bottom, 0.5)
-
         _mod_content = New ModuleModContent
-        _mod_content.Show(_requirements.Pane, DockAlignment.Bottom, 0.5)
+
+        show_modules()
+
+        _options = New Options(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _profile_manager = New ProfileManager
+        _about = New About
 
         ' Check for mod files
         If Not PathHelper.HasFiles(PathHelper.Mods) Then
@@ -254,8 +258,8 @@ Public Class main
     End Sub
 
     Private Sub _controls_ShowOptions() Handles _controls.ShowOptions
-        _options = New Options(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
-        _options.ShowDialog()
+        '_options = New Options(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _options.Show(DockPanel1, DockState.Document)
     End Sub
 
     Private Sub _options_RequestBrowseFolder() Handles _options.RequestBrowseFolder
@@ -266,8 +270,47 @@ Public Class main
         _mod_content.OpenSource(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
+    Private Sub show_modules()
+
+        Dim _pane As DockPane = Nothing
+
+        If _settings.HideModule.Contains("Output") Then
+            _output.Show(DockPanel1, DockState.DockBottomAutoHide)
+        Else
+            _output.Show(DockPanel1, DockState.DockBottom)
+        End If
+        If _settings.HideModule.Contains("ReadMe") Then
+            _read_me.Show(DockPanel1, DockState.DockRightAutoHide)
+        Else
+            _read_me.Show(DockPanel1, DockState.DockRight)
+            _pane = _read_me.Pane
+        End If
+        If _settings.HideModule.Contains("Requirements") Then
+            _requirements.Show(DockPanel1, DockState.DockRightAutoHide)
+        Else
+            If Not IsNothing(_pane) Then
+                _requirements.Show(_pane, DockAlignment.Bottom, 0.6)
+            Else
+                _requirements.Show(DockPanel1, DockState.DockRight)
+            End If
+            _pane = _requirements.Pane
+        End If
+        If _settings.HideModule.Contains("Content") Then
+            _mod_content.Show(DockPanel1, DockState.DockRightAutoHide)
+        Else
+            If Not IsNothing(_pane) Then
+                _mod_content.Show(_pane, DockAlignment.Bottom, 0.75)
+            Else
+                _mod_content.Show(DockPanel1, DockState.DockRight)
+            End If
+            _pane = _mod_content.Pane
+        End If
+
+    End Sub
+
     Private Sub _options_RequestModuleChange() Handles _options.RequestModuleChange
         _options.ModuleChange(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        show_modules()
         'If _settings.HideModule.Contains("Content") Then
         '    '_mod_content.VisibleState = DockState.DockRightAutoHide
         '    _mod_content.Show(_requirements.Pane, DockAlignment.Bottom, 0.5)
@@ -279,6 +322,26 @@ Public Class main
 
     Private Sub _options_RequestModuleValues() Handles _options.RequestModuleValues
         _options.SetValues(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
+    Private Sub _profile_manager_RequestCopyProfile() Handles _profile_manager.RequestCopyProfile
+        _profile_manager.CopyProfile(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
+    Private Sub _profile_manager_RequestCreateProfile() Handles _profile_manager.RequestCreateProfile
+        _profile_manager.CreateProfile(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
+    Private Sub _profile_manager_RequestDeleteProfile() Handles _profile_manager.RequestDeleteProfile
+        _profile_manager.DeleteProfile(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
+    Private Sub _profile_manager_RequestListProfiles() Handles _profile_manager.RequestListProfiles
+        _profile_manager.ListProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
+    Private Sub _profile_manager_UpdateProfiles() Handles _profile_manager.UpdateProfiles
+        _controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
 End Class

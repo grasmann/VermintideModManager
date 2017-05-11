@@ -36,6 +36,7 @@ Partial Class ModuleModContent
         '
         'TreeView1
         '
+        Me.TreeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TreeView1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.TreeView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TreeView1.FullRowSelect = True
@@ -62,20 +63,20 @@ Partial Class ModuleModContent
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.OpenSourceToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(143, 48)
         '
         'OpenToolStripMenuItem
         '
         Me.OpenToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.options_16
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.OpenToolStripMenuItem.Text = "Open"
         '
         'OpenSourceToolStripMenuItem
         '
         Me.OpenSourceToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.core_24
         Me.OpenSourceToolStripMenuItem.Name = "OpenSourceToolStripMenuItem"
-        Me.OpenSourceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OpenSourceToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.OpenSourceToolStripMenuItem.Text = "Open Source"
         '
         'ModuleModContent

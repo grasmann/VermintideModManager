@@ -127,6 +127,7 @@ Partial Class ProfileManager
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(441, 252)
         Me.Controls.Add(Me.grd_profiles)
+        Me.HideOnClose = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ProfileManager"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
