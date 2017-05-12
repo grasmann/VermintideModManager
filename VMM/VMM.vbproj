@@ -277,6 +277,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Visual Studio 2013 Image Library\x--archive--x\Actions - VS2010\png_format\Office and VS\SearchWebHS.png" />
+    <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\Office and VS\base_globe_32.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\Gear.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\ram.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Objects - VS2012\png_format\WinVista\023_Tip_24x24_72.png" />

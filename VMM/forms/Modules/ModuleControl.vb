@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Xml.Serialization
+Imports System.Net
 
 Public Class ModuleControl
 
@@ -76,6 +77,10 @@ Public Class ModuleControl
 
     Private Sub btn_options_Click(sender As Object, e As EventArgs) Handles btn_options.Click
         RaiseEvent ShowOptions()
+    End Sub
+
+    Private Sub btn_find_mods_Click(sender As Object, e As EventArgs) Handles btn_find_mods.Click
+        Process.Start("http://www.moddb.com/mods/vermintide-mod-framework/downloads?filter=t&kw=&category=28")
     End Sub
 
 End Class

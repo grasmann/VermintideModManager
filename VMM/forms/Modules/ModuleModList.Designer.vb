@@ -144,6 +144,7 @@ Partial Class ModuleModList
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(511, 342)
+        Me.CloseButton = False
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.MetroGrid1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
