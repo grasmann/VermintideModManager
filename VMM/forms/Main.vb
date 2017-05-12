@@ -299,7 +299,7 @@ Public Class main
             _mod_content.Show(DockPanel1, DockState.DockRightAutoHide)
         Else
             If Not IsNothing(_pane) Then
-                _mod_content.Show(_pane, DockAlignment.Bottom, 0.75)
+                _mod_content.Show(_pane, DockAlignment.Bottom, 0.5)
             Else
                 _mod_content.Show(DockPanel1, DockState.DockRight)
             End If

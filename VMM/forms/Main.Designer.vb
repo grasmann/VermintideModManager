@@ -35,7 +35,7 @@ Partial Class main
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DockPanel1.DockBackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(238, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.DockPanel1.DockBottomPortion = 100.0R
-        Me.DockPanel1.DockTopPortion = 51.0R
+        Me.DockPanel1.DockTopPortion = 59.0R
         Me.DockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow
         Me.DockPanel1.Location = New System.Drawing.Point(0, 0)
         Me.DockPanel1.Name = "DockPanel1"
