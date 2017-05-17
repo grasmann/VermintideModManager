@@ -39,6 +39,7 @@ Partial Class CreateProfile
         '
         'btn_ok
         '
+        Me.btn_ok.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_ok.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.btn_ok.Image = Global.VMM.My.Resources.Resources.install_16
         Me.btn_ok.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -52,6 +53,7 @@ Partial Class CreateProfile
         '
         'btn_cancel
         '
+        Me.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btn_cancel.Image = Global.VMM.My.Resources.Resources.uninstall_16
         Me.btn_cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
