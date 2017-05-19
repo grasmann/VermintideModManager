@@ -1,4 +1,4 @@
-﻿Public Class Options
+﻿Public Class ModuleOptions
 
     Public Event SaveSettings()
     Public Event RequestBrowseFolder()

@@ -140,6 +140,12 @@
     <Compile Include="forms\Modules\ModuleModContent.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\Modules\ModuleModFinder.Designer.vb">
+      <DependentUpon>ModuleModFinder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Modules\ModuleModFinder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\Modules\ModuleModList.Designer.vb">
       <DependentUpon>ModuleModList.vb</DependentUpon>
     </Compile>
@@ -150,6 +156,18 @@
       <DependentUpon>ModuleDownload.vb</DependentUpon>
     </Compile>
     <Compile Include="forms\Modules\ModuleDownload.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Modules\ModuleOptions.Designer.vb">
+      <DependentUpon>ModuleOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Modules\ModuleOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Modules\ModuleProfileManager.Designer.vb">
+      <DependentUpon>ModuleProfileManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Modules\ModuleProfileManager.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\Modules\ModuleWarning.Designer.vb">
@@ -168,18 +186,6 @@
       <DependentUpon>ModuleRequirements.vb</DependentUpon>
     </Compile>
     <Compile Include="forms\Modules\ModuleRequirements.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\Options.Designer.vb">
-      <DependentUpon>Options.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\Options.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\ProfileManager.Designer.vb">
-      <DependentUpon>ProfileManager.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\ProfileManager.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\Modules\ModuleReadMe.Designer.vb">
@@ -231,11 +237,20 @@
     <EmbeddedResource Include="forms\Modules\ModuleModContent.resx">
       <DependentUpon>ModuleModContent.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\Modules\ModuleModFinder.resx">
+      <DependentUpon>ModuleModFinder.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleModList.resx">
       <DependentUpon>ModuleModList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleDownload.resx">
       <DependentUpon>ModuleDownload.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Modules\ModuleOptions.resx">
+      <DependentUpon>ModuleOptions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Modules\ModuleProfileManager.resx">
+      <DependentUpon>ModuleProfileManager.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleWarning.resx">
       <DependentUpon>ModuleWarning.vb</DependentUpon>
@@ -245,12 +260,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleRequirements.resx">
       <DependentUpon>ModuleRequirements.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\Options.resx">
-      <DependentUpon>Options.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\ProfileManager.resx">
-      <DependentUpon>ProfileManager.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleReadMe.resx">
       <DependentUpon>ModuleReadMe.vb</DependentUpon>

@@ -1,7 +1,7 @@
 ﻿Imports WeifenLuo.WinFormsUI.Docking
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Options
+Partial Class ModuleOptions
     Inherits DockContent
 
     'Form overrides dispose to clean up the component list.
@@ -24,7 +24,7 @@ Partial Class Options
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Options))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModuleOptions))
         Me.tab_options = New System.Windows.Forms.TabControl()
         Me.tab_view = New System.Windows.Forms.TabPage()
         Me.grp_modules = New System.Windows.Forms.GroupBox()
@@ -62,9 +62,9 @@ Partial Class Options
         'tab_view
         '
         Me.tab_view.Controls.Add(Me.grp_modules)
-        Me.tab_view.Location = New System.Drawing.Point(4, 22)
+        Me.tab_view.Location = New System.Drawing.Point(4, 24)
         Me.tab_view.Name = "tab_view"
-        Me.tab_view.Size = New System.Drawing.Size(355, 450)
+        Me.tab_view.Size = New System.Drawing.Size(353, 446)
         Me.tab_view.TabIndex = 1
         Me.tab_view.Text = "View"
         Me.tab_view.UseVisualStyleBackColor = True
@@ -119,10 +119,10 @@ Partial Class Options
         'tab_development
         '
         Me.tab_development.Controls.Add(Me.grp_mod_repository)
-        Me.tab_development.Location = New System.Drawing.Point(4, 22)
+        Me.tab_development.Location = New System.Drawing.Point(4, 24)
         Me.tab_development.Name = "tab_development"
         Me.tab_development.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_development.Size = New System.Drawing.Size(353, 448)
+        Me.tab_development.Size = New System.Drawing.Size(353, 446)
         Me.tab_development.TabIndex = 0
         Me.tab_development.Text = "Development"
         Me.tab_development.UseVisualStyleBackColor = True
@@ -144,6 +144,8 @@ Partial Class Options
         '
         'lbl_source_
         '
+        Me.lbl_source_.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbl_source_.Location = New System.Drawing.Point(6, 56)
         Me.lbl_source_.Name = "lbl_source_"
         Me.lbl_source_.Size = New System.Drawing.Size(327, 26)
@@ -191,7 +193,7 @@ Partial Class Options
         Me.Panel1.Size = New System.Drawing.Size(363, 476)
         Me.Panel1.TabIndex = 1
         '
-        'Options
+        'ModuleOptions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -199,7 +201,7 @@ Partial Class Options
         Me.Controls.Add(Me.Panel1)
         Me.HideOnClose = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Options"
+        Me.Name = "ModuleOptions"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Options"
         Me.tab_options.ResumeLayout(False)

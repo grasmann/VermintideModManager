@@ -31,9 +31,10 @@ Public Class main
     Private WithEvents _requirements As ModuleRequirements
     Private WithEvents _mod_content As ModuleModContent
     Private WithEvents _download_mod As ModuleDownload
-    Private WithEvents _options As Options
-    Private WithEvents _profile_manager As ProfileManager
+    Private WithEvents _options As ModuleOptions
+    Private WithEvents _profile_manager As ModuleProfileManager
     Private WithEvents _about As About
+    Private WithEvents _find_mods As ModuleModFinder
 
     Private _read_me As ModuleReadMe
     Private _output As ModuleOutput
@@ -177,9 +178,10 @@ Public Class main
 
         show_modules()
 
-        _options = New Options(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
-        _profile_manager = New ProfileManager
+        _options = New ModuleOptions(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _profile_manager = New ModuleProfileManager
         _about = New About
+        _find_mods = New ModuleModFinder
 
         ' Check for mod files
         If Not PathHelper.HasFiles(PathHelper.Mods) Then
@@ -342,6 +344,10 @@ Public Class main
 
     Private Sub _profile_manager_UpdateProfiles() Handles _profile_manager.UpdateProfiles
         _controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
+    Private Sub _controls_FindMods() Handles _controls.FindMods
+        _find_mods.Show(DockPanel1, DockState.Document)
     End Sub
 
 End Class

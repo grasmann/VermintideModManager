@@ -1,4 +1,4 @@
-﻿Public Class ProfileManager
+﻿Public Class ModuleProfileManager
 
     'Private _profiles As List(Of VermintideProfile)
 

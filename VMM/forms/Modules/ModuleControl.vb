@@ -12,6 +12,7 @@ Public Class ModuleControl
     Public Event Output(Text As String)
     Public Event ShowAbout()
     Public Event ShowOptions()
+    Public Event FindMods()
 
     ' ##### Events ################################################################################
 
@@ -80,11 +81,12 @@ Public Class ModuleControl
     End Sub
 
     Private Sub btn_find_mods_Click(sender As Object, e As EventArgs) Handles btn_find_mods.Click
-        Process.Start("http://www.moddb.com/mods/vermintide-mod-framework/downloads?filter=t&kw=&category=28")
+        'Process.Start("http://www.moddb.com/mods/vermintide-mod-framework/downloads?filter=t&kw=&category=28")
         'Dim client As New WebClient
         'client.Credentials = New NetworkCredential("grasmann", "Nq5yUGsayusKoj3MelBs")
         'Dim Str As String = client.DownloadString("http://gitlab.ludoruisch.nl/root/IamLupo-Vermitide-mods/blob/master/mod_loader/mods/AmmoMeter/config.json")
         'Debug.Print(str)
+        RaiseEvent FindMods()
     End Sub
 
 End Class
