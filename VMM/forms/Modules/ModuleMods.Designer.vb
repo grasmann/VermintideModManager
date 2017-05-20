@@ -49,7 +49,7 @@ Partial Class ModuleMods
         Me.ClientSize = New System.Drawing.Size(668, 453)
         Me.Controls.Add(Me.DockPanel1)
         Me.Name = "ModuleMods"
-        Me.Text = "ModuleMods"
+        Me.Text = "Mod List"
         Me.ResumeLayout(False)
 
     End Sub

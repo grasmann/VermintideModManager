@@ -5,14 +5,17 @@ Imports System.Drawing
 
 Public Class ModuleModFinder
 
-    Private Class file_info
+    Public Class file_info
         Public Property Name As String
         Public Property Version As String
         Public Property Type As Integer
         Public Property File As String
+        Public Property Installed As Boolean
     End Class
 
     Private WithEvents _fetcher As New BackgroundWorker
+
+    Public Event RequestCheckModsInstalled(Files As List(Of file_info))
 
     Private Sub ModuleModFinder_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         ComboBox1.SelectedIndex = 0
@@ -28,10 +31,32 @@ Public Class ModuleModFinder
         End If
     End Sub
 
+    Public Sub CheckModsInstalled(Files As List(Of file_info), Args As main.ModuleArgs)
+        For Each file As file_info In Files
+            For Each vm As VermintideMod In Args.Mods
+                If file.Name = vm.mod_name And file.Version = vm.version Then
+                    file.Installed = True
+                End If
+            Next
+        Next
+    End Sub
+
     Private Sub list_files(Files As List(Of file_info))
+        RaiseEvent RequestCheckModsInstalled(Files)
         DataGridView1.Rows.Clear()
         For Each file As file_info In Files
-            DataGridView1.Rows.Add(file.Name, file.Version, "", file.Type)
+            DataGridView1.Rows.Add(file.Name, file.Version, "", file.Installed, file.Type)
+            Dim Row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Count - 1)
+            Row.Tag = file
+            If file.Installed Then
+                Row.Cells(2).Value = My.Resources.install_16
+                Row.Cells(3).Value = "Installed"
+                'Row.DefaultCellStyle.BackColor = Color.LightGreen
+            Else
+                Row.Cells(2).Value = My.Resources.uninstall_16
+                Row.Cells(3).Value = "Not Installed"
+                Row.DefaultCellStyle.BackColor = Color.LightPink
+            End If
         Next
     End Sub
 

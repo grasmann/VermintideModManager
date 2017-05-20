@@ -364,6 +364,10 @@ Public Class main
         _find_mods.Show(DockPanel1, DockState.Document)
     End Sub
 
+    Private Sub _find_mods_RequestCheckModsInstalled(Files As List(Of ModuleModFinder.file_info)) Handles _find_mods.RequestCheckModsInstalled
+        _find_mods.CheckModsInstalled(Files, New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
     'Private Sub _mod_module_RequestShowModules() Handles _mod_module.RequestShowModules
     '    _mod_module.ShowModules(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     'End Sub

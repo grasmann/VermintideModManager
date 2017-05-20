@@ -28,6 +28,7 @@ Partial Class ModuleModFinder
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.col_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_version = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_img = New System.Windows.Forms.DataGridViewImageColumn()
         Me.col_installed = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,7 +56,7 @@ Partial Class ModuleModFinder
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_name, Me.col_version, Me.col_installed, Me.col_type})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_name, Me.col_version, Me.col_img, Me.col_installed, Me.col_type})
         Me.DataGridView1.Location = New System.Drawing.Point(0, 29)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -79,6 +80,15 @@ Partial Class ModuleModFinder
         Me.col_version.ReadOnly = True
         Me.col_version.Width = 67
         '
+        'col_img
+        '
+        Me.col_img.HeaderText = ""
+        Me.col_img.Name = "col_img"
+        Me.col_img.ReadOnly = True
+        Me.col_img.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.col_img.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_img.Width = 30
+        '
         'col_installed
         '
         Me.col_installed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -93,6 +103,7 @@ Partial Class ModuleModFinder
         Me.col_type.HeaderText = "Type"
         Me.col_type.Name = "col_type"
         Me.col_type.ReadOnly = True
+        Me.col_type.Visible = False
         Me.col_type.Width = 56
         '
         'ModuleModFinder
@@ -104,7 +115,7 @@ Partial Class ModuleModFinder
         Me.Controls.Add(Me.ComboBox1)
         Me.HideOnClose = True
         Me.Name = "ModuleModFinder"
-        Me.Text = "ModuleModFinder"
+        Me.Text = "Mod Downloader"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -114,6 +125,7 @@ Partial Class ModuleModFinder
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents col_name As DataGridViewTextBoxColumn
     Friend WithEvents col_version As DataGridViewTextBoxColumn
+    Friend WithEvents col_img As DataGridViewImageColumn
     Friend WithEvents col_installed As DataGridViewTextBoxColumn
     Friend WithEvents col_type As DataGridViewTextBoxColumn
 End Class
