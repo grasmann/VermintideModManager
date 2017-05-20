@@ -47,6 +47,8 @@ Partial Class ModuleMods
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(668, 453)
+        Me.CloseButton = False
+        Me.CloseButtonVisible = False
         Me.Controls.Add(Me.DockPanel1)
         Me.Name = "ModuleMods"
         Me.Text = "Mod List"

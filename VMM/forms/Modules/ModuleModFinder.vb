@@ -10,7 +10,21 @@ Public Class ModuleModFinder
         Public Property Version As String
         Public Property Type As Integer
         Public Property File As String
+        Public Property Size As Integer
         Public Property Installed As Boolean
+        Public ReadOnly Property DisplayName As String
+            Get
+                Dim dname As String = String.Empty
+                For Each c As Char In name
+                    If c.ToString = Char.ToUpper(c).ToString Then
+                        dname += " " + c.ToString
+                    Else
+                        dname += c.ToString
+                    End If
+                Next
+                Return dname
+            End Get
+        End Property
     End Class
 
     Private WithEvents _fetcher As New BackgroundWorker
@@ -45,16 +59,16 @@ Public Class ModuleModFinder
         RaiseEvent RequestCheckModsInstalled(Files)
         DataGridView1.Rows.Clear()
         For Each file As file_info In Files
-            DataGridView1.Rows.Add(file.Name, file.Version, "", file.Installed, file.Type)
+            DataGridView1.Rows.Add(file.DisplayName, file.Version, String.Format("{0} kb", FormatNumber(file.Size / 1024, 2)), "", file.Installed, file.Type)
             Dim Row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Count - 1)
             Row.Tag = file
             If file.Installed Then
-                Row.Cells(2).Value = My.Resources.install_16
-                Row.Cells(3).Value = "Installed"
+                Row.Cells(3).Value = My.Resources.install_16
+                Row.Cells(4).Value = "Installed"
                 'Row.DefaultCellStyle.BackColor = Color.LightGreen
             Else
-                Row.Cells(2).Value = My.Resources.uninstall_16
-                Row.Cells(3).Value = "Not Installed"
+                Row.Cells(3).Value = My.Resources.uninstall_16
+                Row.Cells(4).Value = "Not Installed"
                 Row.DefaultCellStyle.BackColor = Color.LightPink
             End If
         Next

@@ -28,6 +28,7 @@ Partial Class ModuleModFinder
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.col_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_version = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_size = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_img = New System.Windows.Forms.DataGridViewImageColumn()
         Me.col_installed = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_type = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,7 +57,7 @@ Partial Class ModuleModFinder
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_name, Me.col_version, Me.col_img, Me.col_installed, Me.col_type})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_name, Me.col_version, Me.col_size, Me.col_img, Me.col_installed, Me.col_type})
         Me.DataGridView1.Location = New System.Drawing.Point(0, 29)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -79,6 +80,14 @@ Partial Class ModuleModFinder
         Me.col_version.Name = "col_version"
         Me.col_version.ReadOnly = True
         Me.col_version.Width = 67
+        '
+        'col_size
+        '
+        Me.col_size.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_size.HeaderText = "Size"
+        Me.col_size.Name = "col_size"
+        Me.col_size.ReadOnly = True
+        Me.col_size.Width = 52
         '
         'col_img
         '
@@ -125,6 +134,7 @@ Partial Class ModuleModFinder
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents col_name As DataGridViewTextBoxColumn
     Friend WithEvents col_version As DataGridViewTextBoxColumn
+    Friend WithEvents col_size As DataGridViewTextBoxColumn
     Friend WithEvents col_img As DataGridViewImageColumn
     Friend WithEvents col_installed As DataGridViewTextBoxColumn
     Friend WithEvents col_type As DataGridViewTextBoxColumn
