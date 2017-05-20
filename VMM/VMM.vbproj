@@ -158,6 +158,12 @@
     <Compile Include="forms\Modules\ModuleDownload.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\Modules\ModuleMods.Designer.vb">
+      <DependentUpon>ModuleMods.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Modules\ModuleMods.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\Modules\ModuleOptions.Designer.vb">
       <DependentUpon>ModuleOptions.vb</DependentUpon>
     </Compile>
@@ -245,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleDownload.resx">
       <DependentUpon>ModuleDownload.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Modules\ModuleMods.resx">
+      <DependentUpon>ModuleMods.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleOptions.resx">
       <DependentUpon>ModuleOptions.vb</DependentUpon>

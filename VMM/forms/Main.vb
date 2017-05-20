@@ -25,18 +25,19 @@ Public Class main
     Private _mods As New List(Of VermintideMod)
     'Private _args As ModuleArgs
 
+    Private WithEvents _mod_module As ModuleMods
     Private WithEvents _controls As ModuleControl
-    Private WithEvents _mods_module As ModuleModList
+    'Private WithEvents _mods_module As ModuleModList
     Private WithEvents _mod_files_missing As New ModuleWarning(ModuleWarning.WarningType.ModFilesMissing, "Download")
-    Private WithEvents _requirements As ModuleRequirements
-    Private WithEvents _mod_content As ModuleModContent
+    'Private WithEvents _requirements As ModuleRequirements
+    'Private WithEvents _mod_content As ModuleModContent
     Private WithEvents _download_mod As ModuleDownload
     Private WithEvents _options As ModuleOptions
     Private WithEvents _profile_manager As ModuleProfileManager
     Private WithEvents _about As About
     Private WithEvents _find_mods As ModuleModFinder
 
-    Private _read_me As ModuleReadMe
+    'Private _read_me As ModuleReadMe
     Private _output As ModuleOutput
 
     ' ##### Events ########################################################################################################################
@@ -46,23 +47,23 @@ Public Class main
         init()
     End Sub
 
-    Private Sub _mods_ShowReadMe(Text As String) Handles _mods_module.ShowReadMe
-        _read_me.SetText(Text)
-    End Sub
+    'Private Sub _mods_ShowReadMe(Text As String) Handles _mods_module.ShowReadMe
+    '    _read_me.SetText(Text)
+    'End Sub
 
-    Private Sub select_profile(Name As String) Handles _controls.SelectProfile, _mods_module.SelectProfile
+    Private Sub select_profile(Name As String) Handles _controls.SelectProfile, _mod_module.SelectProfile
         If Not String.IsNullOrEmpty(Name) Then
             For Each Profile As VermintideProfile In _profiles
                 If Profile.Name = Name Then
-                    _mods_module.SelectedProfile(New ModuleArgs(_profiles, _settings, _mods, Profile))
+                    _mod_module.SelectedProfile(New ModuleArgs(_profiles, _settings, _mods, Profile))
                     _settings.SelectedProfile = Name
                     Exit Sub
                 End If
             Next
             _settings.SelectedProfile = _profiles(0).Name
-            _mods_module.SelectedProfile(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+            _mod_module.SelectedProfile(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
         Else
-            _mods_module.SelectedProfile(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+            _mod_module.SelectedProfile(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
         End If
     End Sub
 
@@ -70,15 +71,15 @@ Public Class main
     '    SettingsBakery.Save(_settings)
     'End Sub
 
-    Private Sub Output(Text As String) Handles _controls.Output, _mods_module.Output, _requirements.Output
+    Private Sub Output(Text As String) Handles _controls.Output, _mod_module.Output '_mods_module.Output, _requirements.Output
         _output.Print(Text)
     End Sub
 
-    Private Sub _mods_SelectedMod(VermintideMod As VermintideMod) Handles _mods_module.SelectedMod
-        _requirements.ListRequirements(New ModuleArgs(_profiles, _settings, _mods, selected_profile()), VermintideMod)
-        _mod_content.ListContent(VermintideMod)
-        selected_mods()
-    End Sub
+    'Private Sub _mods_SelectedMod(VermintideMod As VermintideMod) Handles _mods_module.SelectedMod
+    '    _requirements.ListRequirements(New ModuleArgs(_profiles, _settings, _mods, selected_profile()), VermintideMod)
+    '    _mod_content.ListContent(VermintideMod)
+    '    'selected_mods()
+    'End Sub
 
     'Private Sub _mods_ShowWarning(WarningType As ModuleWarning.WarningType) Handles _mods_module.ShowWarning
     '    _mod_files_missing.Show(DockPanel1, DockState.DockBottom)
@@ -94,13 +95,13 @@ Public Class main
         _mods = ModHelper.FindMods()
         '_args = New ModuleArgs(_profiles, _settings, _mods)
 
-        _mods_module.Close()
-        _mods_module = New ModuleModList() '_profiles, _settings, _mods)
-        _mods_module.Show(DockPanel1, DockState.Document)
+        '_mods_module.Close()
+        '_mods_module = New ModuleModList() '_profiles, _settings, _mods)
+        _mod_module.Show(DockPanel1, DockState.Document)
 
-        _requirements.Close()
-        _requirements = New ModuleRequirements()
-        _requirements.Show(_read_me.Pane, DockAlignment.Bottom, 0.5)
+        '_requirements.Close()
+        '_requirements = New ModuleRequirements()
+        '_requirements.Show(_read_me.Pane, DockAlignment.Bottom, 0.5)
 
         _controls.UpdateUI(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
@@ -137,16 +138,17 @@ Public Class main
     End Function
 
     Private Function selected_mods() As List(Of VermintideMod)
-        Dim Mods As New List(Of VermintideMod)
-        For Each Row As DataGridViewRow In _mods_module.MetroGrid1.Rows
-            If Row.Selected Then
-                Dim _mod As VermintideMod = Row.Tag
-                If Not IsNothing(_mod) Then
-                    Mods.Add(_mod)
-                End If
-            End If
-        Next
-        Return Mods
+        'Dim Mods As New List(Of VermintideMod)
+        'For Each Row As DataGridViewRow In _mods_module.MetroGrid1.Rows
+        '    If Row.Selected Then
+        '        Dim _mod As VermintideMod = Row.Tag
+        '        If Not IsNothing(_mod) Then
+        '            Mods.Add(_mod)
+        '        End If
+        '    End If
+        'Next
+        'Return Mods
+        Return _mod_module.SelectedMods
     End Function
 
     ' ##### Functionality ########################################################################################################################
@@ -163,18 +165,21 @@ Public Class main
             WindowState = FormWindowState.Maximized
         End If
 
-        _mods_module = New ModuleModList() '_profiles, _settings, _mods)
-        _mods_module.Show(DockPanel1, DockState.Document)
-        _mods_module.UpdateUI(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        '_mods_module = New ModuleModList() '_profiles, _settings, _mods)
+        '_mods_module.Show(DockPanel1, DockState.Document)
+        '_mods_module.UpdateUI(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _mod_module = New ModuleMods
+        _mod_module.Show(DockPanel1, DockState.Document)
+        _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
 
         _controls = New ModuleControl()
         _controls.Show(DockPanel1, DockState.DockTop)
         _controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
 
-        _read_me = New ModuleReadMe()
+        '_read_me = New ModuleReadMe()
         _output = New ModuleOutput
-        _requirements = New ModuleRequirements()
-        _mod_content = New ModuleModContent
+        '_requirements = New ModuleRequirements()
+        '_mod_content = New ModuleModContent
 
         show_modules()
 
@@ -190,7 +195,7 @@ Public Class main
 
     End Sub
 
-    Private Sub save_profile() Handles _mods_module.SaveProfile, _requirements.SaveProfiles
+    Private Sub save_profile() Handles _mod_module.SaveProfile ', _requirements.SaveProfiles
         For Each p As VermintideProfile In _profiles
             If p.Name = _settings.SelectedProfile Then
                 p.Mods.Clear()
@@ -217,7 +222,7 @@ Public Class main
                 '        Exit For
                 '    End If
                 'Next
-                _mods_module.SelectedProfile(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+                _mod_module.SelectedProfile(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
                 _settings.Patched = Not _settings.Patched
             End If
         Else
@@ -231,18 +236,18 @@ Public Class main
         '_settings.Patched = Not _settings.Patched
         '_controls.OnInstallerRun()
         _controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
-        _mods_module.UpdateUI(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
-    Private Sub _requirements_ModChanged() Handles _requirements.ModChanged
-        _mods_module.UpdateMods()
+    'Private Sub _requirements_ModChanged() Handles _requirements.ModChanged
+    '    _mods_module.UpdateMods()
+    'End Sub
+
+    Private Sub _mods_module_UpdateList() Handles _mod_module.RequestRefreshList
+        _mod_module.RefreshList(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
-    Private Sub _mods_module_UpdateList() Handles _mods_module.RequestRefreshList
-        _mods_module.RefreshList(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
-    End Sub
-
-    Private Sub _mods_module_InstallMods() Handles _mods_module.InstallMods
+    Private Sub _mods_module_InstallMods() Handles _mod_module.InstallMods
         For Each vm As VermintideMod In _mods
             If Installer.SingleMod(vm, _settings.Patched) Then
                 'RaiseEvent Output(String.Format("'{0}' activated in '{1}'.", vm.displayname, _settings.SelectedProfile))
@@ -250,13 +255,21 @@ Public Class main
         Next
     End Sub
 
-    Private Sub _requirements_RequestActivateRequirement() Handles _requirements.RequestActivateRequirement
-        If _mods_module.MetroGrid1.SelectedRows.Count > 0 Then
-            Dim Modfile As VermintideMod = _mods_module.MetroGrid1.SelectedRows(0).Tag
-            If Not IsNothing(Modfile) Then
-                _requirements.ActivateRequirement(New ModuleArgs(_profiles, _settings, _mods, selected_profile()), Modfile)
-            End If
-        End If
+    'Private Sub _requirements_RequestActivateRequirement() Handles _requirements.RequestActivateRequirement
+    '    If _mods_module.MetroGrid1.SelectedRows.Count > 0 Then
+    '        Dim Modfile As VermintideMod = _mods_module.MetroGrid1.SelectedRows(0).Tag
+    '        If Not IsNothing(Modfile) Then
+    '            _requirements.ActivateRequirement(New ModuleArgs(_profiles, _settings, _mods, selected_profile()), Modfile)
+    '        End If
+    '    End If
+    'End Sub
+
+    Private Sub _mod_module_RequestActivateRequirement(VermintideMod As VermintideMod) Handles _mod_module.RequestActivateRequirement
+        _mod_module.ActivateRequirement(New ModuleArgs(_profiles, _settings, _mods, selected_profile()), VermintideMod)
+    End Sub
+
+    Private Sub _mod_module_RequestListRequirements(VermintideMod As VermintideMod) Handles _mod_module.RequestListRequirements
+        _mod_module.ListRequirements(New ModuleArgs(_profiles, _settings, _mods, selected_profile()), VermintideMod)
     End Sub
 
     Private Sub _controls_ShowOptions() Handles _controls.ShowOptions
@@ -268,8 +281,8 @@ Public Class main
         _options.BrowseFolder(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
-    Private Sub _mod_content_RequestOpenSource() Handles _mod_content.RequestOpenSource
-        _mod_content.OpenSource(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    Private Sub _mod_content_RequestOpenSource() Handles _mod_module.RequestOpenSource
+        _mod_module.OpenSource(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
     Private Sub show_modules()
@@ -281,32 +294,33 @@ Public Class main
         Else
             _output.Show(DockPanel1, DockState.DockBottom)
         End If
-        If _settings.HideModule.Contains("ReadMe") Then
-            _read_me.Show(DockPanel1, DockState.DockRightAutoHide)
-        Else
-            _read_me.Show(DockPanel1, DockState.DockRight)
-            _pane = _read_me.Pane
-        End If
-        If _settings.HideModule.Contains("Requirements") Then
-            _requirements.Show(DockPanel1, DockState.DockRightAutoHide)
-        Else
-            If Not IsNothing(_pane) Then
-                _requirements.Show(_pane, DockAlignment.Bottom, 0.6)
-            Else
-                _requirements.Show(DockPanel1, DockState.DockRight)
-            End If
-            _pane = _requirements.Pane
-        End If
-        If _settings.HideModule.Contains("Content") Then
-            _mod_content.Show(DockPanel1, DockState.DockRightAutoHide)
-        Else
-            If Not IsNothing(_pane) Then
-                _mod_content.Show(_pane, DockAlignment.Bottom, 0.5)
-            Else
-                _mod_content.Show(DockPanel1, DockState.DockRight)
-            End If
-            _pane = _mod_content.Pane
-        End If
+        _mod_module.ShowModules(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        'If _settings.HideModule.Contains("ReadMe") Then
+        '    _read_me.Show(DockPanel1, DockState.DockRightAutoHide)
+        'Else
+        '    _read_me.Show(DockPanel1, DockState.DockRight)
+        '    _pane = _read_me.Pane
+        'End If
+        'If _settings.HideModule.Contains("Requirements") Then
+        '    _requirements.Show(DockPanel1, DockState.DockRightAutoHide)
+        'Else
+        '    If Not IsNothing(_pane) Then
+        '        _requirements.Show(_pane, DockAlignment.Bottom, 0.6)
+        '    Else
+        '        _requirements.Show(DockPanel1, DockState.DockRight)
+        '    End If
+        '    _pane = _requirements.Pane
+        'End If
+        'If _settings.HideModule.Contains("Content") Then
+        '    _mod_content.Show(DockPanel1, DockState.DockRightAutoHide)
+        'Else
+        '    If Not IsNothing(_pane) Then
+        '        _mod_content.Show(_pane, DockAlignment.Bottom, 0.5)
+        '    Else
+        '        _mod_content.Show(DockPanel1, DockState.DockRight)
+        '    End If
+        '    _pane = _mod_content.Pane
+        'End If
 
     End Sub
 
@@ -349,5 +363,10 @@ Public Class main
     Private Sub _controls_FindMods() Handles _controls.FindMods
         _find_mods.Show(DockPanel1, DockState.Document)
     End Sub
+
+    'Private Sub _mod_module_RequestShowModules() Handles _mod_module.RequestShowModules
+    '    _mod_module.ShowModules(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    'End Sub
+
 
 End Class
