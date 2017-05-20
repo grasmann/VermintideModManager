@@ -40,6 +40,8 @@ Module Installer
                         My.Computer.FileSystem.CreateDirectory(file.Folder)
                     End If
                     If Not CreateSymbolicLink(file.Target, file.Path, 0) Then
+                        My.Computer.FileSystem.DeleteFile(file.Target)
+                        CreateSymbolicLink(file.Target, file.Path, 0)
                         'Return False
                     End If
                 End If
