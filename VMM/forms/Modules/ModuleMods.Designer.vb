@@ -25,16 +25,22 @@ Partial Class ModuleMods
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DockPanel1 = New WeifenLuo.WinFormsUI.Docking.DockPanel()
+        Me.VS2015LightTheme1 = New WeifenLuo.WinFormsUI.Docking.VS2015LightTheme()
         Me.SuspendLayout()
         '
         'DockPanel1
         '
         Me.DockPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DockPanel1.DockBackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(238, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.DockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow
+        Me.DockPanel1.DocumentTabStripLocation = WeifenLuo.WinFormsUI.Docking.DocumentTabStripLocation.Bottom
         Me.DockPanel1.Location = New System.Drawing.Point(0, 0)
         Me.DockPanel1.Name = "DockPanel1"
+        Me.DockPanel1.Padding = New System.Windows.Forms.Padding(6)
+        Me.DockPanel1.ShowAutoHideContentOnHover = False
         Me.DockPanel1.Size = New System.Drawing.Size(668, 453)
         Me.DockPanel1.TabIndex = 0
+        Me.DockPanel1.Theme = Me.VS2015LightTheme1
         '
         'ModuleMods
         '
@@ -49,4 +55,5 @@ Partial Class ModuleMods
     End Sub
 
     Friend WithEvents DockPanel1 As DockPanel
+    Friend WithEvents VS2015LightTheme1 As VS2015LightTheme
 End Class
