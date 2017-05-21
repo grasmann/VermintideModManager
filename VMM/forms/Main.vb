@@ -35,7 +35,8 @@ Public Class main
     Private WithEvents _options As ModuleOptions
     Private WithEvents _profile_manager As ModuleProfileManager
     Private WithEvents _about As About
-    Private WithEvents _find_mods As ModuleModFinder
+    'Private WithEvents _find_mods As ModuleModFinder
+    Private WithEvents _mod_downloader As ModuleModFinder
 
     'Private _read_me As ModuleReadMe
     Private _output As ModuleOutput
@@ -186,7 +187,8 @@ Public Class main
         _options = New ModuleOptions(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
         _profile_manager = New ModuleProfileManager
         _about = New About
-        _find_mods = New ModuleModFinder
+        '_find_mods = New ModuleModFinder
+        _mod_downloader = New ModuleModFinder
 
         ' Check for mod files
         If Not PathHelper.HasFiles(PathHelper.Mods) Then
@@ -361,11 +363,11 @@ Public Class main
     End Sub
 
     Private Sub _controls_FindMods() Handles _controls.FindMods
-        _find_mods.Show(DockPanel1, DockState.Document)
+        _mod_downloader.Show(DockPanel1, DockState.Document)
     End Sub
 
-    Private Sub _find_mods_RequestCheckModsInstalled(Files As List(Of ModuleModFinder.file_info)) Handles _find_mods.RequestCheckModsInstalled
-        _find_mods.CheckModsInstalled(Files, New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    Private Sub _mod_downloader_RequestCheckModsInstalled(Files As List(Of ModuleModBrowser.file_info)) Handles _mod_downloader.RequestCheckModsInstalled
+        _mod_downloader.CheckModsInstalled(Files, New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
     'Private Sub _mod_module_RequestShowModules() Handles _mod_module.RequestShowModules

@@ -2,7 +2,7 @@
 
     Public Const major As Integer = 0
     Public Const minor As Integer = 3
-    Public Const patch As Integer = 5
+    Public Const patch As Integer = 6
 
     Public ReadOnly Property Current() As String
         Get
