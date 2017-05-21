@@ -13,8 +13,14 @@ Public Class ModManagerUpdateCheck
     End Sub
 
     Private Sub _check_update_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles _check_update.RunWorkerCompleted
-        Dim file As ModuleModBrowser.file_info = e.Result
-        RaiseEvent UpdateAvailable(file)
+        Try
+            Dim file As ModuleModBrowser.file_info = e.Result
+            If Not IsNothing(file) Then
+                RaiseEvent UpdateAvailable(file)
+            End If
+        Catch ex As Exception
+            Debug.Print(ex.Message)
+        End Try
     End Sub
 
     Private Sub _check_update_DoWork(sender As Object, e As DoWorkEventArgs) Handles _check_update.DoWork

@@ -37,7 +37,7 @@ Public Class ModuleDownload
     End Sub
 
     Private Sub start_download()
-        _path = Environment.GetFolderPath(Environment.SpecialFolder.InternetCache) + "\Vermitide-Mod-Framework-0.15.4.zip"
+        _path = String.Format("{0}\{1}", PathHelper.Temp, "\Vermitide-Mod-Framework-0.15.5.zip") 'Environment.GetFolderPath(Environment.SpecialFolder.InternetCache) + "\Vermitide-Mod-Framework-0.15.4.zip"
         If My.Computer.FileSystem.FileExists(_path) Then
             My.Computer.FileSystem.DeleteFile(_path)
         End If

@@ -58,6 +58,7 @@ Partial Class ModuleModBrowser
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_name, Me.col_version, Me.col_size, Me.col_img, Me.col_installed, Me.col_type})
+        Me.DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DataGridView1.Location = New System.Drawing.Point(0, 29)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -101,10 +102,10 @@ Partial Class ModuleModBrowser
         'col_installed
         '
         Me.col_installed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.col_installed.HeaderText = "Installed"
+        Me.col_installed.HeaderText = ""
         Me.col_installed.Name = "col_installed"
         Me.col_installed.ReadOnly = True
-        Me.col_installed.Width = 71
+        Me.col_installed.Width = 19
         '
         'col_type
         '
@@ -115,7 +116,7 @@ Partial Class ModuleModBrowser
         Me.col_type.Visible = False
         Me.col_type.Width = 56
         '
-        'ModuleModFinder
+        'ModuleModBrowser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -124,7 +125,7 @@ Partial Class ModuleModBrowser
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ComboBox1)
-        Me.Name = "ModuleModFinder"
+        Me.Name = "ModuleModBrowser"
         Me.Text = "Mod Browser"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

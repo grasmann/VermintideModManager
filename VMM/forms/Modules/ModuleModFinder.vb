@@ -24,4 +24,9 @@ Public Class ModuleModFinder
         RaiseEvent RequestCheckModsInstalled(Files)
     End Sub
 
+    Private Sub _find_mods_AddDownload(File As ModuleModBrowser.file_info) Handles _find_mods.AddDownload
+        Dim Download As New ModuleModDownloader.Download(File)
+        _downloader.AddDownload(Download)
+    End Sub
+
 End Class

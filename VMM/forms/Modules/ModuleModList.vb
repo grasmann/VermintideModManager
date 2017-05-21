@@ -95,7 +95,7 @@ Public Class ModuleModList
     Public Sub RefreshList(Args As main.ModuleArgs)
         list_mods(Args)
         RaiseEvent SelectProfile("")
-        RaiseEvent Output("Latest mod files were downloaded.")
+        'RaiseEvent Output("Latest mod files were downloaded.")
     End Sub
 
     Public Sub UpdateMods()

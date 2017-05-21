@@ -75,9 +75,9 @@ Module ModHelper
         Using zip As ZipFile = ZipFile.Read(Path)
             For Each e As ZipEntry In zip
                 If e.FileName = File Then
-                    Dim t As String = IO.Path.GetTempPath()
+                    Dim t As String = PathHelper.Temp
                     e.Extract(t, ExtractExistingFileAction.OverwriteSilently)
-                    Dim p As String = String.Format("{0}{1}", IO.Path.GetTempPath(), File)
+                    Dim p As String = String.Format("{0}{1}", t, File)
                     'Debug.Print(p)
                     Process.Start(p)
                 End If

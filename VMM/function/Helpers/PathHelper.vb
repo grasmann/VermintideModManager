@@ -3,6 +3,12 @@ Imports System.IO
 
 Module PathHelper
 
+    Public ReadOnly Property Temp As String
+        Get
+            Return IO.Path.GetTempPath()
+        End Get
+    End Property
+
     Public ReadOnly Property ModLoader As String
         Get
             Return String.Format("{0}\mod_loader", Repository)
