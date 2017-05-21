@@ -127,12 +127,12 @@ Public Class ModuleModList
     End Sub
 
     Private Sub select_a_mod()
-        If MetroGrid1.SelectedRows.Count = 0 Then
-            If MetroGrid1.Rows.Count > 0 Then
-                MetroGrid1.Rows(0).Selected = True
-                select_mod()
-            End If
+        'If MetroGrid1.SelectedRows.Count = 0 Then
+        If MetroGrid1.Rows.Count > 0 Then
+            MetroGrid1.Rows(0).Selected = True
+            select_mod()
         End If
+        'End If
     End Sub
 
     Private Sub list_mods(Args As main.ModuleArgs)

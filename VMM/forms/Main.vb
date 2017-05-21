@@ -96,9 +96,11 @@ Public Class main
         _mods = ModHelper.FindMods()
         '_args = New ModuleArgs(_profiles, _settings, _mods)
 
-        '_mods_module.Close()
-        '_mods_module = New ModuleModList() '_profiles, _settings, _mods)
+        _mod_module.Close()
+        _mod_module = New ModuleMods() '_profiles, _settings, _mods)
         _mod_module.Show(DockPanel1, DockState.Document)
+        _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        show_modules()
 
         '_requirements.Close()
         '_requirements = New ModuleRequirements()
