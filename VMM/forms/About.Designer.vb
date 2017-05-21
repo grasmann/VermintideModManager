@@ -29,6 +29,8 @@ Partial Class About
         Me.lbl_version = New System.Windows.Forms.Label()
         Me.lbl_made_by = New System.Windows.Forms.Label()
         Me.pb_image = New System.Windows.Forms.PictureBox()
+        Me.lbl_update = New System.Windows.Forms.Label()
+        Me.btn_update = New System.Windows.Forms.Button()
         CType(Me.pb_image, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -71,11 +73,37 @@ Partial Class About
         Me.pb_image.TabIndex = 0
         Me.pb_image.TabStop = False
         '
+        'lbl_update
+        '
+        Me.lbl_update.AutoSize = True
+        Me.lbl_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_update.Location = New System.Drawing.Point(230, 110)
+        Me.lbl_update.Name = "lbl_update"
+        Me.lbl_update.Size = New System.Drawing.Size(156, 18)
+        Me.lbl_update.TabIndex = 4
+        Me.lbl_update.Text = "New Version available."
+        Me.lbl_update.Visible = False
+        '
+        'btn_update
+        '
+        Me.btn_update.Image = Global.VMM.My.Resources.Resources.launch_24
+        Me.btn_update.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_update.Location = New System.Drawing.Point(233, 131)
+        Me.btn_update.Name = "btn_update"
+        Me.btn_update.Size = New System.Drawing.Size(98, 30)
+        Me.btn_update.TabIndex = 5
+        Me.btn_update.Text = "Update"
+        Me.btn_update.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_update.UseVisualStyleBackColor = True
+        Me.btn_update.Visible = False
+        '
         'About
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(572, 250)
+        Me.Controls.Add(Me.btn_update)
+        Me.Controls.Add(Me.lbl_update)
         Me.Controls.Add(Me.lbl_made_by)
         Me.Controls.Add(Me.lbl_version)
         Me.Controls.Add(Me.lbl_name)
@@ -97,4 +125,6 @@ Partial Class About
     Friend WithEvents lbl_name As Label
     Friend WithEvents lbl_version As Label
     Friend WithEvents lbl_made_by As Label
+    Friend WithEvents lbl_update As Label
+    Friend WithEvents btn_update As Button
 End Class

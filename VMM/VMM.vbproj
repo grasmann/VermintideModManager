@@ -213,6 +213,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="function\Helpers\ModHelper.vb" />
+    <Compile Include="function\Objects\ModManagerUpdateCheck.vb" />
     <Compile Include="function\Objects\VermintideMod.vb" />
     <Compile Include="function\ProfileBakery.vb" />
     <Compile Include="function\Objects\Settings.vb" />
