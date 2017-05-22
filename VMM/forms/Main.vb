@@ -253,7 +253,7 @@ Public Class main
         SettingsBakery.Save(_settings)
         Output("Settings saved.")
         '_settings.Patched = Not _settings.Patched
-        '_controls.OnInstallerRun()
+        _controls.UpdateUI(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
         _mod_module.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
         _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
