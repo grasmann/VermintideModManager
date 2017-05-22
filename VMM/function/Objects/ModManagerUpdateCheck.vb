@@ -26,7 +26,7 @@ Public Class ModManagerUpdateCheck
     Private Sub _check_update_DoWork(sender As Object, e As DoWorkEventArgs) Handles _check_update.DoWork
         Try
             Dim client As New WebClient
-            Dim json As String = client.DownloadString("http://www.vmf.heliohost.org/file_list.php?mode=manager")
+            Dim json As String = client.DownloadString(String.Format("{0}file_list.php?mode=manager", ServerHelper._domain_url))
             Dim files As List(Of ModuleModBrowser.file_info) = JsonConvert.DeserializeObject(Of List(Of ModuleModBrowser.file_info))(json)
             Dim file As ModuleModBrowser.file_info = files(files.Count - 1)
             If Compare(file.Version, Current) Then

@@ -18,7 +18,7 @@ Public Class ModuleModDownloader
         Public Sub New(File As ModuleModBrowser.file_info)
             DisplayName = File.DisplayName
             Name = File.Name
-            Address = String.Format("http://www.vmf.heliohost.org/{0}", File.File)
+            Address = String.Format("{0}{1}", ServerHelper._domain_url, File.File)
             Target = String.Format("{0}/{1}", PathHelper.Mods, File.File)
             Temp = String.Format("{0}{1}", PathHelper.Temp, File.File.Replace("/", "\"))
             '_worker.WorkerSupportsCancellation = True

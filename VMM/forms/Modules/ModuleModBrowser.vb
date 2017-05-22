@@ -85,7 +85,7 @@ Public Class ModuleModBrowser
     Private Sub _fetcher_DoWork(sender As Object, e As DoWorkEventArgs) Handles _fetcher.DoWork
         Try
             Dim client As New WebClient
-            Dim url As String = String.Format("http://www.vmf.heliohost.org/file_list.php?mode={0}", e.Argument)
+            Dim url As String = String.Format("{0}file_list.php?mode={1}", ServerHelper._domain_url, e.Argument)
             Dim str As String = client.DownloadString(url)
             Dim files As List(Of file_info) = JsonConvert.DeserializeObject(Of List(Of file_info))(str)
             e.Result = files
@@ -118,8 +118,8 @@ Public Class ModuleModBrowser
             If e.ColumnIndex = 4 Then
                 Dim file As ModuleModBrowser.file_info = DataGridView1.Rows(e.RowIndex).Tag
                 If Not IsNothing(file) Then
-                    'Debug.Print(String.Format("Downloading mod {0} from http://www.vmf.heliohost.org/{1} ...", file.DisplayName, file.File))
-                    RaiseEvent AddDownload(file) '.DisplayName, String.Format("http://www.vmf.heliohost.org/{0}", file.File), "")
+                    'Debug.Print(String.Format("Downloading mod {0} from http://www.grasmann.heliohost.org/{1} ...", file.DisplayName, file.File))
+                    'RaiseEvent AddDownload(file) '.DisplayName, String.Format("http://www.grasmann.heliohost.org/{0}", file.File), "")
                 End If
             End If
         End If

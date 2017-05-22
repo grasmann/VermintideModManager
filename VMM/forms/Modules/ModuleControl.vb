@@ -81,7 +81,7 @@ Public Class ModuleControl
     End Sub
 
     Private Sub btn_find_mods_Click(sender As Object, e As EventArgs) Handles btn_find_mods.Click
-        'RaiseEvent FindMods()
+        RaiseEvent FindMods()
     End Sub
 
 End Class

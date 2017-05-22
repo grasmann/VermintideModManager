@@ -5,7 +5,7 @@ Imports Newtonsoft.Json
 
 Public Class ModuleDownload
 
-    Private Const _mod_url As String = "http://www.vmf.heliohost.org/Vermitide-Mod-Framework-0.15.5.zip"
+    Private Const _mod_url As String = "http://www.grasmann.heliohost.org/Vermitide-Mod-Framework-0.15.5.zip"
 
     Private _download_type As DownloadType
     Private _path As String
