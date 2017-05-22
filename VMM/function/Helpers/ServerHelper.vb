@@ -23,7 +23,9 @@ Public Class Download
     End Sub
 
     Public Sub StartDownload()
-        start_download()
+        If Not _client.IsBusy Then
+            start_download()
+        End If
     End Sub
 
     Private Sub start_download()

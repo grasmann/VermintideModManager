@@ -63,6 +63,7 @@ Partial Class ModuleWarning
         Me.ClientSize = New System.Drawing.Size(292, 266)
         Me.Controls.Add(Me.btn_solve)
         Me.Controls.Add(Me.lbl_warning)
+        Me.DockAreas = CType((WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom), WeifenLuo.WinFormsUI.Docking.DockAreas)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ModuleWarning"
         Me.Text = "Warning"

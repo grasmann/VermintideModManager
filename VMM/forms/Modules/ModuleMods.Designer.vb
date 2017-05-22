@@ -50,6 +50,7 @@ Partial Class ModuleMods
         Me.CloseButton = False
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.DockPanel1)
+        Me.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document
         Me.Name = "ModuleMods"
         Me.Text = "Mod List"
         Me.ResumeLayout(False)

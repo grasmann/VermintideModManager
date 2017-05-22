@@ -117,6 +117,7 @@ Partial Class ModuleRequirements
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.lbl_no_requirements)
         Me.Controls.Add(Me.grd_requirements)
+        Me.DockAreas = CType((WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight), WeifenLuo.WinFormsUI.Docking.DockAreas)
         Me.Name = "ModuleRequirements"
         Me.Text = "Requirements"
         CType(Me.grd_requirements, System.ComponentModel.ISupportInitialize).EndInit()

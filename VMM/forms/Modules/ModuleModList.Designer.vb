@@ -38,6 +38,10 @@ Partial Class ModuleModList
         Me.ActivateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeactivateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SwapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmb_profiles = New System.Windows.Forms.ComboBox()
+        Me.lbl_profile = New System.Windows.Forms.Label()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.MetroGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -47,16 +51,18 @@ Partial Class ModuleModList
         Me.MetroGrid1.AllowUserToAddRows = False
         Me.MetroGrid1.AllowUserToDeleteRows = False
         Me.MetroGrid1.AllowUserToResizeRows = False
+        Me.MetroGrid1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MetroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.MetroGrid1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_image, Me.col_name, Me.col_author, Me.col_version, Me.col_readme, Me.col_1, Me.col_2})
         Me.MetroGrid1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.MetroGrid1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MetroGrid1.Location = New System.Drawing.Point(0, 0)
+        Me.MetroGrid1.Location = New System.Drawing.Point(0, 30)
         Me.MetroGrid1.Name = "MetroGrid1"
         Me.MetroGrid1.ReadOnly = True
         Me.MetroGrid1.RowHeadersVisible = False
         Me.MetroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.MetroGrid1.Size = New System.Drawing.Size(511, 342)
+        Me.MetroGrid1.Size = New System.Drawing.Size(511, 312)
         Me.MetroGrid1.TabIndex = 1
         '
         'col_image
@@ -114,9 +120,9 @@ Partial Class ModuleModList
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ActivateToolStripMenuItem, Me.DeactivateToolStripMenuItem, Me.SwapToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ActivateToolStripMenuItem, Me.DeactivateToolStripMenuItem, Me.SwapToolStripMenuItem, Me.ToolStripSeparator1, Me.DeleteToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(130, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 120)
         '
         'ActivateToolStripMenuItem
         '
@@ -139,6 +145,42 @@ Partial Class ModuleModList
         Me.SwapToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.SwapToolStripMenuItem.Text = "Swap"
         '
+        'cmb_profiles
+        '
+        Me.cmb_profiles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmb_profiles.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cmb_profiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmb_profiles.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmb_profiles.FormattingEnabled = True
+        Me.cmb_profiles.Location = New System.Drawing.Point(67, 0)
+        Me.cmb_profiles.Name = "cmb_profiles"
+        Me.cmb_profiles.Size = New System.Drawing.Size(444, 28)
+        Me.cmb_profiles.TabIndex = 2
+        '
+        'lbl_profile
+        '
+        Me.lbl_profile.AutoSize = True
+        Me.lbl_profile.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_profile.Location = New System.Drawing.Point(2, 3)
+        Me.lbl_profile.Name = "lbl_profile"
+        Me.lbl_profile.Size = New System.Drawing.Size(62, 24)
+        Me.lbl_profile.TabIndex = 3
+        Me.lbl_profile.Text = "Profile"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Visible = False
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
+        Me.DeleteToolStripMenuItem.Visible = False
+        '
         'ModuleModList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -146,13 +188,17 @@ Partial Class ModuleModList
         Me.ClientSize = New System.Drawing.Size(511, 342)
         Me.CloseButton = False
         Me.CloseButtonVisible = False
+        Me.Controls.Add(Me.lbl_profile)
+        Me.Controls.Add(Me.cmb_profiles)
         Me.Controls.Add(Me.MetroGrid1)
+        Me.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ModuleModList"
         Me.Text = "Mods"
         CType(Me.MetroGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents MetroGrid1 As DataGridView
@@ -167,4 +213,8 @@ Partial Class ModuleModList
     Friend WithEvents ActivateToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeactivateToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SwapToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents cmb_profiles As ComboBox
+    Friend WithEvents lbl_profile As Label
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -16,9 +16,9 @@ Public Class ModuleControl
 
     ' ##### Events ################################################################################
 
-    Private Sub cmb_profiles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_profiles.SelectedIndexChanged
-        handle_combobox()
-    End Sub
+    'Private Sub cmb_profiles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_profiles.SelectedIndexChanged
+    '    handle_combobox()
+    'End Sub
 
     Private Sub btn_install_Click(sender As Object, e As EventArgs) Handles btn_install.Click
         RaiseEvent InstallFramework()
@@ -46,12 +46,12 @@ Public Class ModuleControl
         update_ui(Args.Settings)
     End Sub
 
-    Public Sub UpdateProfiles(Args As main.ModuleArgs)
-        'list_profiles(Args.Profiles)
-        'cmb_profiles.SelectedItem = Args.SelectedProfile.Name
-        'update_ui(Args.Settings)
-        update_profiles(Args)
-    End Sub
+    'Public Sub UpdateProfiles(Args As main.ModuleArgs)
+    '    'list_profiles(Args.Profiles)
+    '    'cmb_profiles.SelectedItem = Args.SelectedProfile.Name
+    '    'update_ui(Args.Settings)
+    '    update_profiles(Args)
+    'End Sub
 
     ' ##### Functionality ################################################################################
 
@@ -64,31 +64,32 @@ Public Class ModuleControl
             btn_install.Image = My.Resources.uninstall_16
         End If
         btn_install.Enabled = PathHelper.HasFiles(PathHelper.Mods)
-        cmb_profiles.Enabled = Settings.Patched And PathHelper.HasFiles(PathHelper.Mods)
+        btn_find_mods.Enabled = Settings.Patched And PathHelper.HasFiles(PathHelper.Repository)
+        'cmb_profiles.Enabled = Settings.Patched And PathHelper.HasFiles(PathHelper.Mods)
     End Sub
 
-    Private Sub update_profiles(Args As main.ModuleArgs)
-        list_profiles(Args.Profiles)
-        cmb_profiles.SelectedItem = Args.SelectedProfile.Name
-        update_ui(Args.Settings)
-    End Sub
+    'Private Sub update_profiles(Args As main.ModuleArgs)
+    '    list_profiles(Args.Profiles)
+    '    cmb_profiles.SelectedItem = Args.SelectedProfile.Name
+    '    update_ui(Args.Settings)
+    'End Sub
 
-    Private Sub list_profiles(Profiles As List(Of VermintideProfile))
-        cmb_profiles.Items.Clear()
-        cmb_profiles.Items.Add("[Manage]")
-        For Each p As VermintideProfile In Profiles
-            cmb_profiles.Items.Add(p.Name)
-        Next
-    End Sub
+    'Private Sub list_profiles(Profiles As List(Of VermintideProfile))
+    '    cmb_profiles.Items.Clear()
+    '    cmb_profiles.Items.Add("[Manage]")
+    '    For Each p As VermintideProfile In Profiles
+    '        cmb_profiles.Items.Add(p.Name)
+    '    Next
+    'End Sub
 
-    Private Sub handle_combobox()
-        If cmb_profiles.SelectedIndex = 0 Then
-            cmb_profiles.SelectedIndex = exclude_manage
-            RaiseEvent ManageProfiles()
-        Else
-            exclude_manage = cmb_profiles.SelectedIndex
-            RaiseEvent SelectProfile(cmb_profiles.Items(cmb_profiles.SelectedIndex))
-        End If
-    End Sub
+    'Private Sub handle_combobox()
+    '    If cmb_profiles.SelectedIndex = 0 Then
+    '        cmb_profiles.SelectedIndex = exclude_manage
+    '        RaiseEvent ManageProfiles()
+    '    Else
+    '        exclude_manage = cmb_profiles.SelectedIndex
+    '        RaiseEvent SelectProfile(cmb_profiles.Items(cmb_profiles.SelectedIndex))
+    '    End If
+    'End Sub
 
 End Class

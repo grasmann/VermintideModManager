@@ -7,6 +7,7 @@ Public Class About
     Private Sub _update_check_NoUpdate() Handles _update_check.NoUpdate
         lbl_up_to_date.Visible = True
         lbl_checking_update.Visible = False
+        pb_up_to_date.Visible = True
     End Sub
 
     Private Sub _update_check_UpdateAvailable(File As FileInfo) Handles _update_check.UpdateAvailable
@@ -24,6 +25,8 @@ Public Class About
         lbl_update.Visible = False
         btn_update.Visible = False
         lbl_checking_update.Visible = True
+        pb_up_to_date.Visible = False
+        lbl_up_to_date.Visible = False
         _update_check.CheckForUpdate()
     End Sub
 End Class

@@ -26,7 +26,6 @@ Partial Class ModuleControl
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModuleControl))
         Me.btn_install = New System.Windows.Forms.Button()
-        Me.cmb_profiles = New System.Windows.Forms.ComboBox()
         Me.btn_find_mods = New System.Windows.Forms.Button()
         Me.btn_options = New System.Windows.Forms.Button()
         Me.btn_launch = New System.Windows.Forms.Button()
@@ -46,26 +45,13 @@ Partial Class ModuleControl
         Me.btn_install.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_install.UseVisualStyleBackColor = True
         '
-        'cmb_profiles
-        '
-        Me.cmb_profiles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmb_profiles.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cmb_profiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmb_profiles.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmb_profiles.FormattingEnabled = True
-        Me.cmb_profiles.Location = New System.Drawing.Point(272, 1)
-        Me.cmb_profiles.Name = "cmb_profiles"
-        Me.cmb_profiles.Size = New System.Drawing.Size(224, 28)
-        Me.cmb_profiles.TabIndex = 10
-        '
         'btn_find_mods
         '
         Me.btn_find_mods.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btn_find_mods.Image = Global.VMM.My.Resources.Resources.SearchWebHS
         Me.btn_find_mods.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_find_mods.Location = New System.Drawing.Point(177, 0)
+        Me.btn_find_mods.Location = New System.Drawing.Point(185, 0)
         Me.btn_find_mods.Name = "btn_find_mods"
         Me.btn_find_mods.Size = New System.Drawing.Size(94, 140)
         Me.btn_find_mods.TabIndex = 13
@@ -96,7 +82,7 @@ Partial Class ModuleControl
         Me.btn_launch.Image = Global.VMM.My.Resources.Resources.launch_24
         Me.btn_launch.Location = New System.Drawing.Point(101, 0)
         Me.btn_launch.Name = "btn_launch"
-        Me.btn_launch.Size = New System.Drawing.Size(76, 140)
+        Me.btn_launch.Size = New System.Drawing.Size(84, 140)
         Me.btn_launch.TabIndex = 9
         Me.btn_launch.Text = "Lanuch"
         Me.btn_launch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -124,14 +110,10 @@ Partial Class ModuleControl
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.btn_find_mods)
         Me.Controls.Add(Me.btn_options)
-        Me.Controls.Add(Me.cmb_profiles)
         Me.Controls.Add(Me.btn_install)
         Me.Controls.Add(Me.btn_launch)
         Me.Controls.Add(Me.btn_about)
-        Me.DockAreas = CType(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft) _
-            Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) _
-            Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop) _
-            Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom), WeifenLuo.WinFormsUI.Docking.DockAreas)
+        Me.DockAreas = CType((WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom), WeifenLuo.WinFormsUI.Docking.DockAreas)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ModuleControl"
@@ -141,7 +123,6 @@ Partial Class ModuleControl
     End Sub
     Friend WithEvents btn_install As Button
     Friend WithEvents btn_launch As Button
-    Friend WithEvents cmb_profiles As ComboBox
     Friend WithEvents btn_about As Button
     Friend WithEvents btn_options As Button
     Friend WithEvents btn_find_mods As Button

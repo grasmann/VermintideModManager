@@ -48,6 +48,7 @@ Partial Class ModuleModFinder
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(276, 253)
         Me.Controls.Add(Me.DockPanel1)
+        Me.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document
         Me.HideOnClose = True
         Me.Name = "ModuleModFinder"
         Me.Text = "Mod Finder"

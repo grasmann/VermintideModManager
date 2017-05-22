@@ -121,15 +121,16 @@ Partial Class ModuleProfileManager
         Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
-        'ProfileManager
+        'ModuleProfileManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(441, 252)
         Me.Controls.Add(Me.grd_profiles)
+        Me.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document
         Me.HideOnClose = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "ProfileManager"
+        Me.Name = "ModuleProfileManager"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Profile Manager"
         CType(Me.grd_profiles, System.ComponentModel.ISupportInitialize).EndInit()

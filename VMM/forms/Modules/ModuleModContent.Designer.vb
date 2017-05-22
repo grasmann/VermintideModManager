@@ -86,6 +86,7 @@ Partial Class ModuleModContent
         Me.ClientSize = New System.Drawing.Size(292, 266)
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.TreeView1)
+        Me.DockAreas = CType((WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight), WeifenLuo.WinFormsUI.Docking.DockAreas)
         Me.Name = "ModuleModContent"
         Me.Text = "Content"
         Me.ContextMenuStrip1.ResumeLayout(False)

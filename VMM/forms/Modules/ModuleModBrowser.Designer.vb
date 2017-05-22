@@ -114,7 +114,6 @@ Partial Class ModuleModBrowser
         Me.col_type.Name = "col_type"
         Me.col_type.ReadOnly = True
         Me.col_type.Visible = False
-        Me.col_type.Width = 56
         '
         'ModuleModBrowser
         '
@@ -125,6 +124,7 @@ Partial Class ModuleModBrowser
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ComboBox1)
+        Me.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document
         Me.Name = "ModuleModBrowser"
         Me.Text = "Mod Browser"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

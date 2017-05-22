@@ -5,6 +5,8 @@ Imports Newtonsoft.Json
 
 Public Class ModuleModList
 
+    Private exclude_manage As Integer
+
     Public Event SaveProfile()
     Public Event ShowReadMe(Text As String)
     Public Event Output(Text As String)
@@ -12,6 +14,8 @@ Public Class ModuleModList
     Public Event SelectProfile(Name As String)
     Public Event RequestRefreshList()
     Public Event InstallMods()
+
+    Public Event ManageProfiles()
 
     ' ##### Events ################################################################################
 
@@ -36,8 +40,40 @@ Public Class ModuleModList
         select_mod()
     End Sub
 
+    Private Sub cmb_profiles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_profiles.SelectedIndexChanged
+        handle_combobox()
+    End Sub
+
+    Public Sub UpdateProfiles(Args As main.ModuleArgs)
+        update_profiles(Args)
+    End Sub
+
+    Private Sub update_profiles(Args As main.ModuleArgs)
+        list_profiles(Args.Profiles)
+        cmb_profiles.SelectedItem = Args.SelectedProfile.Name
+        UpdateUI(Args)
+    End Sub
+
+    Private Sub list_profiles(Profiles As List(Of VermintideProfile))
+        cmb_profiles.Items.Clear()
+        cmb_profiles.Items.Add("[Manage]")
+        For Each p As VermintideProfile In Profiles
+            cmb_profiles.Items.Add(p.Name)
+        Next
+    End Sub
+
+    Private Sub handle_combobox()
+        If cmb_profiles.SelectedIndex = 0 Then
+            cmb_profiles.SelectedIndex = exclude_manage
+            RaiseEvent ManageProfiles()
+        Else
+            exclude_manage = cmb_profiles.SelectedIndex
+            RaiseEvent SelectProfile(cmb_profiles.Items(cmb_profiles.SelectedIndex))
+        End If
+    End Sub
+
     Private Sub MetroGrid1_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles MetroGrid1.CellMouseDown
-        If e.RowIndex >= 0 And e.Button = MouseButtons.Right Then
+        If e.RowIndex >= 0 And e.Button = MouseButtons.Right And Not MetroGrid1.Rows(e.RowIndex).Selected Then
             MetroGrid1.ClearSelection()
             MetroGrid1.Rows(e.RowIndex).Selected = True
         End If
@@ -82,6 +118,7 @@ Public Class ModuleModList
 
     Public Sub UpdateUI(Args As main.ModuleArgs)
         MetroGrid1.Enabled = Args.Settings.Patched
+        cmb_profiles.Enabled = Args.Settings.Patched And PathHelper.HasFiles(PathHelper.Mods)
     End Sub
 
     Public Sub SelectedProfile(Args As main.ModuleArgs)
@@ -93,8 +130,13 @@ Public Class ModuleModList
     End Sub
 
     Public Sub RefreshList(Args As main.ModuleArgs)
+        Dim scroll As Integer = MetroGrid1.FirstDisplayedScrollingRowIndex
         list_mods(Args)
+        select_mod()
         RaiseEvent SelectProfile("")
+        If scroll >= 0 And scroll <= MetroGrid1.Rows.Count Then
+            MetroGrid1.FirstDisplayedScrollingRowIndex = scroll
+        End If
         'RaiseEvent Output("Latest mod files were downloaded.")
     End Sub
 

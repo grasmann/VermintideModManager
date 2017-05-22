@@ -19,12 +19,20 @@ Public Class ModuleMods
     Public Event RequestOpenSource()
     Public Event Output(Text As String)
 
+    Public Event ManageProfiles()
+
     Private Sub _mod_list_Output(Text As String) Handles _mod_list.Output, _requirements.Output
         RaiseEvent Output(Text)
     End Sub
 
+    Public Sub UpdateProfiles(Args As main.ModuleArgs)
+        _mod_list.UpdateProfiles(Args)
+    End Sub
+
     Public Sub UpdateData(Args As main.ModuleArgs)
         _mod_list.UpdateUI(Args)
+        '_mod_list.UpdateMods()
+        _mod_list.RefreshList(Args)
     End Sub
 
     Public Sub New()
@@ -91,32 +99,36 @@ Public Class ModuleMods
         'Else
         '    _output.Show(DockPanel1, DockState.DockBottom)
         'End If
+        Me.SuspendLayout()
+        DockPanel1.SuspendLayout()
         If Args.Settings.HideModule.Contains("ReadMe") Then
-            _read_me.Show(DockPanel1, DockState.DockRightAutoHide)
+            If Not _read_me.DockState = DockState.DockRightAutoHide Then _read_me.Show(DockPanel1, DockState.DockRightAutoHide)
         Else
-            _read_me.Show(DockPanel1, DockState.DockRight)
+            If Not _read_me.DockState = DockState.DockRight Then _read_me.Show(DockPanel1, DockState.DockRight)
             _pane = _read_me.Pane
         End If
         If Args.Settings.HideModule.Contains("Requirements") Then
-            _requirements.Show(DockPanel1, DockState.DockRightAutoHide)
+            If Not _requirements.DockState = DockState.DockRightAutoHide Then _requirements.Show(DockPanel1, DockState.DockRightAutoHide)
         Else
             If Not IsNothing(_pane) Then
-                _requirements.Show(_pane, DockAlignment.Bottom, 0.6)
+                If Not _requirements.VisibleState = DockState.DockRight Then _requirements.Show(_pane, DockAlignment.Bottom, 0.6)
             Else
-                _requirements.Show(DockPanel1, DockState.DockRight)
+                If Not _requirements.DockState = DockState.DockRight Then _requirements.Show(DockPanel1, DockState.DockRight)
             End If
             _pane = _requirements.Pane
         End If
         If Args.Settings.HideModule.Contains("Content") Then
-            _content.Show(DockPanel1, DockState.DockRightAutoHide)
+            If Not _content.DockState = DockState.DockRightAutoHide Then _content.Show(DockPanel1, DockState.DockRightAutoHide)
         Else
             If Not IsNothing(_pane) Then
-                _content.Show(_pane, DockAlignment.Bottom, 0.5)
+                If Not _content.VisibleState = DockState.DockRight Then _content.Show(_pane, DockAlignment.Bottom, 0.5)
             Else
-                _content.Show(DockPanel1, DockState.DockRight)
+                If Not _content.DockState = DockState.DockRight Then _content.Show(DockPanel1, DockState.DockRight)
             End If
             _pane = _content.Pane
         End If
+        DockPanel1.ResumeLayout()
+        Me.ResumeLayout()
 
     End Sub
 
@@ -162,6 +174,10 @@ Public Class ModuleMods
 
     Private Sub _content_RequestOpenSource() Handles _content.RequestOpenSource
         RaiseEvent RequestOpenSource()
+    End Sub
+
+    Private Sub _mod_list_ManageProfiles() Handles _mod_list.ManageProfiles
+        RaiseEvent ManageProfiles()
     End Sub
 
 End Class

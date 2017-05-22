@@ -63,6 +63,9 @@ Partial Class ModuleOutput
         Me.ClientSize = New System.Drawing.Size(292, 270)
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.RichTextBox1)
+        Me.DockAreas = CType((((WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) _
+            Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop) _
+            Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom), WeifenLuo.WinFormsUI.Docking.DockAreas)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ModuleOutput"
         Me.Text = "Output"

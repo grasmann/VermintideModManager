@@ -95,11 +95,16 @@ Public Class main
     Private Sub _download_mod_DownloadFinished() Handles _download_mod.DownloadFinished
         _mods = ModHelper.FindMods()
 
-        _mod_module.Close()
-        _mod_module = New ModuleMods() '_profiles, _settings, _mods)
-        _mod_module.Show(DockPanel1, DockState.Document)
+        Me.SuspendLayout()
+        DockPanel1.SuspendLayout()
+        '_mod_module.Close()
+        '_mod_module = New ModuleMods() '_profiles, _settings, _mods)
+        '_mod_module.Show(DockPanel1, DockState.Document)
         _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _mod_module.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
         show_modules()
+        DockPanel1.ResumeLayout()
+        Me.ResumeLayout()
 
         _controls.UpdateUI(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
@@ -107,9 +112,13 @@ Public Class main
     Private Sub _mod_downloader_DownloadFinished() Handles _mod_downloader.DownloadFinished
         _download_mod_DownloadFinished()
 
+        Me.SuspendLayout()
+        DockPanel1.SuspendLayout()
         If _mod_downloader.DockState = DockState.Document Then
             _mod_downloader.Show(DockPanel1, DockState.Document)
         End If
+        DockPanel1.ResumeLayout()
+        Me.ResumeLayout()
 
     End Sub
 
@@ -128,7 +137,7 @@ Public Class main
         SettingsBakery.Save(_settings)
     End Sub
 
-    Private Sub _controls_ManageProfiles() Handles _controls.ManageProfiles
+    Private Sub _controls_ManageProfiles() Handles _controls.ManageProfiles, _mod_module.ManageProfiles
         'Dim pm As New ProfileManager() '_profiles)
         'pm.ShowDialog()
         _profile_manager.Show(DockPanel1, DockState.Document)
@@ -178,10 +187,12 @@ Public Class main
         _mod_module = New ModuleMods
         _mod_module.Show(DockPanel1, DockState.Document)
         _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _mod_module.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
 
         _controls = New ModuleControl()
         _controls.Show(DockPanel1, DockState.DockTop)
-        _controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _controls.UpdateUI(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        '_controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
 
         '_read_me = New ModuleReadMe()
         _output = New ModuleOutput
@@ -243,7 +254,7 @@ Public Class main
         Output("Settings saved.")
         '_settings.Patched = Not _settings.Patched
         '_controls.OnInstallerRun()
-        _controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _mod_module.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
         _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
@@ -297,12 +308,16 @@ Public Class main
 
         Dim _pane As DockPane = Nothing
 
+        Me.SuspendLayout()
+        DockPanel1.SuspendLayout()
         If _settings.HideModule.Contains("Output") Then
             _output.Show(DockPanel1, DockState.DockBottomAutoHide)
         Else
             _output.Show(DockPanel1, DockState.DockBottom)
         End If
         _mod_module.ShowModules(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        DockPanel1.ResumeLayout()
+        Me.ResumeLayout()
         'If _settings.HideModule.Contains("ReadMe") Then
         '    _read_me.Show(DockPanel1, DockState.DockRightAutoHide)
         'Else
@@ -365,7 +380,7 @@ Public Class main
     End Sub
 
     Private Sub _profile_manager_UpdateProfiles() Handles _profile_manager.UpdateProfiles
-        _controls.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _mod_module.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
     Private Sub _controls_FindMods() Handles _controls.FindMods

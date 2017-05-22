@@ -63,6 +63,7 @@ Public Class ModuleModBrowser
 
     Private Sub list_files(Files As List(Of FileInfo))
         RaiseEvent RequestCheckModsInstalled(Files)
+        Dim scroll As Integer = DataGridView1.FirstDisplayedScrollingRowIndex
         DataGridView1.Rows.Clear()
         For Each file As FileInfo In Files
             DataGridView1.Rows.Add(file.DisplayName, file.Version, String.Format("{0} KB", FormatNumber(file.Size / 1024, 2)), "", "", file.Type)
@@ -84,6 +85,9 @@ Public Class ModuleModBrowser
 
             End If
         Next
+        If scroll >= 0 And scroll <= DataGridView1.Rows.Count Then
+            DataGridView1.FirstDisplayedScrollingRowIndex = scroll
+        End If
     End Sub
 
     Private Sub _fetcher_DoWork(sender As Object, e As DoWorkEventArgs) Handles _fetcher.DoWork

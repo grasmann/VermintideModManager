@@ -33,7 +33,9 @@ Partial Class About
         Me.btn_update = New System.Windows.Forms.Button()
         Me.lbl_up_to_date = New System.Windows.Forms.Label()
         Me.lbl_checking_update = New System.Windows.Forms.Label()
+        Me.pb_up_to_date = New System.Windows.Forms.PictureBox()
         CType(Me.pb_image, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_up_to_date, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl_name
@@ -121,12 +123,22 @@ Partial Class About
         Me.lbl_checking_update.Text = "Checking for Mod Manager updates ..."
         Me.lbl_checking_update.Visible = False
         '
+        'pb_up_to_date
+        '
+        Me.pb_up_to_date.Image = Global.VMM.My.Resources.Resources.install_16
+        Me.pb_up_to_date.Location = New System.Drawing.Point(415, 112)
+        Me.pb_up_to_date.Name = "pb_up_to_date"
+        Me.pb_up_to_date.Size = New System.Drawing.Size(16, 16)
+        Me.pb_up_to_date.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.pb_up_to_date.TabIndex = 8
+        Me.pb_up_to_date.TabStop = False
+        '
         'About
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(572, 250)
-        Me.Controls.Add(Me.lbl_checking_update)
+        Me.Controls.Add(Me.pb_up_to_date)
         Me.Controls.Add(Me.lbl_up_to_date)
         Me.Controls.Add(Me.btn_update)
         Me.Controls.Add(Me.lbl_update)
@@ -134,6 +146,7 @@ Partial Class About
         Me.Controls.Add(Me.lbl_version)
         Me.Controls.Add(Me.lbl_name)
         Me.Controls.Add(Me.pb_image)
+        Me.Controls.Add(Me.lbl_checking_update)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -142,6 +155,7 @@ Partial Class About
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "About"
         CType(Me.pb_image, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_up_to_date, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -155,4 +169,5 @@ Partial Class About
     Friend WithEvents btn_update As Button
     Friend WithEvents lbl_up_to_date As Label
     Friend WithEvents lbl_checking_update As Label
+    Friend WithEvents pb_up_to_date As PictureBox
 End Class

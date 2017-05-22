@@ -50,6 +50,7 @@ Partial Class ModuleReadMe
         Me.ClientSize = New System.Drawing.Size(683, 440)
         Me.CloseButtonVisible = False
         Me.Controls.Add(Me.txt_readme)
+        Me.DockAreas = CType((WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight), WeifenLuo.WinFormsUI.Docking.DockAreas)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ModuleReadMe"
         Me.Text = "ReadMe"

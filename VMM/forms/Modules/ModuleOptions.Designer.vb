@@ -62,9 +62,9 @@ Partial Class ModuleOptions
         'tab_view
         '
         Me.tab_view.Controls.Add(Me.grp_modules)
-        Me.tab_view.Location = New System.Drawing.Point(4, 24)
+        Me.tab_view.Location = New System.Drawing.Point(4, 22)
         Me.tab_view.Name = "tab_view"
-        Me.tab_view.Size = New System.Drawing.Size(353, 446)
+        Me.tab_view.Size = New System.Drawing.Size(353, 448)
         Me.tab_view.TabIndex = 1
         Me.tab_view.Text = "View"
         Me.tab_view.UseVisualStyleBackColor = True
@@ -119,10 +119,10 @@ Partial Class ModuleOptions
         'tab_development
         '
         Me.tab_development.Controls.Add(Me.grp_mod_repository)
-        Me.tab_development.Location = New System.Drawing.Point(4, 24)
+        Me.tab_development.Location = New System.Drawing.Point(4, 22)
         Me.tab_development.Name = "tab_development"
         Me.tab_development.Padding = New System.Windows.Forms.Padding(3)
-        Me.tab_development.Size = New System.Drawing.Size(353, 446)
+        Me.tab_development.Size = New System.Drawing.Size(353, 448)
         Me.tab_development.TabIndex = 0
         Me.tab_development.Text = "Development"
         Me.tab_development.UseVisualStyleBackColor = True
@@ -199,6 +199,7 @@ Partial Class ModuleOptions
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(363, 476)
         Me.Controls.Add(Me.Panel1)
+        Me.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document
         Me.HideOnClose = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ModuleOptions"

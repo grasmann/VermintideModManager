@@ -52,6 +52,7 @@ Partial Class ModuleDownload
         Me.ClientSize = New System.Drawing.Size(292, 54)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.Label1)
+        Me.DockAreas = CType((WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom), WeifenLuo.WinFormsUI.Docking.DockAreas)
         Me.Name = "ModuleDownload"
         Me.Text = "Download"
         Me.ResumeLayout(False)
