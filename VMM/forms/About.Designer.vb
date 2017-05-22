@@ -31,6 +31,8 @@ Partial Class About
         Me.pb_image = New System.Windows.Forms.PictureBox()
         Me.lbl_update = New System.Windows.Forms.Label()
         Me.btn_update = New System.Windows.Forms.Button()
+        Me.lbl_up_to_date = New System.Windows.Forms.Label()
+        Me.lbl_checking_update = New System.Windows.Forms.Label()
         CType(Me.pb_image, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -97,11 +99,35 @@ Partial Class About
         Me.btn_update.UseVisualStyleBackColor = True
         Me.btn_update.Visible = False
         '
+        'lbl_up_to_date
+        '
+        Me.lbl_up_to_date.AutoSize = True
+        Me.lbl_up_to_date.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_up_to_date.Location = New System.Drawing.Point(230, 110)
+        Me.lbl_up_to_date.Name = "lbl_up_to_date"
+        Me.lbl_up_to_date.Size = New System.Drawing.Size(188, 18)
+        Me.lbl_up_to_date.TabIndex = 6
+        Me.lbl_up_to_date.Text = "Mod Manager is up to date."
+        Me.lbl_up_to_date.Visible = False
+        '
+        'lbl_checking_update
+        '
+        Me.lbl_checking_update.AutoSize = True
+        Me.lbl_checking_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_checking_update.Location = New System.Drawing.Point(230, 110)
+        Me.lbl_checking_update.Name = "lbl_checking_update"
+        Me.lbl_checking_update.Size = New System.Drawing.Size(260, 18)
+        Me.lbl_checking_update.TabIndex = 7
+        Me.lbl_checking_update.Text = "Checking for Mod Manager updates ..."
+        Me.lbl_checking_update.Visible = False
+        '
         'About
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(572, 250)
+        Me.Controls.Add(Me.lbl_checking_update)
+        Me.Controls.Add(Me.lbl_up_to_date)
         Me.Controls.Add(Me.btn_update)
         Me.Controls.Add(Me.lbl_update)
         Me.Controls.Add(Me.lbl_made_by)
@@ -127,4 +153,6 @@ Partial Class About
     Friend WithEvents lbl_made_by As Label
     Friend WithEvents lbl_update As Label
     Friend WithEvents btn_update As Button
+    Friend WithEvents lbl_up_to_date As Label
+    Friend WithEvents lbl_checking_update As Label
 End Class

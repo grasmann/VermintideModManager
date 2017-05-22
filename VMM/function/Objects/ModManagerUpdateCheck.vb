@@ -7,6 +7,7 @@ Public Class ModManagerUpdateCheck
     Private WithEvents _check_update As New BackgroundWorker
 
     Public Event UpdateAvailable(File As ModuleModBrowser.file_info)
+    Public Event NoUpdate()
 
     Public Sub CheckForUpdate()
         If Not _check_update.IsBusy Then _check_update.RunWorkerAsync()
@@ -17,6 +18,8 @@ Public Class ModManagerUpdateCheck
             Dim file As ModuleModBrowser.file_info = e.Result
             If Not IsNothing(file) Then
                 RaiseEvent UpdateAvailable(file)
+            Else
+                RaiseEvent NoUpdate()
             End If
         Catch ex As Exception
             Debug.Print(ex.Message)
