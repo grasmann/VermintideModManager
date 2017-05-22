@@ -34,6 +34,7 @@ Partial Class About
         Me.lbl_up_to_date = New System.Windows.Forms.Label()
         Me.lbl_checking_update = New System.Windows.Forms.Label()
         Me.pb_up_to_date = New System.Windows.Forms.PictureBox()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         CType(Me.pb_image, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pb_up_to_date, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -133,11 +134,21 @@ Partial Class About
         Me.pb_up_to_date.TabIndex = 8
         Me.pb_up_to_date.TabStop = False
         '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProgressBar1.Location = New System.Drawing.Point(233, 131)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(331, 23)
+        Me.ProgressBar1.TabIndex = 9
+        '
         'About
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(572, 250)
+        Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.pb_up_to_date)
         Me.Controls.Add(Me.lbl_up_to_date)
         Me.Controls.Add(Me.btn_update)
@@ -170,4 +181,5 @@ Partial Class About
     Friend WithEvents lbl_up_to_date As Label
     Friend WithEvents lbl_checking_update As Label
     Friend WithEvents pb_up_to_date As PictureBox
+    Friend WithEvents ProgressBar1 As ProgressBar
 End Class
