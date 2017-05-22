@@ -24,8 +24,8 @@ Partial Class main
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main))
         Me.DockPanel1 = New WeifenLuo.WinFormsUI.Docking.DockPanel()
-        Me.VS2015BlueTheme1 = New WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme()
         Me.VS2015LightTheme1 = New WeifenLuo.WinFormsUI.Docking.VS2015LightTheme()
+        Me.VS2015BlueTheme1 = New WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme()
         Me.SuspendLayout()
         '
         'DockPanel1
@@ -34,7 +34,7 @@ Partial Class main
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DockPanel1.DockBackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(238, Byte), Integer), CType(CType(242, Byte), Integer))
-        Me.DockPanel1.DockBottomPortion = 100.0R
+        Me.DockPanel1.DockBottomPortion = 120.0R
         Me.DockPanel1.DockTopPortion = 59.0R
         Me.DockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow
         Me.DockPanel1.Location = New System.Drawing.Point(0, 0)

@@ -9,7 +9,7 @@ Public Class About
         lbl_checking_update.Visible = False
     End Sub
 
-    Private Sub _update_check_UpdateAvailable(File As ModuleModBrowser.file_info) Handles _update_check.UpdateAvailable
+    Private Sub _update_check_UpdateAvailable(File As FileInfo) Handles _update_check.UpdateAvailable
         lbl_update.Visible = True
         lbl_update.Text = String.Format("Update {0} is available.", File.Version)
         btn_update.Visible = True

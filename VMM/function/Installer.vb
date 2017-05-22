@@ -22,7 +22,7 @@ Module Installer
     Private Function CreateSymbolicLink(ByVal lpSymlinkFileName As String, ByVal lpTargetFileName As String, ByVal dwFlags As SYMBOLIC_LINK_FLAG) As Boolean
     End Function
     Private Function IsSymbolicLink(ByVal Path As String) As Boolean
-        Dim pathInfo As New FileInfo(Path)
+        Dim pathInfo As New System.IO.FileInfo(Path)
         Return pathInfo.Attributes.HasFlag(FileAttributes.ReparsePoint)
     End Function
 
@@ -149,8 +149,8 @@ Module Installer
             RecursiveFindFiles(dri.FullName, Files)
         Next
 
-        Dim fiArr As FileInfo() = di.GetFiles()
-        For Each fri As FileInfo In fiArr
+        Dim fiArr As System.IO.FileInfo() = di.GetFiles()
+        For Each fri As System.IO.FileInfo In fiArr
             'If Not fri.Extension = ".mod" Then
             Dim File As New File
             File.Path = fri.FullName

@@ -94,7 +94,6 @@ Public Class main
 
     Private Sub _download_mod_DownloadFinished() Handles _download_mod.DownloadFinished
         _mods = ModHelper.FindMods()
-        '_args = New ModuleArgs(_profiles, _settings, _mods)
 
         _mod_module.Close()
         _mod_module = New ModuleMods() '_profiles, _settings, _mods)
@@ -102,11 +101,16 @@ Public Class main
         _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
         show_modules()
 
-        '_requirements.Close()
-        '_requirements = New ModuleRequirements()
-        '_requirements.Show(_read_me.Pane, DockAlignment.Bottom, 0.5)
-
         _controls.UpdateUI(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
+    Private Sub _mod_downloader_DownloadFinished() Handles _mod_downloader.DownloadFinished
+        _download_mod_DownloadFinished()
+
+        If _mod_downloader.DockState = DockState.Document Then
+            _mod_downloader.Show(DockPanel1, DockState.Document)
+        End If
+
     End Sub
 
     Private Sub _controls_ShowAbout() Handles _controls.ShowAbout
@@ -368,7 +372,7 @@ Public Class main
         _mod_downloader.Show(DockPanel1, DockState.Document)
     End Sub
 
-    Private Sub _mod_downloader_RequestCheckModsInstalled(Files As List(Of ModuleModBrowser.file_info)) Handles _mod_downloader.RequestCheckModsInstalled
+    Private Sub _mod_downloader_RequestCheckModsInstalled(Files As List(Of FileInfo)) Handles _mod_downloader.RequestCheckModsInstalled
         _mod_downloader.CheckModsInstalled(Files, New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 

@@ -9,8 +9,8 @@ Module ModHelper
         Dim Mods As New List(Of VermintideMod)
         If My.Computer.FileSystem.DirectoryExists(PathHelper.Mods) Then
             Dim di As New DirectoryInfo(PathHelper.Mods)
-            Dim fiArr As FileInfo() = di.GetFiles()
-            For Each fri As FileInfo In fiArr
+            Dim fiArr As System.IO.FileInfo() = di.GetFiles()
+            For Each fri As System.IO.FileInfo In fiArr
                 If fri.Extension = ".mod" Then
                     Dim _mod As VermintideMod = ReadMod(fri.FullName)
                     If Not IsNothing(_mod) Then
@@ -35,6 +35,18 @@ Module ModHelper
             Next
         Next
         Return Mods
+    End Function
+
+    Public Function TestMod(Path As String) As Boolean
+        Try
+            Dim vm As VermintideMod = ReadMod(Path)
+            If Not IsNothing(vm) Then
+                Return True
+            End If
+        Catch ex As Exception
+            Debug.Print(ex.Message)
+        End Try
+        Return False
     End Function
 
     Private Function ReadMod(Path As String) As VermintideMod

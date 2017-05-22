@@ -1,65 +1,70 @@
 ﻿Imports System.ComponentModel
 Imports System.Net
+Imports VMM
 
 Public Class ModuleModDownloader
 
-    Public Class Download
-        Public Property DisplayName As String
-        Public Property Name As String
-        Public Property Address As String
-        Public Property Target As String
-        Public Property Temp As String
+    'Public Class Download
+    '    Public Property DisplayName As String
+    '    Public Property Name As String
+    '    Public Property Address As String
+    '    Public Property Target As String
+    '    Public Property Temp As String
 
-        Private WithEvents _client As New WebClient
+    '    Private WithEvents _client As New WebClient
 
-        Public Event DownloadFinished(Download As Download)
-        Public Event ProgressChanged(Download As Download, Percentage As Integer)
+    '    Public Event DownloadFinished(Download As Download)
+    '    Public Event ProgressChanged(Download As Download, Percentage As Integer)
 
-        Public Sub New(File As ModuleModBrowser.file_info)
-            DisplayName = File.DisplayName
-            Name = File.Name
-            Address = String.Format("{0}{1}", ServerHelper._domain_url, File.File)
-            Target = String.Format("{0}/{1}", PathHelper.Mods, File.File)
-            Temp = String.Format("{0}{1}", PathHelper.Temp, File.File.Replace("/", "\"))
-            '_worker.WorkerSupportsCancellation = True
-            '_worker.WorkerReportsProgress = True
-            'start_download()
-        End Sub
+    '    Public Sub New(File As ModuleModBrowser.file_info)
+    '        DisplayName = File.DisplayName
+    '        Name = File.Name
+    '        Address = String.Format("{0}{1}", ServerHelper._domain_url, File.File)
+    '        Target = String.Format("{0}/{1}", PathHelper.Mods, File.File)
+    '        Temp = String.Format("{0}{1}", PathHelper.Temp, File.File.Replace("/", "\"))
+    '        '_worker.WorkerSupportsCancellation = True
+    '        '_worker.WorkerReportsProgress = True
+    '        'start_download()
+    '    End Sub
 
-        Public Sub StartDownload()
-            start_download()
-        End Sub
+    '    Public Sub StartDownload()
+    '        start_download()
+    '    End Sub
 
-        Private Sub start_download()
-            Try
-                If My.Computer.FileSystem.FileExists(Temp) Then
-                    My.Computer.FileSystem.DeleteFile(Temp)
-                End If
-                _client.DownloadFileAsync(New Uri(Address), Temp)
-                Debug.Print(String.Format("Downloading mod {0} from {1} to {2} ...", DisplayName, Address, Temp))
-            Catch ex As Exception
-                Debug.Print(ex.Message)
-            End Try
-        End Sub
+    '    Private Sub start_download()
+    '        Try
+    '            If My.Computer.FileSystem.FileExists(Temp) Then
+    '                My.Computer.FileSystem.DeleteFile(Temp)
+    '            End If
+    '            _client.DownloadFileAsync(New Uri(Address), Temp)
+    '            Debug.Print(String.Format("Downloading mod {0} from {1} to {2} ...", DisplayName, Address, Temp))
+    '        Catch ex As Exception
+    '            Debug.Print(ex.Message)
+    '        End Try
+    '    End Sub
 
-        Private Sub _client_DownloadProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs) Handles _client.DownloadProgressChanged
-            'RaiseEvent ProgressChanged()
-            Debug.Print(e.ProgressPercentage)
-            RaiseEvent ProgressChanged(Me, e.ProgressPercentage)
-        End Sub
+    '    Private Sub _client_DownloadProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs) Handles _client.DownloadProgressChanged
+    '        'RaiseEvent ProgressChanged()
+    '        Debug.Print(e.ProgressPercentage)
+    '        RaiseEvent ProgressChanged(Me, e.ProgressPercentage)
+    '    End Sub
 
-        Private Sub _client_DownloadFileCompleted(sender As Object, e As AsyncCompletedEventArgs) Handles _client.DownloadFileCompleted
-            Debug.Print("Finished")
-            RaiseEvent DownloadFinished(Me)
-        End Sub
+    '    Private Sub _client_DownloadFileCompleted(sender As Object, e As AsyncCompletedEventArgs) Handles _client.DownloadFileCompleted
+    '        Debug.Print("Finished")
+    '        RaiseEvent DownloadFinished(Me)
+    '    End Sub
 
-    End Class
+    'End Class
 
-    Private _downloads As List(Of Download)
+    'Private _downloads As List(Of Download)
+
+    Private WithEvents _downloader As New Downloader
+
+    Public Event ModDownloaded(Path As String)
 
     Public Sub New()
         InitializeComponent()
-        _downloads = New List(Of Download)
+        '_downloads = New List(Of Download)
     End Sub
 
     'Public Sub AddDownload(DisplayName As String, Name As String, Address As String, Target As String)
@@ -68,12 +73,13 @@ Public Class ModuleModDownloader
     '    new_downloads(New List(Of Download)({download}))
     'End Sub
 
-    Public Sub AddDownload(Download As Download)
-        _downloads.Add(Download)
-        AddHandler Download.DownloadFinished, AddressOf download_finished
-        AddHandler Download.ProgressChanged, AddressOf download_progress_changed
-        new_downloads(New List(Of Download)({Download}))
-        Download.StartDownload()
+    Public Sub AddDownload(Downloads As List(Of Download))
+        _downloader.AddDownloads(Downloads)
+        '_downloads.Add(Download)
+        'AddHandler Download.DownloadFinished, AddressOf download_finished
+        'AddHandler Download.ProgressChanged, AddressOf download_progress_changed
+        new_downloads(Downloads)
+        'Download.StartDownload()
     End Sub
 
     'Public Sub AddDownloads(Downloads As List(Of Download))
@@ -81,29 +87,29 @@ Public Class ModuleModDownloader
     '    new_downloads(Downloads)
     'End Sub
 
-    Private Sub download_finished(Download As Download)
-        _downloads.Remove(Download)
-        For Each Row As DataGridViewRow In DataGridView1.Rows
-            Dim dl As Download = Row.Tag
-            If Not IsNothing(dl) Then
-                If Download.Name = dl.Name Then
-                    'DataGridView1.Rows.Remove(Row)
-                    Exit Sub
-                End If
-            End If
-        Next
-    End Sub
+    'Private Sub download_finished(Download As Download)
+    '    _downloads.Remove(Download)
+    '    For Each Row As DataGridViewRow In DataGridView1.Rows
+    '        Dim dl As Download = Row.Tag
+    '        If Not IsNothing(dl) Then
+    '            If Download.Name = dl.Name Then
+    '                'DataGridView1.Rows.Remove(Row)
+    '                Exit Sub
+    '            End If
+    '        End If
+    '    Next
+    'End Sub
 
-    Private Sub download_progress_changed(Download As Download, Percentage As Integer)
-        For Each Row As DataGridViewRow In DataGridView1.Rows
-            Dim dl As Download = Row.Tag
-            If Not IsNothing(dl) Then
-                If Download.Name = dl.Name Then
-                    Row.Cells(1).Value = Percentage
-                End If
-            End If
-        Next
-    End Sub
+    'Private Sub download_progress_changed(Download As Download, Percentage As Integer)
+    '    For Each Row As DataGridViewRow In DataGridView1.Rows
+    '        Dim dl As Download = Row.Tag
+    '        If Not IsNothing(dl) Then
+    '            If Download.Name = dl.Name Then
+    '                Row.Cells(1).Value = Percentage
+    '            End If
+    '        End If
+    '    Next
+    'End Sub
 
     Private Sub new_downloads(Downloads As List(Of Download))
         For Each download As Download In Downloads
@@ -120,6 +126,37 @@ Public Class ModuleModDownloader
                 DataGridView1.Rows(e.RowIndex).Selected = True
             End If
         End If
+    End Sub
+
+    Private Sub _downloader_DownloadFinished(Download As Download) Handles _downloader.DownloadFinished
+        ' Remove from list
+        For Each Row As DataGridViewRow In DataGridView1.Rows
+            Dim dl As Download = Row.Tag
+            If Not IsNothing(dl) Then
+                If Download.Name = dl.Name Then
+                    DataGridView1.Rows.Remove(Row)
+                    Exit For
+                End If
+            End If
+        Next
+        ' Check mod file
+        If ModHelper.TestMod(Download.Temp) Then
+            If Not My.Computer.FileSystem.FileExists(Download.Target) Then
+                My.Computer.FileSystem.CopyFile(Download.Temp, Download.Target)
+                RaiseEvent ModDownloaded(Download.Target)
+            End If
+        End If
+    End Sub
+
+    Private Sub _downloader_ProgressChanged(Download As Download, Percentage As Integer) Handles _downloader.ProgressChanged
+        For Each Row As DataGridViewRow In DataGridView1.Rows
+            Dim dl As Download = Row.Tag
+            If Not IsNothing(dl) Then
+                If Download.Name = dl.Name Then
+                    Row.Cells(1).Value = Percentage
+                End If
+            End If
+        Next
     End Sub
 
 End Class

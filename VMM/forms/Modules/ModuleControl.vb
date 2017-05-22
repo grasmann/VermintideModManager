@@ -32,6 +32,14 @@ Public Class ModuleControl
         RaiseEvent ShowAbout()
     End Sub
 
+    Private Sub btn_options_Click(sender As Object, e As EventArgs) Handles btn_options.Click
+        RaiseEvent ShowOptions()
+    End Sub
+
+    Private Sub btn_find_mods_Click(sender As Object, e As EventArgs) Handles btn_find_mods.Click
+        RaiseEvent FindMods()
+    End Sub
+
     ' ##### Public ################################################################################
 
     Public Sub UpdateUI(Args As main.ModuleArgs)
@@ -39,9 +47,10 @@ Public Class ModuleControl
     End Sub
 
     Public Sub UpdateProfiles(Args As main.ModuleArgs)
-        list_profiles(Args.Profiles)
-        cmb_profiles.SelectedItem = Args.SelectedProfile.Name
-        update_ui(Args.Settings)
+        'list_profiles(Args.Profiles)
+        'cmb_profiles.SelectedItem = Args.SelectedProfile.Name
+        'update_ui(Args.Settings)
+        update_profiles(Args)
     End Sub
 
     ' ##### Functionality ################################################################################
@@ -56,6 +65,12 @@ Public Class ModuleControl
         End If
         btn_install.Enabled = PathHelper.HasFiles(PathHelper.Mods)
         cmb_profiles.Enabled = Settings.Patched And PathHelper.HasFiles(PathHelper.Mods)
+    End Sub
+
+    Private Sub update_profiles(Args As main.ModuleArgs)
+        list_profiles(Args.Profiles)
+        cmb_profiles.SelectedItem = Args.SelectedProfile.Name
+        update_ui(Args.Settings)
     End Sub
 
     Private Sub list_profiles(Profiles As List(Of VermintideProfile))
@@ -74,14 +89,6 @@ Public Class ModuleControl
             exclude_manage = cmb_profiles.SelectedIndex
             RaiseEvent SelectProfile(cmb_profiles.Items(cmb_profiles.SelectedIndex))
         End If
-    End Sub
-
-    Private Sub btn_options_Click(sender As Object, e As EventArgs) Handles btn_options.Click
-        RaiseEvent ShowOptions()
-    End Sub
-
-    Private Sub btn_find_mods_Click(sender As Object, e As EventArgs) Handles btn_find_mods.Click
-        RaiseEvent FindMods()
     End Sub
 
 End Class

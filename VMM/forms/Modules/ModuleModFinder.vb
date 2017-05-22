@@ -6,7 +6,8 @@ Public Class ModuleModFinder
     Private WithEvents _find_mods As ModuleModBrowser
     Private WithEvents _downloader As ModuleModDownloader
 
-    Public Event RequestCheckModsInstalled(Files As List(Of ModuleModBrowser.file_info))
+    Public Event RequestCheckModsInstalled(Files As List(Of FileInfo))
+    Public Event DownloadFinished()
 
     Public Sub New()
         InitializeComponent()
@@ -16,17 +17,23 @@ Public Class ModuleModFinder
         _downloader.Show(DockPanel1, DockState.DockRight)
     End Sub
 
-    Public Sub CheckModsInstalled(Files As List(Of ModuleModBrowser.file_info), Args As main.ModuleArgs)
+    Public Sub CheckModsInstalled(Files As List(Of FileInfo), Args As main.ModuleArgs)
         _find_mods.CheckModsInstalled(Files, Args)
     End Sub
 
-    Private Sub _find_mods_RequestCheckModsInstalled(Files As List(Of ModuleModBrowser.file_info)) Handles _find_mods.RequestCheckModsInstalled
+    Private Sub _find_mods_RequestCheckModsInstalled(Files As List(Of FileInfo)) Handles _find_mods.RequestCheckModsInstalled
         RaiseEvent RequestCheckModsInstalled(Files)
     End Sub
 
-    Private Sub _find_mods_AddDownload(File As ModuleModBrowser.file_info) Handles _find_mods.AddDownload
-        Dim Download As New ModuleModDownloader.Download(File)
-        _downloader.AddDownload(Download)
+    Private Sub _find_mods_AddDownload(File As FileInfo) Handles _find_mods.AddDownload
+        Dim Download As New Download(File)
+        _downloader.AddDownload(New List(Of Download)({Download}))
+    End Sub
+
+    Private Sub _downloader_ModDownloaded(Path As String) Handles _downloader.ModDownloaded
+        Debug.Print(Path)
+        RaiseEvent DownloadFinished()
+        _find_mods.UpdateList()
     End Sub
 
 End Class

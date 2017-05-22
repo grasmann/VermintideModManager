@@ -5,33 +5,33 @@ Imports System.Drawing
 
 Public Class ModuleModBrowser
 
-    Public Class file_info
-        Public Property Name As String
-        Public Property Version As String
-        Public Property Type As Integer
-        Public Property File As String
-        Public Property Size As Integer
-        Public Property Installed As Boolean
-        Public ReadOnly Property DisplayName As String
-            Get
-                Dim dname As String = String.Empty
-                For Each c As Char In Name
-                    If c.ToString = Char.ToUpper(c).ToString Then
-                        dname += " " + c.ToString
-                    Else
-                        dname += c.ToString
-                    End If
-                Next
-                Return dname
-            End Get
-        End Property
-    End Class
+    'Public Class file_info
+    '    Public Property Name As String
+    '    Public Property Version As String
+    '    Public Property Type As Integer
+    '    Public Property File As String
+    '    Public Property Size As Integer
+    '    Public Property Installed As Boolean
+    '    Public ReadOnly Property DisplayName As String
+    '        Get
+    '            Dim dname As String = String.Empty
+    '            For Each c As Char In Name
+    '                If c.ToString = Char.ToUpper(c).ToString Then
+    '                    dname += " " + c.ToString
+    '                Else
+    '                    dname += c.ToString
+    '                End If
+    '            Next
+    '            Return dname
+    '        End Get
+    '    End Property
+    'End Class
 
     Private WithEvents _fetcher As New BackgroundWorker
 
-    Public Event RequestCheckModsInstalled(Files As List(Of file_info))
+    Public Event RequestCheckModsInstalled(Files As List(Of FileInfo))
     'Public Event AddDownload(Download As ModuleModDownloader.Download)
-    Public Event AddDownload(File As ModuleModBrowser.file_info)
+    Public Event AddDownload(File As FileInfo)
 
     Private Sub ModuleModFinder_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         ComboBox1.SelectedIndex = 0
@@ -41,14 +41,18 @@ Public Class ModuleModBrowser
         fetch_info()
     End Sub
 
+    Public Sub UpdateList()
+        fetch_info()
+    End Sub
+
     Private Sub fetch_info()
         If Not _fetcher.IsBusy Then
             _fetcher.RunWorkerAsync(ComboBox1.SelectedItem.ToString.ToLower)
         End If
     End Sub
 
-    Public Sub CheckModsInstalled(Files As List(Of file_info), Args As main.ModuleArgs)
-        For Each file As file_info In Files
+    Public Sub CheckModsInstalled(Files As List(Of FileInfo), Args As main.ModuleArgs)
+        For Each file As FileInfo In Files
             For Each vm As VermintideMod In Args.Mods
                 If file.Name = vm.mod_name And file.Version = vm.version Then
                     file.Installed = True
@@ -57,10 +61,10 @@ Public Class ModuleModBrowser
         Next
     End Sub
 
-    Private Sub list_files(Files As List(Of file_info))
+    Private Sub list_files(Files As List(Of FileInfo))
         RaiseEvent RequestCheckModsInstalled(Files)
         DataGridView1.Rows.Clear()
-        For Each file As file_info In Files
+        For Each file As FileInfo In Files
             DataGridView1.Rows.Add(file.DisplayName, file.Version, String.Format("{0} KB", FormatNumber(file.Size / 1024, 2)), "", "", file.Type)
             Dim Row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Count - 1)
             Row.Tag = file
@@ -85,9 +89,9 @@ Public Class ModuleModBrowser
     Private Sub _fetcher_DoWork(sender As Object, e As DoWorkEventArgs) Handles _fetcher.DoWork
         Try
             Dim client As New WebClient
-            Dim url As String = String.Format("{0}file_list.php?mode={1}", ServerHelper._domain_url, e.Argument)
+            Dim url As String = String.Format("{0}file_list.php?mode={1}", ServerHelper.DomainUrl, e.Argument)
             Dim str As String = client.DownloadString(url)
-            Dim files As List(Of file_info) = JsonConvert.DeserializeObject(Of List(Of file_info))(str)
+            Dim files As List(Of FileInfo) = JsonConvert.DeserializeObject(Of List(Of FileInfo))(str)
             e.Result = files
         Catch ex As Exception
             Debug.Print(ex.Message)
@@ -116,10 +120,10 @@ Public Class ModuleModBrowser
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         If e.RowIndex >= 0 Then
             If e.ColumnIndex = 4 Then
-                Dim file As ModuleModBrowser.file_info = DataGridView1.Rows(e.RowIndex).Tag
+                Dim file As FileInfo = DataGridView1.Rows(e.RowIndex).Tag
                 If Not IsNothing(file) Then
                     'Debug.Print(String.Format("Downloading mod {0} from http://www.grasmann.heliohost.org/{1} ...", file.DisplayName, file.File))
-                    'RaiseEvent AddDownload(file) '.DisplayName, String.Format("http://www.grasmann.heliohost.org/{0}", file.File), "")
+                    RaiseEvent AddDownload(file) '.DisplayName, String.Format("http://www.grasmann.heliohost.org/{0}", file.File), "")
                 End If
             End If
         End If

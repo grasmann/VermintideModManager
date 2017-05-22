@@ -65,7 +65,7 @@ Module PathHelper
     Public Function HasFiles(Path As String) As Boolean
         Try
             Dim di As New DirectoryInfo(Path)
-            Dim fiArr As FileInfo() = di.GetFiles()
+            Dim fiArr As System.IO.FileInfo() = di.GetFiles()
         Catch ex As Exception
             Return False
         End Try
