@@ -2,6 +2,7 @@ Installation:
 
 Unzip / put vmm.exe and dlls where ever you want.
 Put the files of the mod framework into a "mod" subfolder.
+If you want the program to install updates automatically and restart extract Updater.exe as well.
 
 Usage:
 
@@ -22,3 +23,6 @@ Features:
 - Display mod requirements
 - Direct access to content of mod packages
 - Find and download mods 
+
+Requirements:
+- Microsoft .NET Framework 4.5.2
