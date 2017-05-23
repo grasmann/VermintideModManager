@@ -38,10 +38,10 @@ Partial Class ModuleModList
         Me.ActivateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeactivateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SwapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmb_profiles = New System.Windows.Forms.ComboBox()
-        Me.lbl_profile = New System.Windows.Forms.Label()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cmb_profiles = New System.Windows.Forms.ComboBox()
+        Me.lbl_profile = New System.Windows.Forms.Label()
         CType(Me.MetroGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -128,22 +128,34 @@ Partial Class ModuleModList
         '
         Me.ActivateToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.install_16
         Me.ActivateToolStripMenuItem.Name = "ActivateToolStripMenuItem"
-        Me.ActivateToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.ActivateToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ActivateToolStripMenuItem.Text = "Activate"
         '
         'DeactivateToolStripMenuItem
         '
         Me.DeactivateToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.uninstall_16
         Me.DeactivateToolStripMenuItem.Name = "DeactivateToolStripMenuItem"
-        Me.DeactivateToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.DeactivateToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.DeactivateToolStripMenuItem.Text = "Deactivate"
         '
         'SwapToolStripMenuItem
         '
         Me.SwapToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.swap_16
         Me.SwapToolStripMenuItem.Name = "SwapToolStripMenuItem"
-        Me.SwapToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
+        Me.SwapToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SwapToolStripMenuItem.Text = "Swap"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.uninstall_16
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'cmb_profiles
         '
@@ -167,19 +179,6 @@ Partial Class ModuleModList
         Me.lbl_profile.Size = New System.Drawing.Size(62, 24)
         Me.lbl_profile.TabIndex = 3
         Me.lbl_profile.Text = "Profile"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
-        Me.ToolStripSeparator1.Visible = False
-        '
-        'DeleteToolStripMenuItem
-        '
-        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DeleteToolStripMenuItem.Text = "Delete"
-        Me.DeleteToolStripMenuItem.Visible = False
         '
         'ModuleModList
         '

@@ -32,6 +32,7 @@ Partial Class ModuleModBrowser
         Me.col_img = New System.Windows.Forms.DataGridViewImageColumn()
         Me.col_installed = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.col_type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btn_refresh = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -45,7 +46,7 @@ Partial Class ModuleModBrowser
         Me.ComboBox1.Items.AddRange(New Object() {"All", "Feature", "Fix", "Convenience", "Gamemode", "Cheat", "Debug"})
         Me.ComboBox1.Location = New System.Drawing.Point(0, 0)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(1024, 28)
+        Me.ComboBox1.Size = New System.Drawing.Size(948, 28)
         Me.ComboBox1.TabIndex = 0
         '
         'DataGridView1
@@ -115,6 +116,19 @@ Partial Class ModuleModBrowser
         Me.col_type.ReadOnly = True
         Me.col_type.Visible = False
         '
+        'btn_refresh
+        '
+        Me.btn_refresh.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_refresh.Image = Global.VMM.My.Resources.Resources.swap_16
+        Me.btn_refresh.Location = New System.Drawing.Point(948, -1)
+        Me.btn_refresh.Name = "btn_refresh"
+        Me.btn_refresh.Size = New System.Drawing.Size(77, 30)
+        Me.btn_refresh.TabIndex = 2
+        Me.btn_refresh.Text = "Refresh"
+        Me.btn_refresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_refresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_refresh.UseVisualStyleBackColor = True
+        '
         'ModuleModBrowser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -122,6 +136,7 @@ Partial Class ModuleModBrowser
         Me.ClientSize = New System.Drawing.Size(1024, 499)
         Me.CloseButton = False
         Me.CloseButtonVisible = False
+        Me.Controls.Add(Me.btn_refresh)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ComboBox1)
         Me.DockAreas = WeifenLuo.WinFormsUI.Docking.DockAreas.Document
@@ -140,4 +155,5 @@ Partial Class ModuleModBrowser
     Friend WithEvents col_img As DataGridViewImageColumn
     Friend WithEvents col_installed As DataGridViewTextBoxColumn
     Friend WithEvents col_type As DataGridViewTextBoxColumn
+    Friend WithEvents btn_refresh As Button
 End Class

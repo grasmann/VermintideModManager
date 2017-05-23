@@ -17,6 +17,10 @@ Public Class ModuleModFinder
         _downloader.Show(DockPanel1, DockState.DockRight)
     End Sub
 
+    Public Sub UpdateList()
+        _find_mods.UpdateList()
+    End Sub
+
     Public Sub CheckModsInstalled(Files As List(Of FileInfo), Args As main.ModuleArgs)
         _find_mods.CheckModsInstalled(Files, Args)
     End Sub

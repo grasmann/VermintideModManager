@@ -16,6 +16,7 @@ Public Class ModuleModList
     Public Event InstallMods()
 
     Public Event ManageProfiles()
+    Public Event ModDeleted(VermintideMod As VermintideMod)
 
     ' ##### Events ################################################################################
 
@@ -262,6 +263,15 @@ Public Class ModuleModList
     Private Sub mod_changed()
         update_mods()
         RaiseEvent InstallMods()
+    End Sub
+
+    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
+        For Each Row As DataGridViewRow In MetroGrid1.SelectedRows
+            Dim VermintideMod As VermintideMod = Row.Tag
+            If Not IsNothing(VermintideMod) Then
+                RaiseEvent ModDeleted(VermintideMod)
+            End If
+        Next
     End Sub
 
 End Class

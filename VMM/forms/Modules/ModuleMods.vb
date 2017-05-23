@@ -20,6 +20,7 @@ Public Class ModuleMods
     Public Event Output(Text As String)
 
     Public Event ManageProfiles()
+    Public Event ModDeleted(VermintideMod As VermintideMod)
 
     Private Sub _mod_list_Output(Text As String) Handles _mod_list.Output, _requirements.Output
         RaiseEvent Output(Text)
@@ -178,6 +179,10 @@ Public Class ModuleMods
 
     Private Sub _mod_list_ManageProfiles() Handles _mod_list.ManageProfiles
         RaiseEvent ManageProfiles()
+    End Sub
+
+    Private Sub _mod_list_ModDeleted(VermintideMod As VermintideMod) Handles _mod_list.ModDeleted
+        RaiseEvent ModDeleted(VermintideMod)
     End Sub
 
 End Class

@@ -88,4 +88,8 @@ Public Class ModuleModBrowser
         End If
     End Sub
 
+    Private Sub btn_refresh_Click(sender As Object, e As EventArgs) Handles btn_refresh.Click
+        fetch_info()
+    End Sub
+
 End Class

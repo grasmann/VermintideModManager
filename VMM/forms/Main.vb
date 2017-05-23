@@ -391,6 +391,20 @@ Public Class main
         _mod_downloader.CheckModsInstalled(Files, New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
+    Private Sub _mod_module_ModDeleted(VermintideMod As VermintideMod) Handles _mod_module.ModDeleted
+        _mods.Remove(VermintideMod)
+        Try
+            If My.Computer.FileSystem.FileExists(VermintideMod.path) Then
+                My.Computer.FileSystem.DeleteFile(VermintideMod.path)
+            End If
+        Catch ex As Exception
+            Debug.Print(ex.Message)
+        End Try
+        _mod_module.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        _mod_downloader.UpdateList()
+    End Sub
+
     'Private Sub _mod_module_RequestShowModules() Handles _mod_module.RequestShowModules
     '    _mod_module.ShowModules(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     'End Sub
