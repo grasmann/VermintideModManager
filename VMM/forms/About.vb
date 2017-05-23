@@ -130,6 +130,9 @@ Public Class About
         lbl_framework_update_available.Visible = False
         btn_framework.Visible = False
         bar_framework.Visible = False
+        If String.IsNullOrEmpty(ModHelper.FrameworkVersion) Then
+            _framework_check = New UpdateCheck("framework", "0.0.0")
+        End If
         _framework_check.CheckForUpdate()
     End Sub
 
