@@ -40,7 +40,7 @@ Public Class UpdateCheck
             Dim json As String = client.DownloadString(String.Format("{0}file_list.php?mode={1}", ServerHelper.DomainUrl, _mode))
             Dim files As List(Of FileInfo) = JsonConvert.DeserializeObject(Of List(Of FileInfo))(json)
             Dim file As FileInfo = files(files.Count - 1)
-            If Compare(file.Version, _version) Then
+            If Compare(file.Version, _version) Or String.IsNullOrEmpty(_version) Then
                 Debug.Print("New version available.")
                 e.Result = file
             End If
