@@ -30,14 +30,17 @@ Partial Class About
         Me.lbl_made_by = New System.Windows.Forms.Label()
         Me.pb_image = New System.Windows.Forms.PictureBox()
         Me.lbl_update = New System.Windows.Forms.Label()
-        Me.btn_update = New System.Windows.Forms.Button()
+        Me.btn_manager = New System.Windows.Forms.Button()
         Me.lbl_up_to_date = New System.Windows.Forms.Label()
         Me.lbl_checking_update = New System.Windows.Forms.Label()
         Me.pb_up_to_date = New System.Windows.Forms.PictureBox()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.bar_manager = New System.Windows.Forms.ProgressBar()
         Me.lbl_framework_up_to_date = New System.Windows.Forms.Label()
         Me.pb_framework = New System.Windows.Forms.PictureBox()
         Me.lbl_framework_checking = New System.Windows.Forms.Label()
+        Me.lbl_framework_update_available = New System.Windows.Forms.Label()
+        Me.bar_framework = New System.Windows.Forms.ProgressBar()
+        Me.btn_framework = New System.Windows.Forms.Button()
         CType(Me.pb_image, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pb_up_to_date, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pb_framework, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,31 +89,31 @@ Partial Class About
         '
         Me.lbl_update.AutoSize = True
         Me.lbl_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_update.Location = New System.Drawing.Point(230, 87)
+        Me.lbl_update.Location = New System.Drawing.Point(230, 112)
         Me.lbl_update.Name = "lbl_update"
         Me.lbl_update.Size = New System.Drawing.Size(152, 18)
         Me.lbl_update.TabIndex = 4
         Me.lbl_update.Text = "New Version available"
         Me.lbl_update.Visible = False
         '
-        'btn_update
+        'btn_manager
         '
-        Me.btn_update.Image = Global.VMM.My.Resources.Resources.launch_24
-        Me.btn_update.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_update.Location = New System.Drawing.Point(233, 108)
-        Me.btn_update.Name = "btn_update"
-        Me.btn_update.Size = New System.Drawing.Size(98, 30)
-        Me.btn_update.TabIndex = 5
-        Me.btn_update.Text = "Update"
-        Me.btn_update.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btn_update.UseVisualStyleBackColor = True
-        Me.btn_update.Visible = False
+        Me.btn_manager.Image = Global.VMM.My.Resources.Resources.launch_24
+        Me.btn_manager.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_manager.Location = New System.Drawing.Point(471, 107)
+        Me.btn_manager.Name = "btn_manager"
+        Me.btn_manager.Size = New System.Drawing.Size(93, 30)
+        Me.btn_manager.TabIndex = 5
+        Me.btn_manager.Text = "Update"
+        Me.btn_manager.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_manager.UseVisualStyleBackColor = True
+        Me.btn_manager.Visible = False
         '
         'lbl_up_to_date
         '
         Me.lbl_up_to_date.AutoSize = True
         Me.lbl_up_to_date.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_up_to_date.Location = New System.Drawing.Point(230, 87)
+        Me.lbl_up_to_date.Location = New System.Drawing.Point(230, 112)
         Me.lbl_up_to_date.Name = "lbl_up_to_date"
         Me.lbl_up_to_date.Size = New System.Drawing.Size(184, 18)
         Me.lbl_up_to_date.TabIndex = 6
@@ -121,7 +124,7 @@ Partial Class About
         '
         Me.lbl_checking_update.AutoSize = True
         Me.lbl_checking_update.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_checking_update.Location = New System.Drawing.Point(230, 87)
+        Me.lbl_checking_update.Location = New System.Drawing.Point(230, 112)
         Me.lbl_checking_update.Name = "lbl_checking_update"
         Me.lbl_checking_update.Size = New System.Drawing.Size(260, 18)
         Me.lbl_checking_update.TabIndex = 7
@@ -131,21 +134,21 @@ Partial Class About
         'pb_up_to_date
         '
         Me.pb_up_to_date.Image = Global.VMM.My.Resources.Resources.install_16
-        Me.pb_up_to_date.Location = New System.Drawing.Point(415, 89)
+        Me.pb_up_to_date.Location = New System.Drawing.Point(415, 114)
         Me.pb_up_to_date.Name = "pb_up_to_date"
         Me.pb_up_to_date.Size = New System.Drawing.Size(16, 16)
         Me.pb_up_to_date.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.pb_up_to_date.TabIndex = 8
         Me.pb_up_to_date.TabStop = False
         '
-        'ProgressBar1
+        'bar_manager
         '
-        Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.bar_manager.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(233, 108)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(331, 23)
-        Me.ProgressBar1.TabIndex = 9
+        Me.bar_manager.Location = New System.Drawing.Point(233, 136)
+        Me.bar_manager.Name = "bar_manager"
+        Me.bar_manager.Size = New System.Drawing.Size(331, 10)
+        Me.bar_manager.TabIndex = 9
         '
         'lbl_framework_up_to_date
         '
@@ -177,24 +180,59 @@ Partial Class About
         Me.lbl_framework_checking.TabIndex = 12
         Me.lbl_framework_checking.Text = "Checking for Mod Framework updates ..."
         '
+        'lbl_framework_update_available
+        '
+        Me.lbl_framework_update_available.AutoSize = True
+        Me.lbl_framework_update_available.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_framework_update_available.Location = New System.Drawing.Point(230, 150)
+        Me.lbl_framework_update_available.Name = "lbl_framework_update_available"
+        Me.lbl_framework_update_available.Size = New System.Drawing.Size(178, 18)
+        Me.lbl_framework_update_available.TabIndex = 13
+        Me.lbl_framework_update_available.Text = "Mod Framework available"
+        '
+        'bar_framework
+        '
+        Me.bar_framework.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.bar_framework.Location = New System.Drawing.Point(233, 174)
+        Me.bar_framework.Name = "bar_framework"
+        Me.bar_framework.Size = New System.Drawing.Size(331, 10)
+        Me.bar_framework.TabIndex = 14
+        '
+        'btn_framework
+        '
+        Me.btn_framework.Image = Global.VMM.My.Resources.Resources.launch_24
+        Me.btn_framework.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_framework.Location = New System.Drawing.Point(471, 145)
+        Me.btn_framework.Name = "btn_framework"
+        Me.btn_framework.Size = New System.Drawing.Size(93, 30)
+        Me.btn_framework.TabIndex = 15
+        Me.btn_framework.Text = "Update"
+        Me.btn_framework.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_framework.UseVisualStyleBackColor = True
+        Me.btn_framework.Visible = False
+        '
         'About
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(572, 250)
+        Me.Controls.Add(Me.btn_framework)
+        Me.Controls.Add(Me.bar_framework)
+        Me.Controls.Add(Me.lbl_framework_update_available)
         Me.Controls.Add(Me.pb_framework)
         Me.Controls.Add(Me.lbl_framework_up_to_date)
-        Me.Controls.Add(Me.ProgressBar1)
-        Me.Controls.Add(Me.pb_up_to_date)
-        Me.Controls.Add(Me.btn_update)
         Me.Controls.Add(Me.lbl_made_by)
         Me.Controls.Add(Me.lbl_version)
         Me.Controls.Add(Me.lbl_name)
         Me.Controls.Add(Me.pb_image)
-        Me.Controls.Add(Me.lbl_up_to_date)
+        Me.Controls.Add(Me.lbl_framework_checking)
+        Me.Controls.Add(Me.pb_up_to_date)
         Me.Controls.Add(Me.lbl_update)
         Me.Controls.Add(Me.lbl_checking_update)
-        Me.Controls.Add(Me.lbl_framework_checking)
+        Me.Controls.Add(Me.lbl_up_to_date)
+        Me.Controls.Add(Me.bar_manager)
+        Me.Controls.Add(Me.btn_manager)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -215,12 +253,15 @@ Partial Class About
     Friend WithEvents lbl_version As Label
     Friend WithEvents lbl_made_by As Label
     Friend WithEvents lbl_update As Label
-    Friend WithEvents btn_update As Button
+    Friend WithEvents btn_manager As Button
     Friend WithEvents lbl_up_to_date As Label
     Friend WithEvents lbl_checking_update As Label
     Friend WithEvents pb_up_to_date As PictureBox
-    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents bar_manager As ProgressBar
     Friend WithEvents lbl_framework_up_to_date As Label
     Friend WithEvents pb_framework As PictureBox
     Friend WithEvents lbl_framework_checking As Label
+    Friend WithEvents lbl_framework_update_available As Label
+    Friend WithEvents bar_framework As ProgressBar
+    Friend WithEvents btn_framework As Button
 End Class

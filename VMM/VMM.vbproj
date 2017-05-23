@@ -330,7 +330,6 @@
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\109_AllAnnotations_Error_16x16_72.png" />
     <None Include="Visual Studio 2013 Image Library\x--archive--x\Annotations - VS2012\png_format\WinVista\109_AllAnnotations_Default_16x16_72.png" />
     <None Include="Resources\Vermintide.jpg" />
-    <Content Include="RibbonMarkup.xml" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
