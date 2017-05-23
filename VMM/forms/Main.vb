@@ -88,7 +88,7 @@ Public Class main
 
     Private Sub _mod_files_missing_Solve() Handles _mod_files_missing.Solve
         '_mods_module.DownloadModFiles()
-        _download_mod = New ModuleDownload(ModuleDownload.DownloadType.Framework, "Downloading Mod Framework ...")
+        _download_mod = New ModuleDownload("Downloading Mod Framework ...")
         _download_mod.Show(DockPanel1, DockState.DockBottom)
     End Sub
 
@@ -122,7 +122,7 @@ Public Class main
 
     End Sub
 
-    Private Sub _controls_ShowAbout() Handles _controls.ShowAbout
+    Private Sub _controls_ShowAbout() Handles _controls.OpenAbout
         'Dim about As New About
         _about.ShowDialog()
         '_about.Show(DockPanel1, DockState.Document)
@@ -291,7 +291,7 @@ Public Class main
         _mod_module.ListRequirements(New ModuleArgs(_profiles, _settings, _mods, selected_profile()), VermintideMod)
     End Sub
 
-    Private Sub _controls_ShowOptions() Handles _controls.ShowOptions
+    Private Sub _controls_ShowOptions() Handles _controls.OpenOptions
         '_options = New Options(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
         _options.Show(DockPanel1, DockState.Document)
     End Sub
@@ -383,7 +383,7 @@ Public Class main
         _mod_module.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
-    Private Sub _controls_FindMods() Handles _controls.FindMods
+    Private Sub _controls_FindMods() Handles _controls.OpenModFinder
         _mod_downloader.Show(DockPanel1, DockState.Document)
     End Sub
 

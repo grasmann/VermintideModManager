@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 Imports Ionic.Zip
 Imports Newtonsoft.Json
+Imports System.Text.RegularExpressions
 
 Module ModHelper
 
@@ -114,5 +115,25 @@ Module ModHelper
             Process.Start(file_path)
         End If
     End Sub
+
+    Public Function FrameworkVersion() As String
+        Dim Version As String = String.Empty
+        If PathHelper.HasFiles(PathHelper.ModLoader) Then
+            Dim Settings As String = String.Format("{0}\{1}", PathHelper.ModLoader, "Settings.lua")
+            If My.Computer.FileSystem.FileExists(Settings) Then
+                'Debug.Print(Settings)
+                Using reader As StreamReader = New StreamReader(Settings)
+                    ' Read one line from file
+                    Dim str As String = reader.ReadToEnd
+                    Dim pattern As String = "version = ""([0-9]*.[0-9]*.[0-9]*)"""
+                    Dim matches As MatchCollection = Regex.Matches(str, pattern)
+                    If matches.Count > 0 Then
+                        Return matches(0).Groups(1).Value
+                    End If
+                End Using
+            End If
+        End If
+        Return Version
+    End Function
 
 End Module

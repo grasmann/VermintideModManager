@@ -4,6 +4,7 @@ Public Class About
 
     Private WithEvents _update_check As New ModManagerUpdateCheck
     Private WithEvents _update_download As Download
+    Private WithEvents _framework_check As New UpdateCheck("framework", ModHelper.FrameworkVersion)
 
     Private Sub _update_check_NoUpdate() Handles _update_check.NoUpdate
         lbl_up_to_date.Visible = True
@@ -53,6 +54,11 @@ Public Class About
         lbl_up_to_date.Visible = False
         ProgressBar1.Visible = False
         _update_check.CheckForUpdate()
+        'lbl_framework_up_to_date.Text = String.Format("Vermintide Mod Framework {0}", ModHelper.FrameworkVersion)
+        lbl_framework_checking.Visible = True
+        lbl_framework_up_to_date.Visible = False
+        pb_framework.Visible = False
+        _framework_check.CheckForUpdate()
     End Sub
 
     Private Sub btn_update_Click(sender As Object, e As EventArgs) Handles btn_update.Click
@@ -63,6 +69,16 @@ Public Class About
             _update_download = New Download(File)
             _update_download.StartDownload()
         End If
+    End Sub
+
+    Private Sub _framework_check_NoUpdate() Handles _framework_check.NoUpdate
+        lbl_framework_checking.Visible = False
+        lbl_framework_up_to_date.Visible = True
+        pb_framework.Visible = True
+    End Sub
+
+    Private Sub _framework_check_UpdateAvailable(File As FileInfo) Handles _framework_check.UpdateAvailable
+
     End Sub
 
 End Class

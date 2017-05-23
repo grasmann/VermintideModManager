@@ -214,6 +214,7 @@
     </Compile>
     <Compile Include="function\Helpers\ModHelper.vb" />
     <Compile Include="function\Helpers\ServerHelper.vb" />
+    <Compile Include="function\Objects\UpdateCheck.vb" />
     <Compile Include="function\Objects\ModManagerUpdateCheck.vb" />
     <Compile Include="function\Objects\VermintideMod.vb" />
     <Compile Include="function\ProfileBakery.vb" />
