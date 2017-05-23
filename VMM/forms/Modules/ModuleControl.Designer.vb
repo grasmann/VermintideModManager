@@ -30,6 +30,7 @@ Partial Class ModuleControl
         Me.btn_options = New System.Windows.Forms.Button()
         Me.btn_launch = New System.Windows.Forms.Button()
         Me.btn_about = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btn_install
@@ -102,12 +103,24 @@ Partial Class ModuleControl
         Me.btn_about.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_about.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Image = Global.VMM.My.Resources.Resources.SearchWebHS
+        Me.Button1.Location = New System.Drawing.Point(279, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 140)
+        Me.Button1.TabIndex = 14
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
+        '
         'ModuleControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(649, 140)
         Me.CloseButtonVisible = False
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btn_find_mods)
         Me.Controls.Add(Me.btn_options)
         Me.Controls.Add(Me.btn_install)
@@ -126,4 +139,5 @@ Partial Class ModuleControl
     Friend WithEvents btn_about As Button
     Friend WithEvents btn_options As Button
     Friend WithEvents btn_find_mods As Button
+    Friend WithEvents Button1 As Button
 End Class

@@ -52,7 +52,9 @@ Public Class ModuleModBrowser
     ' ##### Events ################################################################################
 
     Private Sub fetch_info()
-        _file_list.StartDownload(ComboBox1.SelectedItem.ToString.ToLower)
+        If Not IsNothing(ComboBox1.SelectedItem) Then
+            _file_list.StartDownload(ComboBox1.SelectedItem.ToString.ToLower)
+        End If
     End Sub
 
     Public Sub check_mods_installed(Files As List(Of FileInfo), Args As main.ModuleArgs)
