@@ -185,4 +185,8 @@ Public Class ModuleMods
         RaiseEvent ModDeleted(VermintideMod)
     End Sub
 
+    Private Sub _mod_list_InstallMods() Handles _mod_list.InstallMods
+        RaiseEvent InstallMods()
+    End Sub
+
 End Class

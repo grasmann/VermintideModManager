@@ -20,7 +20,7 @@ Public Class VermintideMod
                     name += c.ToString
                 End If
             Next
-            Return name
+            Return Trim(name)
         End Get
     End Property
     Public Property readme As String

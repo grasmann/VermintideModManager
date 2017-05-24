@@ -181,7 +181,7 @@ Public Class ModuleModList
     Private Sub list_mods(Args As main.ModuleArgs)
         MetroGrid1.Rows.Clear()
         For Each Modfile As VermintideMod In Args.Mods
-            MetroGrid1.Rows.Add("", Modfile.displayname, "Somebody", Modfile.version, "", "", Modfile.readme)
+            MetroGrid1.Rows.Add("", Modfile.displayname, "", Modfile.version, "", "", Modfile.readme)
             Dim Row As DataGridViewRow = MetroGrid1.Rows(MetroGrid1.Rows.Count - 1)
             Row.InheritedStyle.BackColor = Color.LightPink
             Row.Cells(0).Value = My.Resources.uninstall_16
@@ -251,9 +251,9 @@ Public Class ModuleModList
             Modfile.active = Not Modfile.active
             'RaiseEvent Output(String.Format("'{0}' activated in '{1}'.", Modfile.displayname, _settings.SelectedProfile))
             If Modfile.active Then
-                RaiseEvent Output(String.Format("'{0}' activated.", Modfile.displayname))
+                RaiseEvent Output(String.Format("'{0}' v{1} activated.", Modfile.displayname, Modfile.version))
             Else
-                RaiseEvent Output(String.Format("'{0}' deactivated.", Modfile.displayname))
+                RaiseEvent Output(String.Format("'{0}' v{1} deactivated.", Modfile.displayname, Modfile.version))
             End If
         Next
         mod_changed()
@@ -269,6 +269,12 @@ Public Class ModuleModList
         For Each Row As DataGridViewRow In MetroGrid1.SelectedRows
             Dim VermintideMod As VermintideMod = Row.Tag
             If Not IsNothing(VermintideMod) Then
+                If VermintideMod.active Then
+                    VermintideMod.active = False
+                    mod_changed()
+                    RaiseEvent Output(String.Format("'{0}' v{1} deactivated.", VermintideMod.displayname, VermintideMod.version))
+                    RaiseEvent SaveProfile()
+                End If
                 RaiseEvent ModDeleted(VermintideMod)
             End If
         Next

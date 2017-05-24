@@ -72,7 +72,7 @@ Public Class main
     '    SettingsBakery.Save(_settings)
     'End Sub
 
-    Private Sub Output(Text As String) Handles _controls.Output, _mod_module.Output '_mods_module.Output, _requirements.Output
+    Private Sub Output(Text As String) Handles _controls.Output, _mod_module.Output, _mod_downloader.Output '_mods_module.Output, _requirements.Output
         _output.Print(Text)
     End Sub
 
@@ -396,13 +396,14 @@ Public Class main
         Try
             If My.Computer.FileSystem.FileExists(VermintideMod.path) Then
                 My.Computer.FileSystem.DeleteFile(VermintideMod.path)
+                Output(String.Format("'{0}' v{1} deleted.", VermintideMod.displayname, VermintideMod.version))
+                _mod_module.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+                _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+                _mod_downloader.UpdateList()
             End If
         Catch ex As Exception
             Debug.Print(ex.Message)
         End Try
-        _mod_module.UpdateProfiles(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
-        _mod_module.UpdateData(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
-        _mod_downloader.UpdateList()
     End Sub
 
     'Private Sub _mod_module_RequestShowModules() Handles _mod_module.RequestShowModules

@@ -6,7 +6,7 @@ Public Class ModuleModDownloader
 
     Private WithEvents _downloader As New Downloader
 
-    Public Event ModDownloaded(Path As String)
+    Public Event ModDownloaded(Download As Download)
 
     Public Sub AddDownload(Downloads As List(Of Download))
         _downloader.AddDownloads(Downloads)
@@ -51,7 +51,7 @@ Public Class ModuleModDownloader
         If ModHelper.TestMod(Download.Temp) Then
             If Not My.Computer.FileSystem.FileExists(Download.Target) Then
                 My.Computer.FileSystem.CopyFile(Download.Temp, Download.Target)
-                RaiseEvent ModDownloaded(Download.Target)
+                RaiseEvent ModDownloaded(Download)
             End If
         End If
     End Sub

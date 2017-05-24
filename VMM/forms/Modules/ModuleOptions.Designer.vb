@@ -24,6 +24,7 @@ Partial Class ModuleOptions
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModuleOptions))
         Me.tab_options = New System.Windows.Forms.TabControl()
         Me.tab_view = New System.Windows.Forms.TabPage()
@@ -71,13 +72,12 @@ Partial Class ModuleOptions
         '
         'grp_modules
         '
-        Me.grp_modules.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.grp_modules.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grp_modules.Controls.Add(Me.grd_modules)
         Me.grp_modules.Location = New System.Drawing.Point(8, 6)
         Me.grp_modules.Name = "grp_modules"
-        Me.grp_modules.Size = New System.Drawing.Size(325, 225)
+        Me.grp_modules.Size = New System.Drawing.Size(325, 140)
         Me.grp_modules.TabIndex = 0
         Me.grp_modules.TabStop = False
         Me.grp_modules.Text = "Modules"
@@ -90,15 +90,24 @@ Partial Class ModuleOptions
         Me.grd_modules.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grd_modules.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.grd_modules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd_modules.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.mod_name, Me.mod_hide})
         Me.grd_modules.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.grd_modules.EnableHeadersVisualStyles = False
         Me.grd_modules.Location = New System.Drawing.Point(6, 19)
         Me.grd_modules.MultiSelect = False
         Me.grd_modules.Name = "grd_modules"
         Me.grd_modules.RowHeadersVisible = False
         Me.grd_modules.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.grd_modules.Size = New System.Drawing.Size(313, 200)
+        Me.grd_modules.Size = New System.Drawing.Size(313, 115)
         Me.grd_modules.TabIndex = 0
         '
         'mod_name

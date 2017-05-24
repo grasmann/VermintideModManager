@@ -25,6 +25,7 @@ Partial Class ModuleModList
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModuleModList))
         Me.MetroGrid1 = New System.Windows.Forms.DataGridView()
         Me.col_image = New System.Windows.Forms.DataGridViewImageColumn()
@@ -54,9 +55,18 @@ Partial Class ModuleModList
         Me.MetroGrid1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.MetroGrid1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.MetroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.MetroGrid1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_image, Me.col_name, Me.col_author, Me.col_version, Me.col_readme, Me.col_1, Me.col_2})
         Me.MetroGrid1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.MetroGrid1.EnableHeadersVisualStyles = False
         Me.MetroGrid1.Location = New System.Drawing.Point(0, 30)
         Me.MetroGrid1.Name = "MetroGrid1"
         Me.MetroGrid1.ReadOnly = True
@@ -87,7 +97,7 @@ Partial Class ModuleModList
         Me.col_author.HeaderText = "Author"
         Me.col_author.Name = "col_author"
         Me.col_author.ReadOnly = True
-        Me.col_author.Width = 63
+        Me.col_author.Width = 82
         '
         'col_version
         '
@@ -95,7 +105,7 @@ Partial Class ModuleModList
         Me.col_version.HeaderText = "Version"
         Me.col_version.Name = "col_version"
         Me.col_version.ReadOnly = True
-        Me.col_version.Width = 67
+        Me.col_version.Width = 88
         '
         'col_readme
         '
@@ -122,39 +132,39 @@ Partial Class ModuleModList
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ActivateToolStripMenuItem, Me.DeactivateToolStripMenuItem, Me.SwapToolStripMenuItem, Me.ToolStripSeparator1, Me.DeleteToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 120)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(130, 98)
         '
         'ActivateToolStripMenuItem
         '
         Me.ActivateToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.install_16
         Me.ActivateToolStripMenuItem.Name = "ActivateToolStripMenuItem"
-        Me.ActivateToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ActivateToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.ActivateToolStripMenuItem.Text = "Activate"
         '
         'DeactivateToolStripMenuItem
         '
         Me.DeactivateToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.uninstall_16
         Me.DeactivateToolStripMenuItem.Name = "DeactivateToolStripMenuItem"
-        Me.DeactivateToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeactivateToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.DeactivateToolStripMenuItem.Text = "Deactivate"
         '
         'SwapToolStripMenuItem
         '
         Me.SwapToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.swap_16
         Me.SwapToolStripMenuItem.Name = "SwapToolStripMenuItem"
-        Me.SwapToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SwapToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.SwapToolStripMenuItem.Text = "Swap"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(126, 6)
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Image = Global.VMM.My.Resources.Resources.uninstall_16
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(129, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'cmb_profiles

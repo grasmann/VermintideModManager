@@ -25,15 +25,16 @@ Partial Class ModuleRequirements
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ModuleRequirements))
         Me.grd_requirements = New System.Windows.Forms.DataGridView()
+        Me.col_state = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.col_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.col_install = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.imgl_states = New System.Windows.Forms.ImageList(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ActivateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lbl_no_requirements = New System.Windows.Forms.Label()
-        Me.col_state = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.col_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.col_install = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.grd_requirements, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -43,10 +44,19 @@ Partial Class ModuleRequirements
         Me.grd_requirements.AllowUserToAddRows = False
         Me.grd_requirements.AllowUserToDeleteRows = False
         Me.grd_requirements.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grd_requirements.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.grd_requirements.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grd_requirements.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_state, Me.col_name, Me.col_install})
         Me.grd_requirements.Cursor = System.Windows.Forms.Cursors.Hand
         Me.grd_requirements.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grd_requirements.EnableHeadersVisualStyles = False
         Me.grd_requirements.Location = New System.Drawing.Point(0, 0)
         Me.grd_requirements.MultiSelect = False
         Me.grd_requirements.Name = "grd_requirements"
@@ -55,6 +65,30 @@ Partial Class ModuleRequirements
         Me.grd_requirements.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.grd_requirements.Size = New System.Drawing.Size(292, 266)
         Me.grd_requirements.TabIndex = 0
+        '
+        'col_state
+        '
+        Me.col_state.HeaderText = ""
+        Me.col_state.Name = "col_state"
+        Me.col_state.ReadOnly = True
+        Me.col_state.Width = 35
+        '
+        'col_name
+        '
+        Me.col_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.col_name.HeaderText = "Name"
+        Me.col_name.Name = "col_name"
+        Me.col_name.ReadOnly = True
+        '
+        'col_install
+        '
+        Me.col_install.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.col_install.HeaderText = ""
+        Me.col_install.Name = "col_install"
+        Me.col_install.ReadOnly = True
+        Me.col_install.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.col_install.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.col_install.Width = 19
         '
         'imgl_states
         '
@@ -87,38 +121,14 @@ Partial Class ModuleRequirements
         Me.lbl_no_requirements.Text = "No Requirements"
         Me.lbl_no_requirements.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'col_state
-        '
-        Me.col_state.HeaderText = ""
-        Me.col_state.Name = "col_state"
-        Me.col_state.ReadOnly = True
-        Me.col_state.Width = 35
-        '
-        'col_name
-        '
-        Me.col_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.col_name.HeaderText = "Name"
-        Me.col_name.Name = "col_name"
-        Me.col_name.ReadOnly = True
-        '
-        'col_install
-        '
-        Me.col_install.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.col_install.HeaderText = ""
-        Me.col_install.Name = "col_install"
-        Me.col_install.ReadOnly = True
-        Me.col_install.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.col_install.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.col_install.Width = 19
-        '
         'ModuleRequirements
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(292, 266)
         Me.CloseButtonVisible = False
-        Me.Controls.Add(Me.lbl_no_requirements)
         Me.Controls.Add(Me.grd_requirements)
+        Me.Controls.Add(Me.lbl_no_requirements)
         Me.DockAreas = CType((WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft Or WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight), WeifenLuo.WinFormsUI.Docking.DockAreas)
         Me.Name = "ModuleRequirements"
         Me.Text = "Requirements"

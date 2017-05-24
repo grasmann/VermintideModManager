@@ -8,6 +8,8 @@ Public Class Download
     Public Property Address As String
     Public Property Target As String
     Public Property Temp As String
+    Public Property Version As String
+    Public Property Authors As String
 
     Private WithEvents _client As New WebClient
 
@@ -20,6 +22,8 @@ Public Class Download
         Address = String.Format("{0}{1}", ServerHelper.DomainUrl, File.File)
         Target = String.Format("{0}\{1}", PathHelper.Repository, File.File.Replace("/", "\"))
         Temp = String.Format("{0}{1}", PathHelper.Temp, File.File.Replace("/", "\"))
+        Version = File.Version
+        Authors = File.Authors
     End Sub
 
     Public Sub StartDownload()
@@ -130,6 +134,7 @@ Public Class FileInfo
     Public Property Type As Integer
     Public Property File As String
     Public Property Size As Integer
+    Public Property Authors As String
     Public Property Installed As Boolean
     Public ReadOnly Property DisplayName As String
         Get

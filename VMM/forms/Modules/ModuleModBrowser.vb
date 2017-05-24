@@ -22,7 +22,7 @@ Public Class ModuleModBrowser
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-        If e.RowIndex >= 0 And e.ColumnIndex = 4 Then
+        If e.RowIndex >= 0 And e.ColumnIndex = DataGridView1.Columns("col_installed").Index Then
             Dim file As FileInfo = DataGridView1.Rows(e.RowIndex).Tag
             If Not IsNothing(file) Then RaiseEvent AddDownload(file)
         End If
@@ -72,16 +72,16 @@ Public Class ModuleModBrowser
         Dim scroll As Integer = DataGridView1.FirstDisplayedScrollingRowIndex
         DataGridView1.Rows.Clear()
         For Each file As FileInfo In Files
-            DataGridView1.Rows.Add(file.DisplayName, file.Version, String.Format("{0} KB", FormatNumber(file.Size / 1024, 2)), "", "", file.Type)
+            DataGridView1.Rows.Add(My.Resources.uninstall_16, file.DisplayName, file.Authors, file.Version, String.Format("{0} KB", FormatNumber(file.Size / 1024, 2)), "", file.Type)
             Dim Row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Count - 1)
             Row.Tag = file
             If file.Installed Then
-                Row.Cells(3).Value = My.Resources.install_16
+                Row.Cells("col_img").Value = My.Resources.install_16
             Else
-                Row.Cells(3).Value = My.Resources.uninstall_16
+                Row.Cells("col_img").Value = My.Resources.uninstall_16
                 Dim btn As New DataGridViewButtonCell
                 btn.Value = "Download"
-                Row.Cells(4) = btn
+                Row.Cells("col_installed") = btn
                 Row.DefaultCellStyle.BackColor = Color.LightPink
             End If
         Next

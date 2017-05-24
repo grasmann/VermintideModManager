@@ -101,7 +101,7 @@
             Dim Modfile As VermintideMod = grd_requirements.SelectedRows(0).Tag
             If Not IsNothing(Modfile) Then
                 Modfile.active = True
-                RaiseEvent Output(String.Format("'{0}' activated in '{1}'.", Modfile.displayname, Args.Settings.SelectedProfile))
+                RaiseEvent Output(String.Format("'{0}' v{1} activated.", Modfile.displayname, Modfile.version))
                 RaiseEvent ModChanged()
                 RaiseEvent SaveProfiles()
             End If

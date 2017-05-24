@@ -48,7 +48,7 @@ Partial Class ModuleProfileManager
         Me.grd_profiles.AllowUserToResizeRows = False
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -67,6 +67,7 @@ Partial Class ModuleProfileManager
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.grd_profiles.DefaultCellStyle = DataGridViewCellStyle2
         Me.grd_profiles.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grd_profiles.EnableHeadersVisualStyles = False
         Me.grd_profiles.Location = New System.Drawing.Point(0, 0)
         Me.grd_profiles.MultiSelect = False
         Me.grd_profiles.Name = "grd_profiles"
