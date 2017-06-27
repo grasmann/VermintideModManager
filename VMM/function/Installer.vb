@@ -5,6 +5,7 @@ Imports System.Runtime.InteropServices
 Module Installer
 
     Private _file_cache As List(Of File)
+    Private _copy_files As New List(Of String)({"\doc\"})
 
     Private Enum SYMBOLIC_LINK_FLAG As Integer
         File = 0
@@ -39,10 +40,15 @@ Module Installer
                     If Not My.Computer.FileSystem.DirectoryExists(file.Folder) Then
                         My.Computer.FileSystem.CreateDirectory(file.Folder)
                     End If
-                    If Not CreateSymbolicLink(file.Target, file.Path, 0) Then
-                        My.Computer.FileSystem.DeleteFile(file.Target)
-                        CreateSymbolicLink(file.Target, file.Path, 0)
-                        'Return False
+                    Dim local_path As String = Right(file.Folder, file.Folder.Length - VermintideHelper.Binaries.Length).ToLower
+                    If _copy_files.Contains(local_path) Then
+                        My.Computer.FileSystem.CopyFile(file.Path, file.Target)
+                    Else
+                        If Not CreateSymbolicLink(file.Target, file.Path, 0) Then
+                            My.Computer.FileSystem.DeleteFile(file.Target)
+                            CreateSymbolicLink(file.Target, file.Path, 0)
+                            'Return False
+                        End If
                     End If
                 End If
             Next
