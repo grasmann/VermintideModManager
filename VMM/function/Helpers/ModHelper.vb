@@ -119,13 +119,15 @@ Module ModHelper
     Public Function FrameworkVersion() As String
         Dim Version As String = String.Empty
         If PathHelper.HasFiles(PathHelper.ModLoader) Then
-            Dim Settings As String = String.Format("{0}\{1}", PathHelper.ModLoader, "Settings.lua")
+            Dim Folder As String = PathHelper.ModLoader + "\Config"
+            Debug.Print(Folder)
+            Dim Settings As String = String.Format("{0}\{1}", Folder, "Settings.json")
             If My.Computer.FileSystem.FileExists(Settings) Then
                 'Debug.Print(Settings)
                 Using reader As StreamReader = New StreamReader(Settings)
                     ' Read one line from file
                     Dim str As String = reader.ReadToEnd
-                    Dim pattern As String = "version = ""([0-9]*.[0-9]*.[0-9]*)"""
+                    Dim pattern As String = """version"": ""([0-9]*.[0-9]*.[0-9]*)"""
                     Dim matches As MatchCollection = Regex.Matches(str, pattern)
                     If matches.Count > 0 Then
                         Return matches(0).Groups(1).Value
