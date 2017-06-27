@@ -195,9 +195,9 @@ Partial Class ModuleModList
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Image = Global.VMM.My.Resources.Resources.swap_16
-        Me.Button1.Location = New System.Drawing.Point(431, 0)
+        Me.Button1.Location = New System.Drawing.Point(431, -1)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(80, 29)
+        Me.Button1.Size = New System.Drawing.Size(80, 30)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Refresh"
         Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
