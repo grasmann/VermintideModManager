@@ -43,6 +43,7 @@ Partial Class ModuleModList
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmb_profiles = New System.Windows.Forms.ComboBox()
         Me.lbl_profile = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.MetroGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -177,7 +178,7 @@ Partial Class ModuleModList
         Me.cmb_profiles.FormattingEnabled = True
         Me.cmb_profiles.Location = New System.Drawing.Point(67, 0)
         Me.cmb_profiles.Name = "cmb_profiles"
-        Me.cmb_profiles.Size = New System.Drawing.Size(444, 28)
+        Me.cmb_profiles.Size = New System.Drawing.Size(363, 28)
         Me.cmb_profiles.TabIndex = 2
         '
         'lbl_profile
@@ -190,6 +191,18 @@ Partial Class ModuleModList
         Me.lbl_profile.TabIndex = 3
         Me.lbl_profile.Text = "Profile"
         '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Image = Global.VMM.My.Resources.Resources.swap_16
+        Me.Button1.Location = New System.Drawing.Point(431, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(80, 29)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Refresh"
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'ModuleModList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -197,6 +210,7 @@ Partial Class ModuleModList
         Me.ClientSize = New System.Drawing.Size(511, 342)
         Me.CloseButton = False
         Me.CloseButtonVisible = False
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lbl_profile)
         Me.Controls.Add(Me.cmb_profiles)
         Me.Controls.Add(Me.MetroGrid1)
@@ -226,4 +240,5 @@ Partial Class ModuleModList
     Friend WithEvents lbl_profile As Label
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button1 As Button
 End Class

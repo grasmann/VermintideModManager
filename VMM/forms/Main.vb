@@ -180,6 +180,7 @@ Public Class main
     End Sub
 
     Private Sub _mods_module_UpdateList() Handles _mod_module.RequestRefreshList
+        _mods = ModHelper.FindMods()
         _mod_module.RefreshList(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
@@ -271,6 +272,10 @@ Public Class main
         Catch ex As Exception
             Debug.Print(ex.Message)
         End Try
+    End Sub
+
+    Private Sub main_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        _mods_module_UpdateList()
     End Sub
 
 End Class
