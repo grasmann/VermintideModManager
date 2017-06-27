@@ -33,7 +33,7 @@ Public Class ModuleControl
         RaiseEvent OpenOptions()
     End Sub
 
-    Private Sub btn_find_mods_Click(sender As Object, e As EventArgs) Handles btn_find_mods.Click
+    Private Sub btn_find_mods_Click(sender As Object, e As EventArgs)
         RaiseEvent OpenModFinder()
     End Sub
 
@@ -54,7 +54,6 @@ Public Class ModuleControl
             btn_install.Image = My.Resources.uninstall_16
         End If
         btn_install.Enabled = PathHelper.HasFiles(PathHelper.Mods)
-        btn_find_mods.Enabled = Settings.Patched And PathHelper.HasFiles(PathHelper.Repository)
     End Sub
 
 End Class

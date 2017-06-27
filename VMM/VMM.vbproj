@@ -140,34 +140,10 @@
     <Compile Include="forms\Modules\ModuleModContent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Modules\ModuleModDownloader.Designer.vb">
-      <DependentUpon>ModuleModDownloader.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\Modules\ModuleModDownloader.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\Modules\ModuleModFinder.Designer.vb">
-      <DependentUpon>ModuleModFinder.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\Modules\ModuleModFinder.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\Modules\ModuleModBrowser.Designer.vb">
-      <DependentUpon>ModuleModBrowser.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\Modules\ModuleModBrowser.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="forms\Modules\ModuleModList.Designer.vb">
       <DependentUpon>ModuleModList.vb</DependentUpon>
     </Compile>
     <Compile Include="forms\Modules\ModuleModList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\Modules\ModuleDownload.Designer.vb">
-      <DependentUpon>ModuleDownload.vb</DependentUpon>
-    </Compile>
-    <Compile Include="forms\Modules\ModuleDownload.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\Modules\ModuleMods.Designer.vb">
@@ -213,9 +189,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="function\Helpers\ModHelper.vb" />
-    <Compile Include="function\Helpers\ServerHelper.vb" />
-    <Compile Include="function\Objects\UpdateCheck.vb" />
-    <Compile Include="function\Objects\ModManagerUpdateCheck.vb" />
     <Compile Include="function\Objects\VermintideMod.vb" />
     <Compile Include="function\ProfileBakery.vb" />
     <Compile Include="function\Objects\Settings.vb" />
@@ -258,20 +231,8 @@
     <EmbeddedResource Include="forms\Modules\ModuleModContent.resx">
       <DependentUpon>ModuleModContent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\ModuleModDownloader.resx">
-      <DependentUpon>ModuleModDownloader.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\ModuleModFinder.resx">
-      <DependentUpon>ModuleModFinder.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\ModuleModBrowser.resx">
-      <DependentUpon>ModuleModBrowser.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleModList.resx">
       <DependentUpon>ModuleModList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\Modules\ModuleDownload.resx">
-      <DependentUpon>ModuleDownload.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleMods.resx">
       <DependentUpon>ModuleMods.vb</DependentUpon>

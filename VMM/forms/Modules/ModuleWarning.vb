@@ -16,10 +16,10 @@
         InitializeComponent()
         _warning_type = WarningType
         _mod = VM
-        btn_solve.Text = Text
+        'btn_solve.Text = Text
     End Sub
 
-    Private Sub btn_solve_Click(sender As Object, e As EventArgs) Handles btn_solve.Click
+    Private Sub btn_solve_Click(sender As Object, e As EventArgs)
         RaiseEvent Solve()
         Me.Close()
     End Sub

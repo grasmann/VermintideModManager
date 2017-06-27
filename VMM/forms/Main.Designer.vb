@@ -52,6 +52,7 @@ Partial Class main
         Me.ClientSize = New System.Drawing.Size(874, 581)
         Me.Controls.Add(Me.DockPanel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MinimumSize = New System.Drawing.Size(800, 600)
         Me.Name = "main"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.Text = "Vermintide Mod Manager"
