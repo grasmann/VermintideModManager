@@ -180,8 +180,10 @@ Public Class main
     End Sub
 
     Private Sub _mods_module_UpdateList() Handles _mod_module.RequestRefreshList
-        _mods = ModHelper.FindMods()
-        _mod_module.RefreshList(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        If Not IsNothing(_profiles) And Not IsNothing(_settings) Then
+            _mods = ModHelper.FindMods()
+            _mod_module.RefreshList(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+        End If
     End Sub
 
     Private Sub _mods_module_InstallMods() Handles _mod_module.InstallMods
