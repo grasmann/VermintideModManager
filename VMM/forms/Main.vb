@@ -113,9 +113,6 @@ Public Class main
             Location = New Point(x, y)
             _settings.WindowPosition = Location
         End If
-        If _settings.Maximized Then
-            WindowState = FormWindowState.Maximized
-        End If
 
         _mod_module = New ModuleMods
         _mod_module.Show(DockPanel1, DockState.Document)
@@ -137,6 +134,10 @@ Public Class main
         ' Check for mod files
         If Not PathHelper.HasFiles(PathHelper.Mods) Then
             _mod_files_missing.Show(DockPanel1, DockState.DockBottom)
+        End If
+
+        If _settings.Maximized Then
+            WindowState = FormWindowState.Maximized
         End If
 
     End Sub
