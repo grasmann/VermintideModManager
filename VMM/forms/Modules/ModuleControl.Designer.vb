@@ -69,7 +69,7 @@ Partial Class ModuleControl
         Me.btn_launch.Name = "btn_launch"
         Me.btn_launch.Size = New System.Drawing.Size(84, 140)
         Me.btn_launch.TabIndex = 9
-        Me.btn_launch.Text = "Lanuch"
+        Me.btn_launch.Text = "Launch"
         Me.btn_launch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_launch.UseVisualStyleBackColor = True
         '
