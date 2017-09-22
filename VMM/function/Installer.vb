@@ -22,6 +22,20 @@ Module Installer
     <DllImport("kernel32.dll")>
     Private Function CreateSymbolicLink(ByVal lpSymlinkFileName As String, ByVal lpTargetFileName As String, ByVal dwFlags As SYMBOLIC_LINK_FLAG) As Boolean
     End Function
+    <DllImport("kernel32.dll")>
+    Private Function GetLastError() As Long
+    End Function
+    <DllImport("kernel32.dll")>
+    Private Function FormatMessage(ByVal dwFlags As Long, lpSource As Object, ByVal dwMessageId As Long,
+                                   ByVal dwLanguageId As Long, ByVal lpBuffer As String, ByVal nSize As Long, Arguments As Long) As Long
+    End Function
+
+    Private Const FORMAT_MESSAGE_IGNORE_INSERTS = &H200
+    Private Const FORMAT_MESSAGE_FROM_SYSTEM = &H1000
+
+    Private Const LANG_NEUTRAL = &H0
+    Private Const SUBLANG_DEFAULT = &H1
+
     Private Function IsSymbolicLink(ByVal Path As String) As Boolean
         Dim pathInfo As New System.IO.FileInfo(Path)
         Return pathInfo.Attributes.HasFlag(FileAttributes.ReparsePoint)
@@ -45,8 +59,21 @@ Module Installer
                         My.Computer.FileSystem.CopyFile(file.Path, file.Target)
                     Else
                         If Not CreateSymbolicLink(file.Target, file.Path, 0) Then
-                            My.Computer.FileSystem.DeleteFile(file.Target)
-                            CreateSymbolicLink(file.Target, file.Path, 0)
+                            Dim Flags As Long = FORMAT_MESSAGE_FROM_SYSTEM Or FORMAT_MESSAGE_IGNORE_INSERTS
+                            Dim Lang As Long = LANG_NEUTRAL Or (SUBLANG_DEFAULT * 1024)
+                            Dim Buffer As String = Space(256)
+                            Dim Err As Long = GetLastError()
+                            Dim Retval As Long = FormatMessage(Flags, 0&, Err, Lang, Buffer, Len(Buffer), 0&)
+                            If Retval > 0 Then
+                                MsgBox(Left(Buffer, Retval), MsgBoxStyle.OkOnly, "An error occured")
+                            Else
+                                Try
+                                    My.Computer.FileSystem.DeleteFile(file.Target)
+                                    CreateSymbolicLink(file.Target, file.Path, 0)
+                                Catch ex As Exception
+                                    MsgBox(ex.Message)
+                                End Try
+                            End If
                             'Return False
                         End If
                     End If
