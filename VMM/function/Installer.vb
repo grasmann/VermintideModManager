@@ -174,6 +174,10 @@ Module Installer
             My.Computer.FileSystem.DeleteDirectory(VermintideHelper.Binaries + "\mod_loader", FileIO.DeleteDirectoryOption.DeleteAllContents)
         Catch ex As Exception
         End Try
+        Try
+            My.Computer.FileSystem.DeleteDirectory(VermintideHelper.Binaries + "\mods", FileIO.DeleteDirectoryOption.DeleteAllContents)
+        Catch ex As Exception
+        End Try
     End Sub
 
     Public Sub BuildFileCache()
