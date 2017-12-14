@@ -9,6 +9,7 @@ Public Class Settings
     Public Property SourceOverwrite As String
     Public Property Developer As Boolean
     Public Property HideModule As List(Of String)
+    Public Property SDKPath As String
 
     Public Sub New()
         SelectedProfile = "Default"
@@ -19,6 +20,7 @@ Public Class Settings
         SourceOverwrite = String.Empty
         Developer = False
         HideModule = New List(Of String)
+        SDKPath = SDKHelper.Path
     End Sub
 
 End Class

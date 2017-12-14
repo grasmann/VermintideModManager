@@ -1,0 +1,24 @@
+How to improve the VMM
+ 
+1) User Interface
+ 
+-> Add a window with a picture/screenshot/whatever of the mod you will install
+-> Add an option in the "right click" to "check update"
+-> Better parsing of the "readme window", but only keep in it the change log (see below)
+-> floating window that display the effect of the mod when you put your mouse on it ?
+-> Actually display the name of the author :D
+-> Open the option settings in a window and not in a new tab (its confusing actually)
+-> Display the current path to vermintideconsole.dll in the "developpment" tab
+-> display the current version of the Vermintide Mod Framework
+-> Allow creation of profile if user want to use different settings (i know its weird but in my case i would like to switch between configuration, depending the class i play)
+-> Add button to my spreadsheet, UnShame's Spreadsheet and Muffin's spreadsheet (Last Stand in his case)
+-> Add a window tot he patch log of the current VMF
+-> Display in a window/popup all choices you can do with the mod you are activating, once you have activated it (something like "eh you can do all of this, dont forget to check it - with a screenshot of the mod setting menu ingame ?)
+-> "contact" tab/button with link to grasmann's, lupo's, unshame's, everyone else (me ?) profil if peoples have question ?
+ 
+2) Update Cycle of mods/vmm/vmf
+ 
+-> Add button to moddb list of mods
+-> Add button-direct-link to the last version of the VMF to moddb/UC/steam-reddit (maybe if you want to make it more popular, you will have to use steam and reddit)
+-> Add date information in the "content" window with the date of the release of the current version you're using of this mod.
+-> Being less lazy to track current version, keep number version to date :D ?

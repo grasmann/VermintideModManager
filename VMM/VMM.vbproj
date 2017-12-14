@@ -115,6 +115,12 @@
     <Compile Include="forms\About.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\Modules\ModuleSDK.Designer.vb">
+      <DependentUpon>ModuleSDK.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Modules\ModuleSDK.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\Modules\ModuleControl.Designer.vb">
       <DependentUpon>ModuleControl.vb</DependentUpon>
     </Compile>
@@ -188,7 +194,12 @@
     <Compile Include="forms\Modules\ModuleReadMe.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="function\Helpers\DragDropHelper.vb" />
     <Compile Include="function\Helpers\ModHelper.vb" />
+    <Compile Include="function\Helpers\SDKHelper.vb" />
+    <Compile Include="function\Objects\SDKPackage.vb" />
+    <Compile Include="function\Objects\SDK\SDKFile.vb" />
+    <Compile Include="function\Objects\SDK\SDKMod.vb" />
     <Compile Include="function\Objects\VermintideMod.vb" />
     <Compile Include="function\ProfileBakery.vb" />
     <Compile Include="function\Objects\Settings.vb" />
@@ -218,6 +229,9 @@
   <ItemGroup>
     <EmbeddedResource Include="forms\About.resx">
       <DependentUpon>About.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Modules\ModuleSDK.resx">
+      <DependentUpon>ModuleSDK.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Modules\ModuleControl.resx">
       <DependentUpon>ModuleControl.vb</DependentUpon>

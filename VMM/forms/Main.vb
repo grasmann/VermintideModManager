@@ -31,6 +31,7 @@ Public Class main
     Private WithEvents _options As ModuleOptions
     Private WithEvents _profile_manager As ModuleProfileManager
     Private WithEvents _about As About
+    Private WithEvents _bundle_tool As ModuleSDK
 
     'Private _read_me As ModuleReadMe
     Private _output As ModuleOutput
@@ -160,6 +161,9 @@ Public Class main
 
     Private Sub InstallFramework() Handles _controls.InstallFramework
         If Not _settings.Patched Then
+            'Uninstall first
+            Installer.Purge()
+            'Install
             Output("Installing Framework ...")
             If Installer.Framework() Then
                 Output("Done.")
@@ -210,6 +214,10 @@ Public Class main
 
     Private Sub _options_RequestBrowseFolder() Handles _options.RequestBrowseFolder
         _options.BrowseFolder(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
+    End Sub
+
+    Private Sub _options_RequestBrowseSDK() Handles _options.RequestBrowseSDK
+        _options.BrowseSDK(New ModuleArgs(_profiles, _settings, _mods, selected_profile()))
     End Sub
 
     Private Sub _mod_content_RequestOpenSource() Handles _mod_module.RequestOpenSource
@@ -281,4 +289,8 @@ Public Class main
         _mods_module_UpdateList()
     End Sub
 
+    Private Sub _controls_OpenBundleTool() Handles _controls.OpenBundleTool
+        _bundle_tool = New ModuleSDK
+        _bundle_tool.Show(DockPanel1, DockState.Document)
+    End Sub
 End Class

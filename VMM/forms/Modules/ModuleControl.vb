@@ -14,6 +14,7 @@ Public Class ModuleControl
     Public Event OpenAbout()
     Public Event OpenOptions()
     Public Event OpenModFinder()
+    Public Event OpenBundleTool()
 
     ' ##### Events ################################################################################
 
@@ -54,6 +55,10 @@ Public Class ModuleControl
             btn_install.Image = My.Resources.uninstall_16
         End If
         btn_install.Enabled = PathHelper.HasFiles(PathHelper.Mods)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        RaiseEvent OpenBundleTool()
     End Sub
 
 End Class

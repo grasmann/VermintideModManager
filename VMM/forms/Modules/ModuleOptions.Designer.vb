@@ -33,6 +33,11 @@ Partial Class ModuleOptions
         Me.mod_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mod_hide = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.tab_development = New System.Windows.Forms.TabPage()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btn_browse_sdk = New System.Windows.Forms.Button()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.grp_mod_repository = New System.Windows.Forms.GroupBox()
         Me.lbl_source_ = New System.Windows.Forms.Label()
         Me.btn_browse_mod_repository = New System.Windows.Forms.Button()
@@ -44,6 +49,7 @@ Partial Class ModuleOptions
         Me.grp_modules.SuspendLayout()
         CType(Me.grd_modules, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tab_development.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.grp_mod_repository.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -127,6 +133,7 @@ Partial Class ModuleOptions
         '
         'tab_development
         '
+        Me.tab_development.Controls.Add(Me.GroupBox1)
         Me.tab_development.Controls.Add(Me.grp_mod_repository)
         Me.tab_development.Location = New System.Drawing.Point(4, 22)
         Me.tab_development.Name = "tab_development"
@@ -135,6 +142,62 @@ Partial Class ModuleOptions
         Me.tab_development.TabIndex = 0
         Me.tab_development.Text = "Development"
         Me.tab_development.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.btn_browse_sdk)
+        Me.GroupBox1.Controls.Add(Me.TextBox2)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Location = New System.Drawing.Point(8, 110)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(337, 100)
+        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "SDK"
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.Location = New System.Drawing.Point(5, 55)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(327, 26)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "Open corresponding source files from a different directory." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "To choose the direct" &
+    "ory browse for the compile_mod.bat."
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'btn_browse_sdk
+        '
+        Me.btn_browse_sdk.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_browse_sdk.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_browse_sdk.Location = New System.Drawing.Point(285, 20)
+        Me.btn_browse_sdk.Name = "btn_browse_sdk"
+        Me.btn_browse_sdk.Size = New System.Drawing.Size(45, 23)
+        Me.btn_browse_sdk.TabIndex = 6
+        Me.btn_browse_sdk.Text = "..."
+        Me.btn_browse_sdk.UseVisualStyleBackColor = True
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox2.Location = New System.Drawing.Point(40, 22)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(239, 20)
+        Me.TextBox2.TabIndex = 5
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(5, 25)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(29, 13)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Path"
         '
         'grp_mod_repository
         '
@@ -219,6 +282,8 @@ Partial Class ModuleOptions
         Me.grp_modules.ResumeLayout(False)
         CType(Me.grd_modules, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tab_development.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.grp_mod_repository.ResumeLayout(False)
         Me.grp_mod_repository.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -239,4 +304,9 @@ Partial Class ModuleOptions
     Friend WithEvents mod_hide As DataGridViewCheckBoxColumn
     Friend WithEvents lbl_source_ As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents btn_browse_sdk As Button
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label2 As Label
 End Class

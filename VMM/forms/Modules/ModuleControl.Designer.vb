@@ -29,6 +29,7 @@ Partial Class ModuleControl
         Me.btn_options = New System.Windows.Forms.Button()
         Me.btn_launch = New System.Windows.Forms.Button()
         Me.btn_about = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btn_install
@@ -87,12 +88,28 @@ Partial Class ModuleControl
         Me.btn_about.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_about.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Image = Global.VMM.My.Resources.Resources.options_16
+        Me.Button1.Location = New System.Drawing.Point(185, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(92, 140)
+        Me.Button1.TabIndex = 13
+        Me.Button1.Text = "SDK Tool"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
+        '
         'ModuleControl
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(649, 140)
         Me.CloseButtonVisible = False
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btn_options)
         Me.Controls.Add(Me.btn_install)
         Me.Controls.Add(Me.btn_launch)
@@ -109,4 +126,5 @@ Partial Class ModuleControl
     Friend WithEvents btn_launch As Button
     Friend WithEvents btn_about As Button
     Friend WithEvents btn_options As Button
+    Friend WithEvents Button1 As Button
 End Class

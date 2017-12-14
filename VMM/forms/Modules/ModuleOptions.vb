@@ -2,33 +2,43 @@
 
     Public Event SaveSettings()
     Public Event RequestBrowseFolder()
+    Public Event RequestBrowseSDK()
     Public Event RequestModuleChange()
     Public Event RequestModuleValues()
 
     Public Sub New(Args As main.ModuleArgs)
         InitializeComponent()
         TextBox1.Text = Args.Settings.SourceOverwrite
+        TextBox2.Text = Args.Settings.SDKPath
     End Sub
 
     Public Sub BrowseFolder(Args As main.ModuleArgs)
-        open_dialog(Args)
+        open_dialog(Args.Settings.SourceOverwrite, "vermintideconsole.dll (vermintideconsole.dll)|vermintideconsole.dll", TextBox1)
+    End Sub
+
+    Public Sub BrowseSDK(Args As main.ModuleArgs)
+        open_dialog(Args.Settings.SDKPath, "compile_mod.bat (compile_mod.bat)|compile_mod.bat", TextBox2)
     End Sub
 
     Private Sub btn_browse_mod_repository_Click(sender As Object, e As EventArgs) Handles btn_browse_mod_repository.Click
         RaiseEvent RequestBrowseFolder()
     End Sub
 
-    Private Sub open_dialog(Args As main.ModuleArgs)
+    Private Sub btn_browse_sdk_Click(sender As Object, e As EventArgs) Handles btn_browse_sdk.Click
+        RaiseEvent RequestBrowseSDK()
+    End Sub
+
+    Private Sub open_dialog(ByRef Directory As String, Filter As String, Textbox As TextBox)
         Dim dialog As New OpenFileDialog()
-        dialog.InitialDirectory = Args.Settings.SourceOverwrite
+        dialog.InitialDirectory = Directory
         If String.IsNullOrEmpty(dialog.InitialDirectory) Then dialog.InitialDirectory = Application.StartupPath
-        dialog.Filter = "vermintideconsole.dll (vermintideconsole.dll)|vermintideconsole.dll"
+        dialog.Filter = Filter
         If dialog.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
             Dim Folder As String = PathHelper.ExtractFolder(dialog.FileName)
             If My.Computer.FileSystem.DirectoryExists(Folder) Then
                 If PathHelper.HasFiles(Folder) Then
-                    TextBox1.Text = Folder
-                    Args.Settings.SourceOverwrite = Folder
+                    Textbox.Text = Folder
+                    Directory = Folder
                 End If
             End If
         End If
