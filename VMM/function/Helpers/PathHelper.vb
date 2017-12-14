@@ -77,4 +77,14 @@ Module PathHelper
         Return folder
     End Function
 
+    Public Function ExtractEnding(Path As String) As String
+        Dim ending As String = Right(Path, Len(Path) - InStrRev(Path, "."))
+        Return ending
+    End Function
+
+    Public Function ExtractFileName(Path As String) As String
+        Dim file As String = Right(Path, Len(Path) - InStrRev(Path, "\"))
+        Return file
+    End Function
+
 End Module

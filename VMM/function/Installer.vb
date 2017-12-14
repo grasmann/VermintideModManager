@@ -26,8 +26,13 @@ Module Installer
     Private Function GetLastError() As Long
     End Function
     <DllImport("kernel32.dll")>
+<<<<<<< HEAD
     Private Function FormatMessage(ByVal dwFlags As Long, lpSource As IntPtr, ByVal dwMessageId As Long,
                                    ByVal dwLanguageId As Long, ByVal lpBuffer As String, ByVal nSize As Long, Arguments As IntPtr) As Long
+=======
+    Private Function FormatMessage(ByVal dwFlags As Long, lpSource As Object, ByVal dwMessageId As Long,
+                                   ByVal dwLanguageId As Long, ByVal lpBuffer As String, ByVal nSize As Long, Arguments As Long) As Long
+>>>>>>> 198fad8cddbe9ca46532b79357e1bea7de2176f4
     End Function
 
     Private Const FORMAT_MESSAGE_IGNORE_INSERTS = &H200
@@ -63,7 +68,11 @@ Module Installer
                             Dim Lang As Long = LANG_NEUTRAL Or (SUBLANG_DEFAULT * 1024)
                             Dim Buffer As String = Space(256)
                             Dim Err As Long = GetLastError()
+<<<<<<< HEAD
                             Dim Retval As Long = FormatMessage(Flags, IntPtr.Zero, Err, Lang, Buffer, Len(Buffer), IntPtr.Zero)
+=======
+                            Dim Retval As Long = FormatMessage(Flags, 0&, Err, Lang, Buffer, Len(Buffer), 0&)
+>>>>>>> 198fad8cddbe9ca46532b79357e1bea7de2176f4
                             If Retval > 0 Then
                                 MsgBox(Left(Buffer, Retval), MsgBoxStyle.OkOnly, "An error occured")
                             Else
